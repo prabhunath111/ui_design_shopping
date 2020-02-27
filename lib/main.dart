@@ -52,9 +52,12 @@ class _FirstPageState extends State<FirstPage> {
                   Row(
                     mainAxisAlignment: MainAxisAlignment.spaceAround,
                     children: <Widget>[
-                      Icon(Icons.person_outline),
+                      Icon(Icons.person_outline,color: Colors.white),
                       SizedBox(width: 10.0),
-                      Icon(Icons.shopping_cart)
+                      Padding(
+                        padding: const EdgeInsets.only(right: 8.0),
+                        child: Icon(Icons.shopping_cart),
+                      )
                     ],
                   ),
                 ],
@@ -158,7 +161,7 @@ class _FirstPageState extends State<FirstPage> {
                                       borderRadius: BorderRadius.circular(30.0),
                                     ),
                                     child: Padding(
-                                      padding: const EdgeInsets.only(left: 14.0),
+                                      padding: const EdgeInsets.only(left: 14.0,top: 8.0),
                                       child: Row(
                                         children: <Widget>[
                                           Column(
@@ -179,7 +182,7 @@ class _FirstPageState extends State<FirstPage> {
                                           ),
 
                                            Padding(
-                                             padding: const EdgeInsets.only(bottom:8.0,left: 2.0),
+                                             padding: const EdgeInsets.only(left: 2.0),
                                              child: Text(':',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 20.0),),
                                            ),
 
@@ -191,7 +194,7 @@ class _FirstPageState extends State<FirstPage> {
                                                 fontSize: 10.0
                                               ),),
                                               SizedBox(height: 2.0,),
-                                              Text('14',style:
+                                              Text('22',style:
                                               TextStyle(
                                                   color: Colors.black,
                                                   fontSize: 16.0,
@@ -200,7 +203,7 @@ class _FirstPageState extends State<FirstPage> {
                                             ],
                                           ),
                                           Padding(
-                                            padding: const EdgeInsets.only(bottom:8.0,left: 2.0),
+                                            padding: const EdgeInsets.only(left: 2.0),
                                             child: Text(':',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 20.0),),
                                           ),
                                           Column(
@@ -211,7 +214,7 @@ class _FirstPageState extends State<FirstPage> {
                                                 fontSize: 10.0
                                               ),),
                                               SizedBox(height: 2.0,),
-                                              Text('14',style:
+                                              Text('20',style:
                                               TextStyle(
                                                   color: Colors.black,
                                                   fontSize: 16.0,
@@ -220,7 +223,7 @@ class _FirstPageState extends State<FirstPage> {
                                             ],
                                           ),
                                           Padding(
-                                            padding: const EdgeInsets.only(bottom:8.0,left: 2.0),
+                                            padding: const EdgeInsets.only(left: 2.0),
                                             child: Text(':',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 20.0),),
                                           ),
                                           Column(
@@ -231,7 +234,7 @@ class _FirstPageState extends State<FirstPage> {
                                                 fontSize: 10.0,
                                               ),),
                                               SizedBox(height: 2.0,),
-                                              Text('14',style:
+                                              Text('51',style:
                                               TextStyle(
                                                   color: Colors.black,
                                                   fontSize: 16.0,
@@ -253,7 +256,22 @@ class _FirstPageState extends State<FirstPage> {
                     ],
                   ),
                 ),
-                Container(),
+                Container(
+                  padding: EdgeInsets.only(left: 16.0,right: 16.0),
+                  height: 60.0,
+                  width: MediaQuery.of(context).size.width,
+                  color: Colors.white,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Text('High School', style: TextStyle(color: Colors.blue,fontSize: 16.0,fontWeight: FontWeight.bold),),
+                      Text('Universities', style: TextStyle(color: Colors.grey,fontSize: 16.0,fontWeight: FontWeight.bold),),
+                      Text('Organizations', style: TextStyle(color: Colors.grey,fontSize: 16.0,fontWeight: FontWeight.bold),),
+
+
+                    ],
+                  ),
+                ),
               ],
             ),
           ],
