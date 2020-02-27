@@ -155,6 +155,9 @@ class _FirstPageState extends State<FirstPage> {
                                             Icons.favorite_border,
                                             color: Colors.white,
                                           ),
+                                          SizedBox(
+                                            width: 10.0,
+                                          ),
                                         ],
                                       ),
                                     ),
@@ -180,8 +183,7 @@ class _FirstPageState extends State<FirstPage> {
                                         child: Padding(
                                           padding: const EdgeInsets.only(
                                               left: 14.0, top: 8.0),
-                                          child:
-                                          Row(
+                                          child: Row(
                                             children: <Widget>[
                                               Column(
                                                 children: <Widget>[
@@ -372,7 +374,6 @@ class _FirstPageState extends State<FirstPage> {
                         ),
                       ),
                     ),
-
                     Stack(
                       children: <Widget>[
                         Container(
@@ -380,26 +381,26 @@ class _FirstPageState extends State<FirstPage> {
                           color: Colors.white,
                         ),
                         Padding(
-                          padding: const EdgeInsets.only(top:12.0),
+                          padding: const EdgeInsets.only(top: 12.0),
                           child: Image.asset('images/shoe1.jpeg'),
                         ),
                         Container(
-                          margin: EdgeInsets.only(left:8.0),
-                          height:55.0,
-                          width:MediaQuery.of(context).size.width * 0.5,
+                          margin: EdgeInsets.only(left: 8.0),
+                          height: 55.0,
+                          width: MediaQuery.of(context).size.width * 0.5,
                           decoration: BoxDecoration(
                             gradient: LinearGradient(
-                              begin: Alignment.topCenter,
-                              end: Alignment.bottomCenter,
-                              colors:<Color>[
-                                Color(0xFF3C1FC7),
-                                Color(0xFF241678)
-                              ]
-                            ),
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: <Color>[
+                                  Color(0xFF3C1FC7),
+                                  Color(0xFF241678)
+                                ]),
                             borderRadius: BorderRadius.circular(35.0),
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.only(left:24.0,top:8.0),
+                            padding:
+                                const EdgeInsets.only(left: 24.0, top: 8.0),
                             child: Row(
                               children: <Widget>[
                                 Column(
@@ -407,8 +408,7 @@ class _FirstPageState extends State<FirstPage> {
                                     Text(
                                       'days',
                                       style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 10.0),
+                                          color: Colors.white, fontSize: 10.0),
                                     ),
                                     SizedBox(
                                       height: 2.0,
@@ -418,20 +418,17 @@ class _FirstPageState extends State<FirstPage> {
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 16.0,
-                                          fontWeight:
-                                          FontWeight.bold),
+                                          fontWeight: FontWeight.bold),
                                     ),
                                   ],
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 2.0),
+                                  padding: const EdgeInsets.only(left: 2.0),
                                   child: Text(
                                     ':',
                                     style: TextStyle(
                                         color: Colors.white,
-                                        fontWeight:
-                                        FontWeight.bold,
+                                        fontWeight: FontWeight.bold,
                                         fontSize: 20.0),
                                   ),
                                 ),
@@ -440,8 +437,7 @@ class _FirstPageState extends State<FirstPage> {
                                     Text(
                                       'hours',
                                       style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 10.0),
+                                          color: Colors.white, fontSize: 10.0),
                                     ),
                                     SizedBox(
                                       height: 2.0,
@@ -451,20 +447,17 @@ class _FirstPageState extends State<FirstPage> {
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 16.0,
-                                          fontWeight:
-                                          FontWeight.bold),
+                                          fontWeight: FontWeight.bold),
                                     ),
                                   ],
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 2.0),
+                                  padding: const EdgeInsets.only(left: 2.0),
                                   child: Text(
                                     ':',
                                     style: TextStyle(
                                         color: Colors.white,
-                                        fontWeight:
-                                        FontWeight.bold,
+                                        fontWeight: FontWeight.bold,
                                         fontSize: 20.0),
                                   ),
                                 ),
@@ -473,8 +466,7 @@ class _FirstPageState extends State<FirstPage> {
                                     Text(
                                       'minutes',
                                       style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 10.0),
+                                          color: Colors.white, fontSize: 10.0),
                                     ),
                                     SizedBox(
                                       height: 2.0,
@@ -484,20 +476,17 @@ class _FirstPageState extends State<FirstPage> {
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 16.0,
-                                          fontWeight:
-                                          FontWeight.bold),
+                                          fontWeight: FontWeight.bold),
                                     ),
                                   ],
                                 ),
                                 Padding(
-                                  padding: const EdgeInsets.only(
-                                      left: 2.0),
+                                  padding: const EdgeInsets.only(left: 2.0),
                                   child: Text(
                                     ':',
                                     style: TextStyle(
                                         color: Colors.white,
-                                        fontWeight:
-                                        FontWeight.bold,
+                                        fontWeight: FontWeight.bold,
                                         fontSize: 20.0),
                                   ),
                                 ),
@@ -518,8 +507,7 @@ class _FirstPageState extends State<FirstPage> {
                                       style: TextStyle(
                                           color: Colors.white,
                                           fontSize: 16.0,
-                                          fontWeight:
-                                          FontWeight.bold),
+                                          fontWeight: FontWeight.bold),
                                     ),
                                   ],
                                 ),
