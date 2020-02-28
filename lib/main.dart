@@ -14,7 +14,7 @@ class FirstPage extends StatefulWidget {
 }
 
 class _FirstPageState extends State<FirstPage>
-    with SingleTickerProviderStateMixin {
+    with TickerProviderStateMixin {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   @override
@@ -345,7 +345,7 @@ class _FirstPageState extends State<FirstPage>
                       ),
                     ),
                     Container(
-                      height: MediaQuery.of(context).size.height * 0.43,
+                      height: MediaQuery.of(context).size.height * 0.45,
                       width: MediaQuery.of(context).size.width,
                       child: TabBarView(
                           controller: _tabController,
@@ -524,8 +524,8 @@ class _FirstPageState extends State<FirstPage>
           ],
         ),
         Container(
-          padding: EdgeInsets.only(left: 20.0),
-          height: MediaQuery.of(context).size.height * 0.025,
+          padding: EdgeInsets.only(left: 20.0,top:4.0),
+          height: MediaQuery.of(context).size.height * 0.035,
           width: MediaQuery.of(context).size.width,
           decoration: BoxDecoration(
             gradient: LinearGradient(
