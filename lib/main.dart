@@ -327,10 +327,13 @@ class _FirstPageState extends State<FirstPage>
                         color: Colors.white,
                       ),
                       child: TabBar(
+
                         unselectedLabelColor: Colors.grey,
                         indicatorColor: Colors.blue,
                         labelColor: Colors.blue,
                         controller: _tabController,
+                        indicatorSize: TabBarIndicatorSize.label,
+                        indicatorPadding: EdgeInsets.only(right:40.0),
                         tabs: <Widget>[
                           new Tab(
                             child: Text('High School'),
