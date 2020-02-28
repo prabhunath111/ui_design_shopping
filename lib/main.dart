@@ -13,12 +13,12 @@ class FirstPage extends StatefulWidget {
   _FirstPageState createState() => _FirstPageState();
 }
 
-class _FirstPageState extends State<FirstPage> with SingleTickerProviderStateMixin{
+class _FirstPageState extends State<FirstPage>
+    with SingleTickerProviderStateMixin {
   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
-
     TabController _tabController = new TabController(length: 3, vsync: this);
 
     return Scaffold(
@@ -322,7 +322,6 @@ class _FirstPageState extends State<FirstPage> with SingleTickerProviderStateMix
                         ],
                       ),
                     ),
-
                     TabBar(
                       unselectedLabelColor: Colors.white,
                       controller: _tabController,
@@ -339,385 +338,16 @@ class _FirstPageState extends State<FirstPage> with SingleTickerProviderStateMix
                       ],
                     ),
                     Container(
-                      height:MediaQuery.of(context).size .height* 0.45,
-                      width: MediaQuery.of(context).size .width,
+                      height: MediaQuery.of(context).size.height * 0.45,
+                      width: MediaQuery.of(context).size.width,
                       child: TabBarView(
-                        controller: _tabController,
+                          controller: _tabController,
                           children: <Widget>[
-                            Column(
-                              children: <Widget>[
-                                Container(
-                      alignment: Alignment.centerRight,
-                      color: Colors.white,
-                      child: Container(
-                        padding: EdgeInsets.all(8.0),
-                        margin: EdgeInsets.all(8.0),
-                        decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                                colors: <Color>[
-                              Color(0xFF3C1FC7),
-                              Color(0xFF241678)
-                            ])),
-                        child: Text(
-                          'High School List',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16.0,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
+                            _customTabBar(),
+                            _customTabBar(),
+                            _customTabBar(),
+                          ]),
                     ),
-                    Stack(
-                      children: <Widget>[
-                        Container(
-                          height: 16.0,
-                          color: Colors.white,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 12.0),
-                          child: Image.asset('images/shoe1.jpeg'),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(left: 8.0),
-                          height: 55.0,
-                          width: MediaQuery.of(context).size.width * 0.5,
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                                colors: <Color>[
-                                  Color(0xFF3C1FC7),
-                                  Color(0xFF241678)
-                                ]),
-                            borderRadius: BorderRadius.circular(35.0),
-                          ),
-                          child: Padding(
-                            padding:
-                                const EdgeInsets.only(left: 24.0, top: 8.0),
-                            child: Row(
-                              children: <Widget>[
-                                Column(
-                                  children: <Widget>[
-                                    Text(
-                                      'days',
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 10.0),
-                                    ),
-                                    SizedBox(
-                                      height: 2.0,
-                                    ),
-                                    Text(
-                                      '14',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ],
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 2.0),
-                                  child: Text(
-                                    ':',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20.0),
-                                  ),
-                                ),
-                                Column(
-                                  children: <Widget>[
-                                    Text(
-                                      'hours',
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 10.0),
-                                    ),
-                                    SizedBox(
-                                      height: 2.0,
-                                    ),
-                                    Text(
-                                      '22',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ],
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 2.0),
-                                  child: Text(
-                                    ':',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20.0),
-                                  ),
-                                ),
-                                Column(
-                                  children: <Widget>[
-                                    Text(
-                                      'minutes',
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 10.0),
-                                    ),
-                                    SizedBox(
-                                      height: 2.0,
-                                    ),
-                                    Text(
-                                      '20',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ],
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 2.0),
-                                  child: Text(
-                                    ':',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20.0),
-                                  ),
-                                ),
-                                Column(
-                                  children: <Widget>[
-                                    Text(
-                                      'seconds',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 10.0,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 2.0,
-                                    ),
-                                    Text(
-                                      '51',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(left:20.0),
-                      height: MediaQuery.of(context).size.height *0.025,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: <Color>[
-                            Color(0xFFC0C0C0),
-                            Colors.white,
-                          ]
-                        ),
-                      ),
-                      child: Text('Faded Sky Blue',
-                        style: TextStyle(fontWeight: FontWeight.bold,color: Colors.grey),),
-                    ),
-                              ],
-                            ),
-                            Icon(Icons.favorite),
-                            Icon(Icons.favorite),
-                          ]
-                      ),
-                    ),
-                    /*Container(
-                      alignment: Alignment.centerRight,
-                      color: Colors.white,
-                      child: Container(
-                        padding: EdgeInsets.all(8.0),
-                        margin: EdgeInsets.all(8.0),
-                        decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                                colors: <Color>[
-                              Color(0xFF3C1FC7),
-                              Color(0xFF241678)
-                            ])),
-                        child: Text(
-                          'High School List',
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 16.0,
-                              fontWeight: FontWeight.bold),
-                        ),
-                      ),
-                    ),
-                    Stack(
-                      children: <Widget>[
-                        Container(
-                          height: 16.0,
-                          color: Colors.white,
-                        ),
-                        Padding(
-                          padding: const EdgeInsets.only(top: 12.0),
-                          child: Image.asset('images/shoe1.jpeg'),
-                        ),
-                        Container(
-                          margin: EdgeInsets.only(left: 8.0),
-                          height: 55.0,
-                          width: MediaQuery.of(context).size.width * 0.5,
-                          decoration: BoxDecoration(
-                            gradient: LinearGradient(
-                                begin: Alignment.topCenter,
-                                end: Alignment.bottomCenter,
-                                colors: <Color>[
-                                  Color(0xFF3C1FC7),
-                                  Color(0xFF241678)
-                                ]),
-                            borderRadius: BorderRadius.circular(35.0),
-                          ),
-                          child: Padding(
-                            padding:
-                                const EdgeInsets.only(left: 24.0, top: 8.0),
-                            child: Row(
-                              children: <Widget>[
-                                Column(
-                                  children: <Widget>[
-                                    Text(
-                                      'days',
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 10.0),
-                                    ),
-                                    SizedBox(
-                                      height: 2.0,
-                                    ),
-                                    Text(
-                                      '14',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ],
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 2.0),
-                                  child: Text(
-                                    ':',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20.0),
-                                  ),
-                                ),
-                                Column(
-                                  children: <Widget>[
-                                    Text(
-                                      'hours',
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 10.0),
-                                    ),
-                                    SizedBox(
-                                      height: 2.0,
-                                    ),
-                                    Text(
-                                      '22',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ],
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 2.0),
-                                  child: Text(
-                                    ':',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20.0),
-                                  ),
-                                ),
-                                Column(
-                                  children: <Widget>[
-                                    Text(
-                                      'minutes',
-                                      style: TextStyle(
-                                          color: Colors.white, fontSize: 10.0),
-                                    ),
-                                    SizedBox(
-                                      height: 2.0,
-                                    ),
-                                    Text(
-                                      '20',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ],
-                                ),
-                                Padding(
-                                  padding: const EdgeInsets.only(left: 2.0),
-                                  child: Text(
-                                    ':',
-                                    style: TextStyle(
-                                        color: Colors.white,
-                                        fontWeight: FontWeight.bold,
-                                        fontSize: 20.0),
-                                  ),
-                                ),
-                                Column(
-                                  children: <Widget>[
-                                    Text(
-                                      'seconds',
-                                      style: TextStyle(
-                                        color: Colors.white,
-                                        fontSize: 10.0,
-                                      ),
-                                    ),
-                                    SizedBox(
-                                      height: 2.0,
-                                    ),
-                                    Text(
-                                      '51',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 16.0,
-                                          fontWeight: FontWeight.bold),
-                                    ),
-                                  ],
-                                ),
-                              ],
-                            ),
-                          ),
-                        ),
-                      ],
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(left:20.0),
-                      height: MediaQuery.of(context).size.height *0.025,
-                      width: MediaQuery.of(context).size.width,
-                      decoration: BoxDecoration(
-                        gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: <Color>[
-                            Color(0xFFC0C0C0),
-                            Colors.white,
-                          ]
-                        ),
-                      ),
-                      child: Text('Faded Sky Blue',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.grey),),
-                    ),*/
                   ],
                 ),
               ],
@@ -726,4 +356,185 @@ class _FirstPageState extends State<FirstPage> with SingleTickerProviderStateMix
         ));
   }
 
+  Widget _customTabBar() {
+    return Column(
+      children: <Widget>[
+        Container(
+          alignment: Alignment.centerRight,
+          color: Colors.white,
+          child: Container(
+            padding: EdgeInsets.all(8.0),
+            margin: EdgeInsets.all(8.0),
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(5.0),
+                gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: <Color>[Color(0xFF3C1FC7), Color(0xFF241678)])),
+            child: Text(
+              'High School List',
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16.0,
+                  fontWeight: FontWeight.bold),
+            ),
+          ),
+        ),
+        Stack(
+          children: <Widget>[
+            Container(
+              height: 16.0,
+              color: Colors.white,
+            ),
+            Padding(
+              padding: const EdgeInsets.only(top: 12.0),
+              child: Image.asset('images/shoe1.jpeg'),
+            ),
+            Container(
+              margin: EdgeInsets.only(left: 8.0),
+              height: 55.0,
+              width: MediaQuery.of(context).size.width * 0.5,
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: <Color>[Color(0xFF3C1FC7), Color(0xFF241678)]),
+                borderRadius: BorderRadius.circular(35.0),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(left: 24.0, top: 8.0),
+                child: Row(
+                  children: <Widget>[
+                    Column(
+                      children: <Widget>[
+                        Text(
+                          'days',
+                          style: TextStyle(color: Colors.white, fontSize: 10.0),
+                        ),
+                        SizedBox(
+                          height: 2.0,
+                        ),
+                        Text(
+                          '14',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 2.0),
+                      child: Text(
+                        ':',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20.0),
+                      ),
+                    ),
+                    Column(
+                      children: <Widget>[
+                        Text(
+                          'hours',
+                          style: TextStyle(color: Colors.white, fontSize: 10.0),
+                        ),
+                        SizedBox(
+                          height: 2.0,
+                        ),
+                        Text(
+                          '22',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 2.0),
+                      child: Text(
+                        ':',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20.0),
+                      ),
+                    ),
+                    Column(
+                      children: <Widget>[
+                        Text(
+                          'minutes',
+                          style: TextStyle(color: Colors.white, fontSize: 10.0),
+                        ),
+                        SizedBox(
+                          height: 2.0,
+                        ),
+                        Text(
+                          '20',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(left: 2.0),
+                      child: Text(
+                        ':',
+                        style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20.0),
+                      ),
+                    ),
+                    Column(
+                      children: <Widget>[
+                        Text(
+                          'seconds',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 10.0,
+                          ),
+                        ),
+                        SizedBox(
+                          height: 2.0,
+                        ),
+                        Text(
+                          '51',
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 16.0,
+                              fontWeight: FontWeight.bold),
+                        ),
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+          ],
+        ),
+        Container(
+          padding: EdgeInsets.only(left: 20.0),
+          height: MediaQuery.of(context).size.height * 0.025,
+          width: MediaQuery.of(context).size.width,
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+                begin: Alignment.topCenter,
+                end: Alignment.bottomCenter,
+                colors: <Color>[
+                  Color(0xFFC0C0C0),
+                  Colors.white,
+                ]),
+          ),
+          child: Text(
+            'Faded Sky Blue',
+            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey),
+          ),
+        ),
+      ],
+    );
+  }
 }
