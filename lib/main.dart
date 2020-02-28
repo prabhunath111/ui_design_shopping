@@ -517,6 +517,23 @@ class _FirstPageState extends State<FirstPage> {
                         ),
                       ],
                     ),
+                    Container(
+                      padding: EdgeInsets.only(left:20.0),
+                      height: MediaQuery.of(context).size.height *0.025,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: <Color>[
+                            Color(0xFFC0C0C0),
+                            Colors.white,
+                          ]
+                        ),
+                      ),
+                      child: Text('Faded Sky Blue',style: TextStyle(fontWeight: FontWeight.bold,color: Colors.grey),),
+
+                    ),
                   ],
                 ),
               ],
