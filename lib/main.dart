@@ -322,23 +322,30 @@ class _FirstPageState extends State<FirstPage>
                         ],
                       ),
                     ),
-                    TabBar(
-                      unselectedLabelColor: Colors.white,
-                      controller: _tabController,
-                      tabs: <Widget>[
-                        new Tab(
-                          child: Text('High School'),
-                        ),
-                        new Tab(
-                          child: Text('Universities'),
-                        ),
-                        new Tab(
-                          child: Text('Organizations'),
-                        ),
-                      ],
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                      ),
+                      child: TabBar(
+                        unselectedLabelColor: Colors.grey,
+                        indicatorColor: Colors.blue,
+                        labelColor: Colors.blue,
+                        controller: _tabController,
+                        tabs: <Widget>[
+                          new Tab(
+                            child: Text('High School'),
+                          ),
+                          new Tab(
+                            child: Text('Universities'),
+                          ),
+                          new Tab(
+                            child: Text('Organizations'),
+                          ),
+                        ],
+                      ),
                     ),
                     Container(
-                      height: MediaQuery.of(context).size.height * 0.45,
+                      height: MediaQuery.of(context).size.height * 0.43,
                       width: MediaQuery.of(context).size.width,
                       child: TabBarView(
                           controller: _tabController,
