@@ -15,7 +15,9 @@ class FirstPage extends StatefulWidget {
 
 class _FirstPageState extends State<FirstPage>
     with TickerProviderStateMixin {
-  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
+   final double customHeight = double.infinity;
+   final double customWidth = double.infinity;
+   final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
@@ -348,7 +350,7 @@ class _FirstPageState extends State<FirstPage>
                       ),
                     ),
                     Container(
-                      height: MediaQuery.of(context).size.height * 0.45,
+                      height: MediaQuery.of(context).size.height * 0.41,
                       width: MediaQuery.of(context).size.width,
                       child: TabBarView(
                           controller: _tabController,
@@ -357,6 +359,24 @@ class _FirstPageState extends State<FirstPage>
                             _customTabBar(),
                             _customTabBar(),
                           ]),
+                    ),
+                    Container(
+                      padding: EdgeInsets.only(left: 20.0,top:4.0),
+                      height: MediaQuery.of(context).size.height * 0.035,
+                      width: MediaQuery.of(context).size.width,
+                      decoration: BoxDecoration(
+                        gradient: LinearGradient(
+                            begin: Alignment.topCenter,
+                            end: Alignment.bottomCenter,
+                            colors: <Color>[
+                              Color(0xFFC0C0C0),
+                              Colors.white,
+                            ]),
+                      ),
+                      child: Text(
+                        'Faded Sky Blue',
+                        style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey),
+                      ),
                     ),
                   ],
                 ),
@@ -525,24 +545,6 @@ class _FirstPageState extends State<FirstPage>
               ),
             ),
           ],
-        ),
-        Container(
-          padding: EdgeInsets.only(left: 20.0,top:4.0),
-          height: MediaQuery.of(context).size.height * 0.035,
-          width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(
-            gradient: LinearGradient(
-                begin: Alignment.topCenter,
-                end: Alignment.bottomCenter,
-                colors: <Color>[
-                  Color(0xFFC0C0C0),
-                  Colors.white,
-                ]),
-          ),
-          child: Text(
-            'Faded Sky Blue',
-            style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey),
-          ),
         ),
       ],
     );
