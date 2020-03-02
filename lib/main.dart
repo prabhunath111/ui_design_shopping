@@ -590,6 +590,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                       ),
                     ),
                   ),
+                  _createWhiteBackground(MediaQuery.of(context).size.height * 0.025, MediaQuery.of(context).size.width),
                 ],
               ),
             ],
