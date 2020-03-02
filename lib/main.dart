@@ -474,17 +474,17 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                             width: MediaQuery.of(context).size.width * 0.8,
                             height: MediaQuery.of(context).size.height,
                             decoration: BoxDecoration(
-                              boxShadow: [
+                              /*boxShadow: [
                                 BoxShadow(
-                                  color: Colors.deepPurpleAccent,
-                                  blurRadius: 30.0, // has the effect of softening the shadow
+                                  color: Color(0xFF98AFC7),
+                                  blurRadius: 15.0, // has the effect of softening the shadow
                                   spreadRadius: 0.0, // has the effect of extending the shadow
                                   offset: Offset(
                                     5.0, // horizontal, move right 10
                                     10.0, // vertical, move down 10
                                   ),
                                 )
-                              ],
+                              ],*/
                               borderRadius: BorderRadius.circular(40.0),
                               gradient: LinearGradient(colors: <Color>[
                                 Color(0xff3C1FC7),
@@ -496,7 +496,66 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                         ),
                       ),
                     ),
-
+                  Container(
+                    padding: EdgeInsets.only(top:8.0),
+                    width:double.infinity,
+                    color:Colors.white,
+                    child:
+                        ListTile(
+                          leading: CircleAvatar(backgroundImage: ExactAssetImage('images/shoe1.jpeg'),),
+                          title: Text('Hester Freeman',style: TextStyle(color:Colors.black,fontWeight: FontWeight.bold),),
+                          subtitle: Text('would be nice to...\nSystem\nlike if someone isnt active for\na month\n@Mich he was here yesterday',
+                          style: TextStyle(height:1.5,letterSpacing: 1.0,color:Colors.black)),
+//                          trailing: IconButton(icon: Icon(Icons.more_horiz),onPressed: (){print('clicked on trailing icon');},),
+                          trailing: Text('12:01'),
+                        ),
+                    ),
+                  Container(
+                    padding: EdgeInsets.only(top:8.0),
+                    width:double.infinity,
+                    color:Colors.white,
+                    child:
+                    ListTile(
+                      leading: CircleAvatar(backgroundImage: ExactAssetImage('images/shoe1.jpeg'),),
+                      title: Text('Hester Freeman',style: TextStyle(color:Colors.black,fontWeight: FontWeight.bold),),
+                      subtitle: Text('would be nice to make some',
+                          style: TextStyle(height:1.5,letterSpacing: 1.0,color:Colors.black)),
+//                          trailing: IconButton(icon: Icon(Icons.more_horiz),onPressed: (){print('clicked on trailing icon');},),
+                      trailing: Text('12:01'),
+                    ),
+                  ),
+                  Container(
+                    color:Colors.white,
+                      width:MediaQuery.of(context).size.width,
+                      child:
+                      Padding(
+                        padding: const EdgeInsets.only(left:24.0,bottom:8.0),
+                        child: Text('View more comments........',style: TextStyle(fontSize: 16.0,color:Colors.grey),),
+                      )),
+                  Container(
+                    height:MediaQuery.of(context).size.height *0.025,
+                    width:MediaQuery.of(context).size.width,
+                    color:Colors.white,
+                  ),
+                  Image.asset('images/shoe2.jpeg'),
+                  Container(
+                    height:MediaQuery.of(context).size.height *0.025,
+                    width:MediaQuery.of(context).size.width,
+                    color:Colors.white,
+                  ),
+                  Container(
+                    width:MediaQuery.of(context).size.width,
+                    color:Colors.white,
+                    child:Padding(
+                      padding: const EdgeInsets.only(left: 32.0),
+                      child: Text('Nike Max Dia',style:TextStyle(color:Colors.grey,fontSize: 26.0,fontWeight: FontWeight.bold)),
+                    ),
+                  ),
+                  Container(
+                    height:MediaQuery.of(context).size.height *0.025,
+                    width:MediaQuery.of(context).size.width,
+                    color:Colors.white,
+                  ),
                 ],
               ),
             ],
