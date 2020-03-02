@@ -69,6 +69,8 @@ class _FirstPageState extends State<FirstPage>
               ),
             ),
             ListView(
+              scrollDirection: Axis.vertical,
+              shrinkWrap: true,
               children: <Widget>[
                 Column(
                   children: <Widget>[
@@ -376,30 +378,6 @@ class _FirstPageState extends State<FirstPage>
                       child: Text(
                         'Faded Sky Blue',
                         style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey),
-                      ),
-                    ),
-                    Container(
-                      padding: EdgeInsets.only(left:15.0,right:15.0,top:10.0,bottom: 10.0),
-                      color:Colors.white,
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: <Widget>[
-                          Container(
-                            padding:EdgeInsets.only(left:4.0,right:4.0),
-                            decoration: BoxDecoration(
-                              color:Color(0xFF3C1FC7),
-                              borderRadius: BorderRadius.circular(5.0),
-                            ),
-                            child: Text('341 nices',
-                              style: TextStyle(color:Colors.grey,fontSize: 26.0),
-                            ),
-                          ),
-                          Text('20 Left for Pre-Order',
-                              style: TextStyle(color:Colors.grey)
-                          ),
-                          Icon(Icons.share,color: Color(0xFF3C1FC7),),
-                          Icon(Icons.favorite_border,color:Colors.red,size: 48.0,),
-                        ],
                       ),
                     ),
                     Container(
