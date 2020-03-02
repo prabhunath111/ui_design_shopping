@@ -392,8 +392,11 @@ class _FirstPageState extends State<FirstPage>
                               color:Color(0xFF3C1FC7),
                               borderRadius: BorderRadius.circular(5.0),
                             ),
-                            child: Text('341 nices',
-                              style: TextStyle(color:Colors.grey,fontSize: 26.0),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Text('341 nices',
+                                style: TextStyle(color:Colors.white,fontSize: 16.0),
+                              ),
                             ),
                           ),
                           Text('20 Left for Pre-Order',
@@ -404,10 +407,49 @@ class _FirstPageState extends State<FirstPage>
                         ],
                       ),
                     ),
+                    Container(
+                        color:Colors.white,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: <Widget>[
+                            _shoeSize('7'),
+                            _shoeSize('7.5'),
+                            _shoeSize('8'),
+                            Column(
+                              crossAxisAlignment: CrossAxisAlignment.center,
+                              children: <Widget>[
+                                Text('2',style:
+                                  TextStyle(
+                                    color:Colors.deepPurple,
+                                    fontWeight: FontWeight.bold
+                                  ),),
+                                _shoeSize('8.5'),
+                                Text('X',style:
+                                  TextStyle(color:Colors.deepPurple,fontWeight: FontWeight.bold),
+                                ),
+                              ],
+                            ),
+                            _shoeSize('9'),
+                            _shoeSize('9.5'),
+                          ],
+                        ),
+                      ),
+                    Container(
+                      color:Colors.white,
+                      child: Row(
+                        children: <Widget>[
+                          Container(
+                            color:Colors.purple,
+                            height: 100.0,
+                            width:100.0,
+                          ),
+                        ],
+                      ),
+                    ),
                   ],
                 ),
               ],
-            )
+            ),
           ],
         ),
     );
@@ -575,5 +617,35 @@ class _FirstPageState extends State<FirstPage>
         ),
       ],
     );
+  }
+
+  Widget _shoeSize(String size){
+
+    return Container(
+      margin: EdgeInsets.only(left: 8.0,right: 8.0),
+      width: MediaQuery.of(context).size.width * 0.1,
+          height: MediaQuery.of(context).size.height * 0.05,
+          decoration: BoxDecoration(
+            color: Colors.grey,
+            borderRadius: BorderRadius.circular(5.0),
+          ),
+          child: Container(
+            margin: EdgeInsets.all(2.0),
+            decoration: BoxDecoration(
+              color: Colors.white,
+              shape: BoxShape.rectangle,
+              borderRadius: BorderRadius.circular(8.0),
+            ),
+            child: Center(
+              child: Text(size,
+                    style:
+                TextStyle(
+                  fontSize: 16.0,
+                  color: Colors.grey,
+                ),
+              ),
+            ),
+          ),
+      );
   }
 }
