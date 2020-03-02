@@ -435,14 +435,23 @@ class _FirstPageState extends State<FirstPage>
                         ),
                       ),
                     Container(
+                      padding: EdgeInsets.only(left:12.0,right:8.0,bottom:8.0),
                       color:Colors.white,
                       child: Row(
                         children: <Widget>[
                           Container(
-                            color:Colors.purple,
-                            height: 100.0,
-                            width:100.0,
+                            child: Text('Gender',
+                            style:
+                              TextStyle(
+                                color:Colors.deepPurple,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 20.0
+                              ),
+                              ),
                           ),
+                          SizedBox(width:8.0),
+                          _shoeSize('M'),
+                          _shoeSize('F'),
                         ],
                       ),
                     ),
@@ -622,7 +631,7 @@ class _FirstPageState extends State<FirstPage>
   Widget _shoeSize(String size){
 
     return Container(
-      margin: EdgeInsets.only(left: 8.0,right: 8.0),
+      margin: EdgeInsets.only(left: 12.0,right: 12.0),
       width: MediaQuery.of(context).size.width * 0.1,
           height: MediaQuery.of(context).size.height * 0.05,
           decoration: BoxDecoration(
