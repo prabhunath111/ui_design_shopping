@@ -462,31 +462,41 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                       ],
                     ),
                   ),
-                  GestureDetector(
-                    onTap: (){
-                      _tappedWidget('submit');
-                    },
-                    child: Container(
+                  Container(
                       padding: EdgeInsets.only(top:8.0, bottom: 8.0),
                       width: MediaQuery.of(context).size.width,
                       height: MediaQuery.of(context).size.height * 0.08,
                       color: Colors.white,
                       child: Center(
-                        child: Container(
-                          width: MediaQuery.of(context).size.width * 0.8,
-                          height: MediaQuery.of(context).size.height,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(40.0),
-                            gradient: LinearGradient(colors: <Color>[
-                              Color(0xff3C1FC7),
-                              Color(0xff241678),
-                            ]),
+                        child: GestureDetector(
+                          onTap: ()=> _tappedWidget('submit'),
+                          child: Container(
+                            width: MediaQuery.of(context).size.width * 0.8,
+                            height: MediaQuery.of(context).size.height,
+                            decoration: BoxDecoration(
+                              boxShadow: [
+                                BoxShadow(
+                                  color: Colors.deepPurpleAccent,
+                                  blurRadius: 30.0, // has the effect of softening the shadow
+                                  spreadRadius: 0.0, // has the effect of extending the shadow
+                                  offset: Offset(
+                                    5.0, // horizontal, move right 10
+                                    10.0, // vertical, move down 10
+                                  ),
+                                )
+                              ],
+                              borderRadius: BorderRadius.circular(40.0),
+                              gradient: LinearGradient(colors: <Color>[
+                                Color(0xff3C1FC7),
+                                Color(0xff241678),
+                              ]),
+                            ),
+                            child: Center(child: Text('Submit',style:TextStyle(color:Colors.white),)),
                           ),
-                          child: Center(child: Text('Submit',style:TextStyle(color:Colors.white),)),
                         ),
                       ),
                     ),
-                  ),
+
                 ],
               ),
             ],
