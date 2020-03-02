@@ -585,6 +585,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                       ),
                       child: Icon(
                         Icons.add,
+                        size: 28.0,
                         color: Colors.white,
                       ),
                     ),
