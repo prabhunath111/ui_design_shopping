@@ -2,11 +2,15 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
+import 'package:ui_design_shopping/styleClass.dart';
 
-void main() => runApp(MaterialApp(
+void main() {
+
+  runApp(MaterialApp(
       debugShowCheckedModeBanner: false,
       home: FirstPage(),
     ));
+}
 
 class FirstPage extends StatefulWidget {
   @override
@@ -14,12 +18,19 @@ class FirstPage extends StatefulWidget {
 }
 
 class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
+  static List<StyleClass> isColorChanged = [];
+  bool x = false;
+
   @override
   Widget build(BuildContext context) {
     TabController _tabController = new TabController(length: 3, vsync: this);
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
     ]);
+    var a = StyleClass();
+    a.isColor = false;
+    isColorChanged.add(a);
+
     return Scaffold(
       appBar: AppBar(
         iconTheme: new IconThemeData(color: Colors.grey),
@@ -200,29 +211,38 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                _shoeSize('7'),
-                _shoeSize('7.5'),
-                _shoeSize('8'),
+                GestureDetector(
+                    onTap: (){
+                      var colorChange = StyleClass();
+                      colorChange.isColor = true;
+                      isColorChanged.add(colorChange);
+                      print('check ${isColorChanged[isColorChanged.length-1].isColor}');
+                      _shoeSize('7', isColorChanged[isColorChanged.length-1].isColor);
+                    },
+                    child: _shoeSize('7', true)),
+                _shoeSize('7.5',false),
+                _shoeSize('8', false),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Text(
                       '2',
                       style: TextStyle(
-                          color: Colors.deepPurple,
+                          color: Color(0xFF3C1FC7),
                           fontWeight: FontWeight.bold),
                     ),
-                    _shoeSize('8.5'),
+                    _shoeSize('8.5',true),
                     Text(
                       'X',
                       style: TextStyle(
-                          color: Colors.deepPurple,
+                          color: Color(0xFF3C1FC73C1FC7),
                           fontWeight: FontWeight.bold),
                     ),
                   ],
                 ),
-                _shoeSize('9'),
-                _shoeSize('9.5'),
+                _shoeSize('9',false),
+                _shoeSize('9.5',false)
+
               ],
             ),
           ),
@@ -241,8 +261,8 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                   ),
                 ),
                 SizedBox(width: 8.0),
-                _shoeSize('M'),
-                _shoeSize('F'),
+                _shoeSize('M',false),
+                _shoeSize('F',true),
               ],
             ),
           ),
@@ -433,8 +453,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
     );
   }
 
-  Widget _timeLeft(
-      Color textColor1, Color textColor2, FontWeight customFontWeight) {
+  Widget _timeLeft(Color textColor1, Color textColor2, FontWeight customFontWeight) {
     return Padding(
       padding: const EdgeInsets.only(left:10.0,right: 10.0),
       child: Row(
@@ -532,29 +551,25 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
     );
   }
 
-  Widget _shoeSize(String size) {
+  Widget _shoeSize(String size, bool isBlue) {
+
+    print('boxcolor $isBlue');
+
     return Container(
       margin: EdgeInsets.only(left: 12.0, right: 12.0),
       width: MediaQuery.of(context).size.width * 0.1,
       height: MediaQuery.of(context).size.height * 0.05,
       decoration: BoxDecoration(
-        color: Colors.grey,
-        borderRadius: BorderRadius.circular(5.0),
+        color: (isBlue)?Colors.deepPurple:Colors.white,
+          border: Border.all(color: Colors.grey),
+          borderRadius: BorderRadius.circular(5.0),
       ),
-      child: Container(
-        margin: EdgeInsets.all(2.0),
-        decoration: BoxDecoration(
-          color: Colors.white,
-          shape: BoxShape.rectangle,
-//          borderRadius: BorderRadius.circular(0.0),
-        ),
-        child: Center(
-          child: Text(
-            size,
-            style: TextStyle(
-              fontSize: 16.0,
-              color: Colors.grey,
-            ),
+      child: Center(
+        child: Text(
+          size,
+          style: TextStyle(
+            fontSize: 16.0,
+            color: (isBlue)?Colors.white:Colors.grey,
           ),
         ),
       ),
