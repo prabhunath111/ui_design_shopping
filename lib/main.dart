@@ -17,7 +17,9 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     TabController _tabController = new TabController(length: 3, vsync: this);
-
+    SystemChrome.setPreferredOrientations([
+      DeviceOrientation.portraitUp,
+    ]);
     return Scaffold(
       appBar: AppBar(
         iconTheme: new IconThemeData(color: Colors.grey),
