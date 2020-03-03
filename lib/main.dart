@@ -200,9 +200,9 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                _shoeSize('7',Colors.white),
-                _shoeSize('7.5',Colors.white),
-                _shoeSize('8',Colors.white),
+                _shoeSize('7'),
+                _shoeSize('7.5'),
+                _shoeSize('8'),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
@@ -212,7 +212,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                           color: Colors.deepPurple,
                           fontWeight: FontWeight.bold),
                     ),
-                    _shoeSize('8.5',Colors.white),
+                    _shoeSize('8.5'),
                     Text(
                       'X',
                       style: TextStyle(
@@ -221,8 +221,8 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                     ),
                   ],
                 ),
-                _shoeSize('9',Colors.white),
-                _shoeSize('9.5',Colors.white),
+                _shoeSize('9'),
+                _shoeSize('9.5'),
               ],
             ),
           ),
@@ -241,8 +241,8 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                   ),
                 ),
                 SizedBox(width: 8.0),
-                _shoeSize('M',Colors.white),
-                _shoeSize('F',Colors.white),
+                _shoeSize('M'),
+                _shoeSize('F'),
               ],
             ),
           ),
@@ -436,7 +436,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
   Widget _timeLeft(
       Color textColor1, Color textColor2, FontWeight customFontWeight) {
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.only(left:10.0,right: 10.0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -532,7 +532,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
     );
   }
 
-  Widget _shoeSize(String size, Color boxColor) {
+  Widget _shoeSize(String size) {
     return Container(
       margin: EdgeInsets.only(left: 12.0, right: 12.0),
       width: MediaQuery.of(context).size.width * 0.1,
@@ -544,7 +544,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
       child: Container(
         margin: EdgeInsets.all(2.0),
         decoration: BoxDecoration(
-          color: boxColor,
+          color: Colors.white,
           shape: BoxShape.rectangle,
 //          borderRadius: BorderRadius.circular(0.0),
         ),
