@@ -213,13 +213,15 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
               children: <Widget>[
                 GestureDetector(
                     onTap: (){
+                      var a = StyleClass();
+                      a.display();
                       var colorChange = StyleClass();
                       colorChange.isColor = true;
                       isColorChanged.add(colorChange);
                       print('check ${isColorChanged[isColorChanged.length-1].isColor}');
                       _shoeSize('7', isColorChanged[isColorChanged.length-1].isColor);
                     },
-                    child: _shoeSize('7', true)),
+                    child: _shoeSize('7', false)),
                 _shoeSize('7.5',false),
                 _shoeSize('8', false),
                 Column(
