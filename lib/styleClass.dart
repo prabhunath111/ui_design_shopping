@@ -1,8 +1,13 @@
-class StyleClass{
 
+
+class StyleClass {
   bool isColor = false;
+  bool isWhite = false;
+  bool isClose = false;
   String size = '';
-  void display(){
-    print('iscolor false $isColor');
-  }
+  int countItem = 0;
+
+void styleContainer(){
+ }
+
 }

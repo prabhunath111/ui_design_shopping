@@ -5,11 +5,10 @@ import 'package:flutter/services.dart';
 import 'package:ui_design_shopping/styleClass.dart';
 
 void main() {
-
   runApp(MaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: FirstPage(),
-    ));
+    debugShowCheckedModeBanner: false,
+    home: FirstPage(),
+  ));
 }
 
 class FirstPage extends StatefulWidget {
@@ -19,7 +18,22 @@ class FirstPage extends StatefulWidget {
 
 class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
   static List<StyleClass> isColorChanged = [];
-  bool x = false;
+  Color containerColor = Colors.white;
+  bool isColor = false;
+  bool isMale = false;
+  int countItem = 0;
+
+  changeColor() {
+    setState(() {
+      isColor = true;
+    });
+  }
+
+  closeCount() {
+    setState(() {
+      countItem = 0;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -97,7 +111,8 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: <Widget>[
                         Container(
-                          margin:EdgeInsets.only(top:MediaQuery.of(context).size.height * 0.02),
+                          margin: EdgeInsets.only(
+                              top: MediaQuery.of(context).size.height * 0.02),
                           width: MediaQuery.of(context).size.width * 0.4,
                           height: MediaQuery.of(context).size.height * 0.06,
                           decoration: BoxDecoration(
@@ -133,7 +148,9 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                         ),
                         Container(
                           margin: EdgeInsets.only(
-                              right: MediaQuery.of(context).size.width * 0.03,bottom: MediaQuery.of(context).size.height * 0.05),
+                              right: MediaQuery.of(context).size.width * 0.03,
+                              bottom:
+                                  MediaQuery.of(context).size.height * 0.05),
                           width: MediaQuery.of(context).size.width * 0.5,
                           height: MediaQuery.of(context).size.height * 0.08,
                           decoration: BoxDecoration(
@@ -211,40 +228,41 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                GestureDetector(
-                    onTap: (){
-                      var a = StyleClass();
-                      a.display();
-                      var colorChange = StyleClass();
-                      colorChange.isColor = true;
-                      isColorChanged.add(colorChange);
-                      print('check ${isColorChanged[isColorChanged.length-1].isColor}');
-                      _shoeSize('7', isColorChanged[isColorChanged.length-1].isColor);
-                    },
-                    child: _shoeSize('7', false)),
-                _shoeSize('7.5',false),
+                _shoeSize('7', false),
+                _shoeSize('7.5', false),
                 _shoeSize('8', false),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
                     Text(
-                      '2',
+                      (countItem == 0) ? '' : countItem.toString(),
                       style: TextStyle(
                           color: Color(0xFF3C1FC7),
                           fontWeight: FontWeight.bold),
                     ),
-                    _shoeSize('8.5',true),
-                    Text(
-                      'X',
-                      style: TextStyle(
-                          color: Color(0xFF3C1FC73C1FC7),
-                          fontWeight: FontWeight.bold),
+                    GestureDetector(
+                        onTap: () {
+                          countItem++;
+                          print('countItem $countItem');
+                          changeColor();
+                        },
+                        child: _shoeSize('8.5', isColor)),
+                    GestureDetector(
+                      onTap: () {
+                        print('clicked x');
+                        closeCount();
+                      },
+                      child: Text(
+                        (countItem == 0) ? '' : 'X',
+                        style: TextStyle(
+                            color: Color(0xFF3C1FC73C1FC7),
+                            fontWeight: FontWeight.bold),
+                      ),
                     ),
                   ],
                 ),
-                _shoeSize('9',false),
-                _shoeSize('9.5',false)
-
+                _shoeSize('9', false),
+                _shoeSize('9.5', false)
               ],
             ),
           ),
@@ -263,8 +281,8 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                   ),
                 ),
                 SizedBox(width: 8.0),
-                _shoeSize('M',false),
-                _shoeSize('F',true),
+                _shoeSize('M', false),
+                _shoeSize('F', true),
               ],
             ),
           ),
@@ -455,9 +473,10 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
     );
   }
 
-  Widget _timeLeft(Color textColor1, Color textColor2, FontWeight customFontWeight) {
+  Widget _timeLeft(
+      Color textColor1, Color textColor2, FontWeight customFontWeight) {
     return Padding(
-      padding: const EdgeInsets.only(left:10.0,right: 10.0),
+      padding: const EdgeInsets.only(left: 10.0, right: 10.0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -554,24 +573,21 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
   }
 
   Widget _shoeSize(String size, bool isBlue) {
-
-    print('boxcolor $isBlue');
-
     return Container(
       margin: EdgeInsets.only(left: 12.0, right: 12.0),
       width: MediaQuery.of(context).size.width * 0.1,
       height: MediaQuery.of(context).size.height * 0.05,
       decoration: BoxDecoration(
-        color: (isBlue)?Colors.deepPurple:Colors.white,
-          border: Border.all(color: Colors.grey),
-          borderRadius: BorderRadius.circular(5.0),
+        color: (isBlue) ? Color(0xff3C1FC7) : Colors.white,
+        border: Border.all(color: Colors.grey),
+        borderRadius: BorderRadius.circular(5.0),
       ),
       child: Center(
         child: Text(
           size,
           style: TextStyle(
             fontSize: 16.0,
-            color: (isBlue)?Colors.white:Colors.grey,
+            color: Colors.grey,
           ),
         ),
       ),
