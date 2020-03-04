@@ -18,22 +18,111 @@ class FirstPage extends StatefulWidget {
 
 class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
   static List<StyleClass> isColorChanged = [];
-  List<String> sizes = ['7','7.5','8','8.5','9','9.5'];
-  Color containerColor = Colors.white;
-  bool isColor = false;
-  bool isMale = false;
-  int countItem = 0;
+  Color containerColor1 = Colors.white;
+  Color containerColor2 = Colors.white;
+  Color containerColor3 = Colors.white;
+  Color containerColor4 = Colors.white;
+  Color containerColor5 = Colors.white;
+  Color containerColor6 = Colors.white;
+  bool isColor1 = false;
+  bool isColor2 = false;
+  bool isColor3 = false;
+  bool isColor4 = false;
+  bool isColor5 = false;
+  bool isColor6 = false;
+  bool isColorMale = false;
+  int countItem1 = 0;
+  int countItem2 = 0;
+  int countItem3 = 0;
+  int countItem4 = 0;
+  int countItem5 = 0;
+  int countItem6 = 0;
 
-  changeColor() {
+  changeColor1() {
     setState(() {
-      isColor = true;
+      isColor1 = true;
+      isColor2 = false;
+      isColor3 = false;
+      isColor4 = false;
+      isColor5 = false;
+      isColor6 = false;
+    });
+  }
+
+  changeColor2() {
+    setState(() {
+      isColor1 = false;
+      isColor2 = true;
+      isColor3 = false;
+      isColor4 = false;
+      isColor5 = false;
+      isColor6 = false;
+    });
+  }
+
+  changeColor3() {
+    setState(() {
+      isColor1 = false;
+      isColor2 = false;
+      isColor3 = true;
+      isColor4 = false;
+      isColor5 = false;
+      isColor6 = false;
+    });
+  }
+
+  changeColor4() {
+    setState(() {
+      isColor1 = false;
+      isColor2 = false;
+      isColor3 = false;
+      isColor4 = true;
+      isColor5 = false;
+      isColor6 = false;
+    });
+  }
+
+  changeColor5() {
+    setState(() {
+      isColor1 = false;
+      isColor2 = false;
+      isColor3 = false;
+      isColor4 = false;
+      isColor5 = true;
+      isColor6 = false;
+    });
+  }
+
+  changeColor6() {
+    setState(() {
+      isColor1 = false;
+      isColor2 = false;
+      isColor3 = false;
+      isColor4 = false;
+      isColor5 = false;
+      isColor6 = true;
     });
   }
 
   closeCount() {
     setState(() {
-      countItem = 0;
+      countItem1 = 0;
+      countItem2 = 0;
+      countItem3 = 0;
+      countItem4 = 0;
+      countItem5 = 0;
+      countItem6 = 0;
+      isColor1 = false;
+      isColor2 = false;
+      isColor3 = false;
+      isColor4 = false;
+      isColor5 = false;
+      isColor6 = false;
     });
+  }
+
+  changeColorGender(bool isMale) {
+    setState(() {});
   }
 
   @override
@@ -226,12 +315,204 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                columnSizeWidget('7'),
-                columnSizeWidget('7.5'),
-                columnSizeWidget('8'),
-                columnSizeWidget('8.5'),
-                columnSizeWidget('9'),
-                columnSizeWidget('9.5'),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      (countItem1 == 0) ? '' : countItem1.toString(),
+                      style: TextStyle(
+                          color: Color(0xFF3C1FC7),
+                          fontWeight: FontWeight.bold),
+                    ),
+                    GestureDetector(
+                        onTap: () {
+                          countItem2 = 0;
+                          countItem3 = 0;
+                          countItem4 = 0;
+                          countItem5 = 0;
+                          countItem6 = 0;
+                          countItem1++;
+                          changeColor1();
+                        },
+                        child: _shoeSize('7', isColor1)),
+                    GestureDetector(
+                      onTap: () {
+                        closeCount();
+                      },
+                      child: Text(
+                        (countItem1 == 0) ? '' : 'X',
+                        style: TextStyle(
+                            color: Color(0xFF3C1FC73C1FC7),
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ],
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      (countItem2 == 0) ? '' : countItem2.toString(),
+                      style: TextStyle(
+                          color: Color(0xFF3C1FC7),
+                          fontWeight: FontWeight.bold),
+                    ),
+                    GestureDetector(
+                        onTap: () {
+                          countItem1 = 0;
+                          countItem3 = 0;
+                          countItem4 = 0;
+                          countItem5 = 0;
+                          countItem6 = 0;
+                          countItem2++;
+                          changeColor2();
+                        },
+                        child: _shoeSize('7.5', isColor2)),
+                    GestureDetector(
+                      onTap: () {
+                        closeCount();
+                      },
+                      child: Text(
+                        (countItem2 == 0) ? '' : 'X',
+                        style: TextStyle(
+                            color: Color(0xFF3C1FC73C1FC7),
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ],
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      (countItem3 == 0) ? '' : countItem3.toString(),
+                      style: TextStyle(
+                          color: Color(0xFF3C1FC7),
+                          fontWeight: FontWeight.bold),
+                    ),
+                    GestureDetector(
+                        onTap: () {
+                          countItem2 = 0;
+                          countItem1 = 0;
+                          countItem4 = 0;
+                          countItem5 = 0;
+                          countItem6 = 0;
+                          countItem3++;
+                          changeColor3();
+                        },
+                        child: _shoeSize('8', isColor3)),
+                    GestureDetector(
+                      onTap: () {
+                        closeCount();
+                      },
+                      child: Text(
+                        (countItem3 == 0) ? '' : 'X',
+                        style: TextStyle(
+                            color: Color(0xFF3C1FC73C1FC7),
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ],
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      (countItem4 == 0) ? '' : countItem4.toString(),
+                      style: TextStyle(
+                          color: Color(0xFF3C1FC7),
+                          fontWeight: FontWeight.bold),
+                    ),
+                    GestureDetector(
+                        onTap: () {
+                          countItem2 = 0;
+                          countItem3 = 0;
+                          countItem1 = 0;
+                          countItem5 = 0;
+                          countItem6 = 0;
+                          countItem4++;
+                          changeColor4();
+                        },
+                        child: _shoeSize('8.5', isColor4)),
+                    GestureDetector(
+                      onTap: () {
+                        closeCount();
+                      },
+                      child: Text(
+                        (countItem4 == 0) ? '' : 'X',
+                        style: TextStyle(
+                            color: Color(0xFF3C1FC73C1FC7),
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ],
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      (countItem5 == 0) ? '' : countItem5.toString(),
+                      style: TextStyle(
+                          color: Color(0xFF3C1FC7),
+                          fontWeight: FontWeight.bold),
+                    ),
+                    GestureDetector(
+                        onTap: () {
+                          countItem2 = 0;
+                          countItem3 = 0;
+                          countItem4 = 0;
+                          countItem1 = 0;
+                          countItem6 = 0;
+                          countItem5++;
+                          changeColor5();
+                        },
+                        child: _shoeSize('9', isColor5)),
+                    GestureDetector(
+                      onTap: () {
+                        closeCount();
+                      },
+                      child: Text(
+                        (countItem5 == 0) ? '' : 'X',
+                        style: TextStyle(
+                            color: Color(0xFF3C1FC73C1FC7),
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ],
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
+                    Text(
+                      (countItem6 == 0) ? '' : countItem6.toString(),
+                      style: TextStyle(
+                          color: Color(0xFF3C1FC7),
+                          fontWeight: FontWeight.bold),
+                    ),
+                    GestureDetector(
+                        onTap: () {
+                          countItem2 = 0;
+                          countItem3 = 0;
+                          countItem4 = 0;
+                          countItem5 = 0;
+                          countItem1 = 0;
+                          countItem6++;
+                          changeColor6();
+                        },
+                        child: _shoeSize('9.5', isColor6)),
+                    GestureDetector(
+                      onTap: () {
+                        closeCount();
+                      },
+                      child: Text(
+                        (countItem6 == 0) ? '' : 'X',
+                        style: TextStyle(
+                            color: Color(0xFF3C1FC73C1FC7),
+                            fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                  ],
+                ),
               ],
             ),
           ),
@@ -250,8 +531,13 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                   ),
                 ),
                 SizedBox(width: 8.0),
-                _shoeSize('M', false),
-                _shoeSize('F', true),
+                GestureDetector(
+                    onTap: () {
+                      isColorMale = true;
+                      changeColorGender(isColorMale);
+                    },
+                    child: _shoeSize('M', false)),
+                GestureDetector(child: _shoeSize('F', true)),
               ],
             ),
           ),
@@ -556,7 +842,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
           size,
           style: TextStyle(
             fontSize: 16.0,
-            color: (isBlue) ? Colors.white:Colors.grey,
+            color: (isBlue) ? Colors.white : Colors.grey,
           ),
         ),
       ),
@@ -612,37 +898,6 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
               child: _timeLeft(Colors.white, Colors.white, FontWeight.bold),
             ),
           ],
-        ),
-      ],
-    );
-  }
-
-  Widget columnSizeWidget(String size){
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.center,
-      children: <Widget>[
-        Text(
-          (countItem == 0) ? '' : countItem.toString(),
-          style: TextStyle(
-              color: Color(0xFF3C1FC7),
-              fontWeight: FontWeight.bold),
-        ),
-        GestureDetector(
-            onTap: () {
-              countItem++;
-              changeColor();
-            },
-            child: _shoeSize(size, isColor)),
-        GestureDetector(
-          onTap: () {
-            closeCount();
-          },
-          child: Text(
-            (countItem == 0) ? '' : 'X',
-            style: TextStyle(
-                color: Color(0xFF3C1FC73C1FC7),
-                fontWeight: FontWeight.bold),
-          ),
         ),
       ],
     );
