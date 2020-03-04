@@ -18,6 +18,7 @@ class FirstPage extends StatefulWidget {
 
 class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
   static List<StyleClass> isColorChanged = [];
+  List<String> sizes = ['7','7.5','8','8.5','9','9.5'];
   Color containerColor = Colors.white;
   bool isColor = false;
   bool isMale = false;
@@ -41,9 +42,6 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
     SystemChrome.setPreferredOrientations([
       DeviceOrientation.portraitUp,
     ]);
-    var a = StyleClass();
-    a.isColor = false;
-    isColorChanged.add(a);
 
     return Scaffold(
       appBar: AppBar(
@@ -228,41 +226,12 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
             child: Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: <Widget>[
-                _shoeSize('7', false),
-                _shoeSize('7.5', false),
-                _shoeSize('8', false),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      (countItem == 0) ? '' : countItem.toString(),
-                      style: TextStyle(
-                          color: Color(0xFF3C1FC7),
-                          fontWeight: FontWeight.bold),
-                    ),
-                    GestureDetector(
-                        onTap: () {
-                          countItem++;
-                          print('countItem $countItem');
-                          changeColor();
-                        },
-                        child: _shoeSize('8.5', isColor)),
-                    GestureDetector(
-                      onTap: () {
-                        print('clicked x');
-                        closeCount();
-                      },
-                      child: Text(
-                        (countItem == 0) ? '' : 'X',
-                        style: TextStyle(
-                            color: Color(0xFF3C1FC73C1FC7),
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ],
-                ),
-                _shoeSize('9', false),
-                _shoeSize('9.5', false)
+                columnSizeWidget('7'),
+                columnSizeWidget('7.5'),
+                columnSizeWidget('8'),
+                columnSizeWidget('8.5'),
+                columnSizeWidget('9'),
+                columnSizeWidget('9.5'),
               ],
             ),
           ),
@@ -587,7 +556,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
           size,
           style: TextStyle(
             fontSize: 16.0,
-            color: Colors.grey,
+            color: (isBlue) ? Colors.white:Colors.grey,
           ),
         ),
       ),
@@ -643,6 +612,37 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
               child: _timeLeft(Colors.white, Colors.white, FontWeight.bold),
             ),
           ],
+        ),
+      ],
+    );
+  }
+
+  Widget columnSizeWidget(String size){
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.center,
+      children: <Widget>[
+        Text(
+          (countItem == 0) ? '' : countItem.toString(),
+          style: TextStyle(
+              color: Color(0xFF3C1FC7),
+              fontWeight: FontWeight.bold),
+        ),
+        GestureDetector(
+            onTap: () {
+              countItem++;
+              changeColor();
+            },
+            child: _shoeSize(size, isColor)),
+        GestureDetector(
+          onTap: () {
+            closeCount();
+          },
+          child: Text(
+            (countItem == 0) ? '' : 'X',
+            style: TextStyle(
+                color: Color(0xFF3C1FC73C1FC7),
+                fontWeight: FontWeight.bold),
+          ),
         ),
       ],
     );
