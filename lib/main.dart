@@ -133,9 +133,11 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
     ]);
 
     return Scaffold(
+        extendBodyBehindAppBar: true,
       appBar: AppBar(
+        elevation: 0.0,
         iconTheme: new IconThemeData(color: Colors.grey),
-        backgroundColor: Colors.white,
+        backgroundColor: Colors.transparent,
         actions: <Widget>[
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -706,9 +708,20 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
             ),
             child: Padding(
               padding: const EdgeInsets.all(8.0),
-              child: Text(
-                '341 nices',
-                style: TextStyle(color: Colors.white, fontSize: 16.0),
+              child: Row(
+                children: <Widget>[
+                  Text(
+                    '341 ',
+                    style: TextStyle(color: Colors.white, fontSize: 20.0, fontWeight: FontWeight.bold),
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.only(top: 8.0),
+                    child: Text(
+                      'nices ',
+                      style: TextStyle(color: Colors.white, fontSize: 12.0),
+                    ),
+                  ),
+                ],
               ),
             ),
           ),
@@ -743,6 +756,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                 'days',
                 style: TextStyle(fontSize: 8.0, color: textColor1),
               ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.006),
               Text(
                 '14',
                 style:
@@ -757,6 +771,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                 ' ',
                 style: TextStyle(fontSize: 8.0),
               ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.006),
               Text(':',
                   style: TextStyle(
                       fontWeight: customFontWeight, color: textColor2, fontSize: 22.0)),
@@ -769,6 +784,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                 'hours',
                 style: TextStyle(fontSize: 8.0, color: textColor1),
               ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.006),
               Text('22',
                   style: TextStyle(
                       fontWeight: customFontWeight, color: textColor2, fontSize: 22.0)),
@@ -781,6 +797,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                 ' ',
                 style: TextStyle(fontSize: 8.0, color: Colors.blue),
               ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.006),
               Text(':',
                   style: TextStyle(
                       fontWeight: customFontWeight, color: textColor2, fontSize: 22.0)),
@@ -793,6 +810,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                 'minutes',
                 style: TextStyle(fontSize: 8.0, color: textColor1),
               ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.006),
               Text('20',
                   style: TextStyle(
                       fontWeight: customFontWeight, color: textColor2, fontSize: 22.0)),
@@ -805,6 +823,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                 ' ',
                 style: TextStyle(fontSize: 8.0),
               ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.006),
               Text(':',
                   style: TextStyle(
                       fontWeight: customFontWeight, color: textColor2, fontSize: 22.0)),
@@ -817,6 +836,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                 'seconds',
                 style: TextStyle(fontSize: 8.0, color: textColor1),
               ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.006),
               Text('51',
                   style: TextStyle(
                       fontWeight: customFontWeight, color: textColor2, fontSize: 22.0)),
@@ -881,7 +901,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
           children: <Widget>[
             Container(
                 margin: EdgeInsets.only(top: 20.0),
-                child: Image.asset('images/shoe1.jpeg')),
+                child: Image.asset('images/shoe1.jpeg',fit: BoxFit.contain,)),
             Container(
               margin: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03,right: MediaQuery.of(context).size.width * 0.5),
 //              height: MediaQuery.of(context).size.height * 0.08,
