@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
@@ -31,6 +32,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
   bool isColor5 = false;
   bool isColor6 = false;
   bool isColorMale = false;
+  bool isColorFemale = false;
   int countItem1 = 0;
   int countItem2 = 0;
   int countItem3 = 0;
@@ -121,8 +123,17 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
     });
   }
 
-  changeColorGender(bool isMale) {
-    setState(() {});
+  changeColorMale(bool isMale) {
+    setState(() {
+      isColorMale = true;
+      isColorFemale = false;
+    });
+  }
+  changeColorFemale(bool isFemale) {
+    setState(() {
+      isColorMale = false;
+      isColorFemale = true;
+    });
   }
 
   @override
@@ -274,7 +285,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.5,
+                height: MediaQuery.of(context).size.height * 0.4,
                 child: TabBarView(controller: _tabController, children: <Widget>[
                   _customTabBar(),
                   _customTabBar(),
@@ -523,11 +534,14 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                     SizedBox(width: 8.0),
                     GestureDetector(
                         onTap: () {
-                          isColorMale = true;
-                          changeColorGender(isColorMale);
+                          changeColorMale(true);
                         },
-                        child: _shoeSize('M', false)),
-                    GestureDetector(child: _shoeSize('F', true)),
+                        child: _shoeSize('M', isColorMale)),
+                    GestureDetector(
+                        onTap: (){
+                          changeColorFemale(true);
+                        },
+                        child: _shoeSize('F', isColorFemale)),
                   ],
                 ),
               ),
@@ -921,11 +935,9 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
           children: <Widget>[
             Container(
                 margin: EdgeInsets.only(top: 20.0),
-                child: Image.asset('images/shoe1.jpeg',fit: BoxFit.fitHeight,)),
+                child: Image.asset('images/shoe1.jpeg',fit: BoxFit.cover,)),
             Container(
               margin: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03,right: MediaQuery.of(context).size.width * 0.45),
-//              height: MediaQuery.of(context).size.height * 0.08,
-//              width: MediaQuery.of(context).size.width * 0.5,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30.0),
                   gradient: LinearGradient(
