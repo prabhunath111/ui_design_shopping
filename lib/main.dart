@@ -135,20 +135,20 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
     return Scaffold(
         extendBodyBehindAppBar: true,
       appBar: AppBar(
-        elevation: 0.0,
-        iconTheme: new IconThemeData(color: Colors.grey),
+        elevation: 1.0,
+        iconTheme: new IconThemeData(color: Colors.white),
         backgroundColor: Colors.transparent,
         actions: <Widget>[
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: <Widget>[
-              Icon(Icons.person_outline, color: Colors.grey),
+              Icon(Icons.person_outline, color: Colors.white),
               SizedBox(width: 10.0),
               Padding(
                 padding: const EdgeInsets.only(right: 8.0),
                 child: Icon(
                   Icons.shopping_cart,
-                  color: Colors.grey,
+                  color: Colors.white,
                 ),
               )
             ],
@@ -904,7 +904,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
           children: <Widget>[
             Container(
                 margin: EdgeInsets.only(top: 20.0),
-                child: Image.asset('images/shoe1.jpeg',fit: BoxFit.contain,)),
+                child: Image.asset('images/shoe1.jpeg',fit: BoxFit.fitHeight,)),
             Container(
               margin: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03,right: MediaQuery.of(context).size.width * 0.45),
 //              height: MediaQuery.of(context).size.height * 0.08,
