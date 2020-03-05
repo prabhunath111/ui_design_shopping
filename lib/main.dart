@@ -632,7 +632,8 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                   style: TextStyle(fontSize: 16.0, color: Colors.grey),
                 ),
               )),
-          SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+          Container(
+              color:Colors.white,height: MediaQuery.of(context).size.height * 0.04),
           Image.asset('images/shoe2.jpeg'),
           Container(
             padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.02,bottom: MediaQuery.of(context).size.height * 0.03),
@@ -670,7 +671,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
           ),
           Container(
             padding: EdgeInsets.only(top: 12.0, bottom: 12.0),
-            height: MediaQuery.of(context).size.height * 0.072,
+            height: MediaQuery.of(context).size.height * 0.09,
             width: MediaQuery.of(context).size.width,
             color: Colors.white,
             child: Container(
@@ -898,6 +899,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
             ),
           ),
         ),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.01),
         Stack(
           children: <Widget>[
             Container(
