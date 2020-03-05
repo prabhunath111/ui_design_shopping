@@ -632,9 +632,10 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                   style: TextStyle(fontSize: 16.0, color: Colors.grey),
                 ),
               )),
-          SizedBox(height: MediaQuery.of(context).size.height * 0.027),
+          SizedBox(height: MediaQuery.of(context).size.height * 0.03),
           Image.asset('images/shoe2.jpeg'),
           Container(
+            padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.02,bottom: MediaQuery.of(context).size.height * 0.03),
             width: MediaQuery.of(context).size.width,
             color: Colors.white,
             child: Padding(
@@ -707,7 +708,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
               borderRadius: BorderRadius.circular(5.0),
             ),
             child: Padding(
-              padding: const EdgeInsets.all(8.0),
+              padding: const EdgeInsets.only(left:8.0,top:3.0,right:8.0,bottom: 3.0),
               child: Row(
                 children: <Widget>[
                   Text(
@@ -892,7 +893,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
               'High School List',
               style: TextStyle(
                   color: Colors.white,
-                  fontSize: 16.0,
+                  fontSize: 12.0,
                   fontWeight: FontWeight.bold),
             ),
           ),
@@ -903,7 +904,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                 margin: EdgeInsets.only(top: 20.0),
                 child: Image.asset('images/shoe1.jpeg',fit: BoxFit.contain,)),
             Container(
-              margin: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03,right: MediaQuery.of(context).size.width * 0.5),
+              margin: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03,right: MediaQuery.of(context).size.width * 0.45),
 //              height: MediaQuery.of(context).size.height * 0.08,
 //              width: MediaQuery.of(context).size.width * 0.5,
               decoration: BoxDecoration(
