@@ -238,8 +238,8 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                               right: MediaQuery.of(context).size.width * 0.03,
                               bottom:
                                   MediaQuery.of(context).size.height * 0.05),
-                          width: MediaQuery.of(context).size.width * 0.5,
-                          height: MediaQuery.of(context).size.height * 0.08,
+//                          width: MediaQuery.of(context).size.width * 0.5,
+//                          height: MediaQuery.of(context).size.height * 0.08,
                           decoration: BoxDecoration(
                             borderRadius: BorderRadius.circular(30.0),
                             color: Colors.white,
@@ -731,7 +731,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
   Widget _timeLeft(
       Color textColor1, Color textColor2, FontWeight customFontWeight) {
     return Padding(
-      padding: const EdgeInsets.only(left: 10.0, right: 10.0),
+      padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 10.0, bottom: 10.0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -746,7 +746,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
               Text(
                 '14',
                 style:
-                    TextStyle(fontWeight: customFontWeight, color: textColor2),
+                    TextStyle(fontWeight: customFontWeight, color: textColor2, fontSize: 22.0),
               ),
             ],
           ),
@@ -759,7 +759,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
               ),
               Text(':',
                   style: TextStyle(
-                      fontWeight: customFontWeight, color: textColor2)),
+                      fontWeight: customFontWeight, color: textColor2, fontSize: 22.0)),
             ],
           ),
           Column(
@@ -771,7 +771,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
               ),
               Text('22',
                   style: TextStyle(
-                      fontWeight: customFontWeight, color: textColor2)),
+                      fontWeight: customFontWeight, color: textColor2, fontSize: 22.0)),
             ],
           ),
           Column(
@@ -783,7 +783,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
               ),
               Text(':',
                   style: TextStyle(
-                      fontWeight: customFontWeight, color: textColor2)),
+                      fontWeight: customFontWeight, color: textColor2, fontSize: 22.0)),
             ],
           ),
           Column(
@@ -795,7 +795,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
               ),
               Text('20',
                   style: TextStyle(
-                      fontWeight: customFontWeight, color: textColor2)),
+                      fontWeight: customFontWeight, color: textColor2, fontSize: 22.0)),
             ],
           ),
           Column(
@@ -807,7 +807,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
               ),
               Text(':',
                   style: TextStyle(
-                      fontWeight: customFontWeight, color: textColor2)),
+                      fontWeight: customFontWeight, color: textColor2, fontSize: 22.0)),
             ],
           ),
           Column(
@@ -819,7 +819,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
               ),
               Text('51',
                   style: TextStyle(
-                      fontWeight: customFontWeight, color: textColor2)),
+                      fontWeight: customFontWeight, color: textColor2, fontSize: 22.0)),
             ],
           ),
         ],
@@ -883,9 +883,9 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                 margin: EdgeInsets.only(top: 20.0),
                 child: Image.asset('images/shoe1.jpeg')),
             Container(
-              margin: EdgeInsets.only(left: 10.0),
-              height: MediaQuery.of(context).size.height * 0.08,
-              width: MediaQuery.of(context).size.width * 0.5,
+              margin: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03,right: MediaQuery.of(context).size.width * 0.5),
+//              height: MediaQuery.of(context).size.height * 0.08,
+//              width: MediaQuery.of(context).size.width * 0.5,
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30.0),
                   gradient: LinearGradient(
