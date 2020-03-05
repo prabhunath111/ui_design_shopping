@@ -134,27 +134,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
 
     return Scaffold(
         extendBodyBehindAppBar: true,
-      appBar: AppBar(
-        elevation: 1.0,
-        iconTheme: new IconThemeData(color: Colors.white),
-        backgroundColor: Colors.transparent,
-        actions: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            children: <Widget>[
-              Icon(Icons.person_outline, color: Colors.white),
-              SizedBox(width: 10.0),
-              Padding(
-                padding: const EdgeInsets.only(right: 8.0),
-                child: Icon(
-                  Icons.shopping_cart,
-                  color: Colors.white,
-                ),
-              )
-            ],
-          ),
-        ],
-      ),
+
       drawer: Drawer(
           child: ListView(children: <Widget>[
         DrawerHeader(
@@ -171,391 +151,399 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
           onTap: () {},
         ),
       ])),
-      body: ListView(
+      body: Stack(
         children: <Widget>[
-          Stack(
+
+          ListView(
+            controller: ScrollController(),
             children: <Widget>[
-              Image.asset(
-                'images/shoe.jpg',
-                width: MediaQuery.of(context).size.width,
-                fit: BoxFit.cover,
-              ),
-              Column(
+
+              Stack(
                 children: <Widget>[
-                  ListTile(
-                    title: Text(
-                      'Featured',
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, fontSize: 26.0),
-                    ),
-                    subtitle: Text(
-                      'Nike SB Zoom Stefan\nJanoski Canvas RM',
-                      style: TextStyle(
-                          color: Colors.black, fontWeight: FontWeight.bold),
-                    ),
+                  Image.asset(
+                    'images/shoe.jpg',
+                    width: MediaQuery.of(context).size.width,
+                    fit: BoxFit.cover,
                   ),
                   Container(
-                    width: MediaQuery.of(context).size.width,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    margin:EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.08),
+                    child: Column(
                       children: <Widget>[
-                        Container(
-                          margin: EdgeInsets.only(
-                              top: MediaQuery.of(context).size.height * 0.02),
-                          width: MediaQuery.of(context).size.width * 0.4,
-                          height: MediaQuery.of(context).size.height * 0.06,
-                          decoration: BoxDecoration(
-                              borderRadius: BorderRadius.only(
-                                  topRight: Radius.circular(30.0),
-                                  bottomRight: Radius.circular(30.0)),
-                              gradient: LinearGradient(
-                                  begin: Alignment.topCenter,
-                                  end: Alignment.bottomCenter,
-                                  colors: <Color>[
-                                    Color(0xff3C1FC7),
-                                    Color(0xff241678),
-                                  ])),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.end,
-                            children: <Widget>[
-                              Text(
-                                'Nice',
-                                style: TextStyle(color: Colors.white),
-                              ),
-                              SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.03,
-                              ),
-                              Icon(
-                                Icons.favorite_border,
-                                color: Colors.white,
-                              ),
-                              SizedBox(
-                                width: MediaQuery.of(context).size.width * 0.03,
-                              ),
-                            ],
+                        ListTile(
+                          title: Text(
+                            'Featured',
+                            style: TextStyle(
+                                fontWeight: FontWeight.bold, fontSize: 26.0),
+                          ),
+                          subtitle: Text(
+                            'Nike SB Zoom Stefan\nJanoski Canvas RM',
+                            style: TextStyle(
+                                color: Colors.black, fontWeight: FontWeight.bold),
                           ),
                         ),
                         Container(
-                          margin: EdgeInsets.only(
-                              right: MediaQuery.of(context).size.width * 0.03,
-                              bottom:
-                                  MediaQuery.of(context).size.height * 0.05),
+                          width: MediaQuery.of(context).size.width,
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Container(
+                                margin: EdgeInsets.only(
+                                    top: MediaQuery.of(context).size.height * 0.02),
+                                width: MediaQuery.of(context).size.width * 0.4,
+                                height: MediaQuery.of(context).size.height * 0.06,
+                                decoration: BoxDecoration(
+                                    borderRadius: BorderRadius.only(
+                                        topRight: Radius.circular(30.0),
+                                        bottomRight: Radius.circular(30.0)),
+                                    gradient: LinearGradient(
+                                        begin: Alignment.topCenter,
+                                        end: Alignment.bottomCenter,
+                                        colors: <Color>[
+                                          Color(0xff3C1FC7),
+                                          Color(0xff241678),
+                                        ])),
+                                child: Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: <Widget>[
+                                    Text(
+                                      'Nice',
+                                      style: TextStyle(color: Colors.white),
+                                    ),
+                                    SizedBox(
+                                      width: MediaQuery.of(context).size.width * 0.03,
+                                    ),
+                                    Icon(
+                                      Icons.favorite_border,
+                                      color: Colors.white,
+                                    ),
+                                    SizedBox(
+                                      width: MediaQuery.of(context).size.width * 0.03,
+                                    ),
+                                  ],
+                                ),
+                              ),
+                              Container(
+                                margin: EdgeInsets.only(
+                                    right: MediaQuery.of(context).size.width * 0.03,
+                                    bottom:
+                                    MediaQuery.of(context).size.height * 0.05),
 //                          width: MediaQuery.of(context).size.width * 0.5,
 //                          height: MediaQuery.of(context).size.height * 0.08,
-                          decoration: BoxDecoration(
-                            borderRadius: BorderRadius.circular(30.0),
-                            color: Colors.white,
+                                decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(30.0),
+                                  color: Colors.white,
+                                ),
+                                child: _timeLeft(
+                                    Colors.blue, Colors.black, FontWeight.bold),
+                              ),
+                            ],
                           ),
-                          child: _timeLeft(
-                              Colors.blue, Colors.black, FontWeight.bold),
                         ),
                       ],
                     ),
                   ),
                 ],
               ),
-            ],
-          ),
-          Container(
-            decoration: BoxDecoration(
-              color: Colors.white,
-            ),
-            child: TabBar(
-              unselectedLabelColor: Colors.grey,
-              indicatorColor: Colors.blue,
-              labelColor: Colors.blue,
-              controller: _tabController,
-              indicatorSize: TabBarIndicatorSize.label,
-              indicatorPadding: EdgeInsets.only(right: 40.0),
-              tabs: <Widget>[
-                new Tab(
-                  child: Text(
-                    'High School',
-                    style: TextStyle(fontSize: 12.0),
-                  ),
+              Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
                 ),
-                new Tab(
-                  child: Text('Universities', style: TextStyle(fontSize: 12.0)),
-                ),
-                new Tab(
-                  child:
+                child: TabBar(
+                  unselectedLabelColor: Colors.grey,
+                  indicatorColor: Colors.blue,
+                  labelColor: Colors.blue,
+                  controller: _tabController,
+                  indicatorSize: TabBarIndicatorSize.label,
+                  indicatorPadding: EdgeInsets.only(right: 40.0),
+                  tabs: <Widget>[
+                    new Tab(
+                      child: Text(
+                        'High School',
+                        style: TextStyle(fontSize: 12.0),
+                      ),
+                    ),
+                    new Tab(
+                      child: Text('Universities', style: TextStyle(fontSize: 12.0)),
+                    ),
+                    new Tab(
+                      child:
                       Text('Organizations', style: TextStyle(fontSize: 12.0)),
-                ),
-              ],
-            ),
-          ),
-          Container(
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * 0.5,
-            child: TabBarView(controller: _tabController, children: <Widget>[
-              _customTabBar(),
-              _customTabBar(),
-              _customTabBar(),
-            ]),
-          ),
-          Container(
-            padding: EdgeInsets.only(left: 20.0, top: 4.0),
-            height: MediaQuery.of(context).size.height * 0.035,
-            width: MediaQuery.of(context).size.width,
-            decoration: BoxDecoration(
-              gradient: LinearGradient(
-                  begin: Alignment.topCenter,
-                  end: Alignment.bottomCenter,
-                  colors: <Color>[
-                    Color(0xFFC0C0C0),
-                    Colors.white,
-                  ]),
-            ),
-            child: Text(
-              'Faded Sky Blue',
-              style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey),
-            ),
-          ),
-          _niceRow('20', Colors.red),
-          Container(
-            color: Colors.white,
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      (countItem1 == 0) ? '' : countItem1.toString(),
-                      style: TextStyle(
-                          color: Color(0xFF3C1FC7),
-                          fontWeight: FontWeight.bold),
-                    ),
-                    GestureDetector(
-                        onTap: () {
-                          countItem2 = 0;
-                          countItem3 = 0;
-                          countItem4 = 0;
-                          countItem5 = 0;
-                          countItem6 = 0;
-                          countItem1++;
-                          changeColor1();
-                        },
-                        child: _shoeSize('7', isColor1)),
-                    GestureDetector(
-                      onTap: () {
-                        closeCount();
-                      },
-                      child: Text(
-                        (countItem1 == 0) ? '' : 'X',
-                        style: TextStyle(
-                            color: Color(0xFF3C1FC73C1FC7),
-                            fontWeight: FontWeight.bold),
-                      ),
                     ),
                   ],
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height * 0.5,
+                child: TabBarView(controller: _tabController, children: <Widget>[
+                  _customTabBar(),
+                  _customTabBar(),
+                  _customTabBar(),
+                ]),
+              ),
+              Container(
+                padding: EdgeInsets.only(left: 20.0, top: 4.0),
+                height: MediaQuery.of(context).size.height * 0.035,
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: <Color>[
+                        Color(0xFFC0C0C0),
+                        Colors.white,
+                      ]),
+                ),
+                child: Text(
+                  'Faded Sky Blue',
+                  style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey),
+                ),
+              ),
+              _niceRow('20', Colors.red),
+              Container(
+                color: Colors.white,
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: <Widget>[
-                    Text(
-                      (countItem2 == 0) ? '' : countItem2.toString(),
-                      style: TextStyle(
-                          color: Color(0xFF3C1FC7),
-                          fontWeight: FontWeight.bold),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          (countItem1 == 0) ? '' : countItem1.toString(),
+                          style: TextStyle(
+                              color: Color(0xFF3C1FC7),
+                              fontWeight: FontWeight.bold),
+                        ),
+                        GestureDetector(
+                            onTap: () {
+                              countItem2 = 0;
+                              countItem3 = 0;
+                              countItem4 = 0;
+                              countItem5 = 0;
+                              countItem6 = 0;
+                              countItem1++;
+                              changeColor1();
+                            },
+                            child: _shoeSize('7', isColor1)),
+                        GestureDetector(
+                          onTap: () {
+                            closeCount();
+                          },
+                          child: Text(
+                            (countItem1 == 0) ? '' : 'X',
+                            style: TextStyle(
+                                color: Color(0xFF3C1FC73C1FC7),
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
                     ),
-                    GestureDetector(
-                        onTap: () {
-                          countItem1 = 0;
-                          countItem3 = 0;
-                          countItem4 = 0;
-                          countItem5 = 0;
-                          countItem6 = 0;
-                          countItem2++;
-                          changeColor2();
-                        },
-                        child: _shoeSize('7.5', isColor2)),
-                    GestureDetector(
-                      onTap: () {
-                        closeCount();
-                      },
-                      child: Text(
-                        (countItem2 == 0) ? '' : 'X',
-                        style: TextStyle(
-                            color: Color(0xFF3C1FC73C1FC7),
-                            fontWeight: FontWeight.bold),
-                      ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          (countItem2 == 0) ? '' : countItem2.toString(),
+                          style: TextStyle(
+                              color: Color(0xFF3C1FC7),
+                              fontWeight: FontWeight.bold),
+                        ),
+                        GestureDetector(
+                            onTap: () {
+                              countItem1 = 0;
+                              countItem3 = 0;
+                              countItem4 = 0;
+                              countItem5 = 0;
+                              countItem6 = 0;
+                              countItem2++;
+                              changeColor2();
+                            },
+                            child: _shoeSize('7.5', isColor2)),
+                        GestureDetector(
+                          onTap: () {
+                            closeCount();
+                          },
+                          child: Text(
+                            (countItem2 == 0) ? '' : 'X',
+                            style: TextStyle(
+                                color: Color(0xFF3C1FC73C1FC7),
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          (countItem3 == 0) ? '' : countItem3.toString(),
+                          style: TextStyle(
+                              color: Color(0xFF3C1FC7),
+                              fontWeight: FontWeight.bold),
+                        ),
+                        GestureDetector(
+                            onTap: () {
+                              countItem2 = 0;
+                              countItem1 = 0;
+                              countItem4 = 0;
+                              countItem5 = 0;
+                              countItem6 = 0;
+                              countItem3++;
+                              changeColor3();
+                            },
+                            child: _shoeSize('8', isColor3)),
+                        GestureDetector(
+                          onTap: () {
+                            closeCount();
+                          },
+                          child: Text(
+                            (countItem3 == 0) ? '' : 'X',
+                            style: TextStyle(
+                                color: Color(0xFF3C1FC73C1FC7),
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          (countItem4 == 0) ? '' : countItem4.toString(),
+                          style: TextStyle(
+                              color: Color(0xFF3C1FC7),
+                              fontWeight: FontWeight.bold),
+                        ),
+                        GestureDetector(
+                            onTap: () {
+                              countItem2 = 0;
+                              countItem3 = 0;
+                              countItem1 = 0;
+                              countItem5 = 0;
+                              countItem6 = 0;
+                              countItem4++;
+                              changeColor4();
+                            },
+                            child: _shoeSize('8.5', isColor4)),
+                        GestureDetector(
+                          onTap: () {
+                            closeCount();
+                          },
+                          child: Text(
+                            (countItem4 == 0) ? '' : 'X',
+                            style: TextStyle(
+                                color: Color(0xFF3C1FC73C1FC7),
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          (countItem5 == 0) ? '' : countItem5.toString(),
+                          style: TextStyle(
+                              color: Color(0xFF3C1FC7),
+                              fontWeight: FontWeight.bold),
+                        ),
+                        GestureDetector(
+                            onTap: () {
+                              countItem2 = 0;
+                              countItem3 = 0;
+                              countItem4 = 0;
+                              countItem1 = 0;
+                              countItem6 = 0;
+                              countItem5++;
+                              changeColor5();
+                            },
+                            child: _shoeSize('9', isColor5)),
+                        GestureDetector(
+                          onTap: () {
+                            closeCount();
+                          },
+                          child: Text(
+                            (countItem5 == 0) ? '' : 'X',
+                            style: TextStyle(
+                                color: Color(0xFF3C1FC73C1FC7),
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          (countItem6 == 0) ? '' : countItem6.toString(),
+                          style: TextStyle(
+                              color: Color(0xFF3C1FC7),
+                              fontWeight: FontWeight.bold),
+                        ),
+                        GestureDetector(
+                            onTap: () {
+                              countItem2 = 0;
+                              countItem3 = 0;
+                              countItem4 = 0;
+                              countItem5 = 0;
+                              countItem1 = 0;
+                              countItem6++;
+                              changeColor6();
+                            },
+                            child: _shoeSize('9.5', isColor6)),
+                        GestureDetector(
+                          onTap: () {
+                            closeCount();
+                          },
+                          child: Text(
+                            (countItem6 == 0) ? '' : 'X',
+                            style: TextStyle(
+                                color: Color(0xFF3C1FC73C1FC7),
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
                     ),
                   ],
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
+              ),
+              Container(
+                padding: EdgeInsets.only(left: 12.0, right: 8.0, bottom: 8.0),
+                color: Colors.white,
+                child: Row(
                   children: <Widget>[
-                    Text(
-                      (countItem3 == 0) ? '' : countItem3.toString(),
-                      style: TextStyle(
-                          color: Color(0xFF3C1FC7),
-                          fontWeight: FontWeight.bold),
-                    ),
-                    GestureDetector(
-                        onTap: () {
-                          countItem2 = 0;
-                          countItem1 = 0;
-                          countItem4 = 0;
-                          countItem5 = 0;
-                          countItem6 = 0;
-                          countItem3++;
-                          changeColor3();
-                        },
-                        child: _shoeSize('8', isColor3)),
-                    GestureDetector(
-                      onTap: () {
-                        closeCount();
-                      },
+                    Container(
                       child: Text(
-                        (countItem3 == 0) ? '' : 'X',
+                        'Gender',
                         style: TextStyle(
-                            color: Color(0xFF3C1FC73C1FC7),
-                            fontWeight: FontWeight.bold),
+                            color: Colors.deepPurple,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 20.0),
                       ),
                     ),
-                  ],
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      (countItem4 == 0) ? '' : countItem4.toString(),
-                      style: TextStyle(
-                          color: Color(0xFF3C1FC7),
-                          fontWeight: FontWeight.bold),
-                    ),
+                    SizedBox(width: 8.0),
                     GestureDetector(
                         onTap: () {
-                          countItem2 = 0;
-                          countItem3 = 0;
-                          countItem1 = 0;
-                          countItem5 = 0;
-                          countItem6 = 0;
-                          countItem4++;
-                          changeColor4();
+                          isColorMale = true;
+                          changeColorGender(isColorMale);
                         },
-                        child: _shoeSize('8.5', isColor4)),
-                    GestureDetector(
-                      onTap: () {
-                        closeCount();
-                      },
-                      child: Text(
-                        (countItem4 == 0) ? '' : 'X',
-                        style: TextStyle(
-                            color: Color(0xFF3C1FC73C1FC7),
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
+                        child: _shoeSize('M', false)),
+                    GestureDetector(child: _shoeSize('F', true)),
                   ],
                 ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      (countItem5 == 0) ? '' : countItem5.toString(),
-                      style: TextStyle(
-                          color: Color(0xFF3C1FC7),
-                          fontWeight: FontWeight.bold),
-                    ),
-                    GestureDetector(
-                        onTap: () {
-                          countItem2 = 0;
-                          countItem3 = 0;
-                          countItem4 = 0;
-                          countItem1 = 0;
-                          countItem6 = 0;
-                          countItem5++;
-                          changeColor5();
-                        },
-                        child: _shoeSize('9', isColor5)),
-                    GestureDetector(
-                      onTap: () {
-                        closeCount();
-                      },
-                      child: Text(
-                        (countItem5 == 0) ? '' : 'X',
-                        style: TextStyle(
-                            color: Color(0xFF3C1FC73C1FC7),
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ],
-                ),
-                Column(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  children: <Widget>[
-                    Text(
-                      (countItem6 == 0) ? '' : countItem6.toString(),
-                      style: TextStyle(
-                          color: Color(0xFF3C1FC7),
-                          fontWeight: FontWeight.bold),
-                    ),
-                    GestureDetector(
-                        onTap: () {
-                          countItem2 = 0;
-                          countItem3 = 0;
-                          countItem4 = 0;
-                          countItem5 = 0;
-                          countItem1 = 0;
-                          countItem6++;
-                          changeColor6();
-                        },
-                        child: _shoeSize('9.5', isColor6)),
-                    GestureDetector(
-                      onTap: () {
-                        closeCount();
-                      },
-                      child: Text(
-                        (countItem6 == 0) ? '' : 'X',
-                        style: TextStyle(
-                            color: Color(0xFF3C1FC73C1FC7),
-                            fontWeight: FontWeight.bold),
-                      ),
-                    ),
-                  ],
-                ),
-              ],
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.only(left: 12.0, right: 8.0, bottom: 8.0),
-            color: Colors.white,
-            child: Row(
-              children: <Widget>[
-                Container(
-                  child: Text(
-                    'Gender',
-                    style: TextStyle(
-                        color: Colors.deepPurple,
-                        fontWeight: FontWeight.bold,
-                        fontSize: 20.0),
-                  ),
-                ),
-                SizedBox(width: 8.0),
-                GestureDetector(
-                    onTap: () {
-                      isColorMale = true;
-                      changeColorGender(isColorMale);
-                    },
-                    child: _shoeSize('M', false)),
-                GestureDetector(child: _shoeSize('F', true)),
-              ],
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
-            width: MediaQuery.of(context).size.width,
-            height: MediaQuery.of(context).size.height * 0.08,
-            color: Colors.white,
-            child: Center(
-              child: GestureDetector(
-                onTap: () => _tappedWidget('submit'),
-                child: Container(
-                  width: MediaQuery.of(context).size.width * 0.8,
-                  height: MediaQuery.of(context).size.height,
-                  decoration: BoxDecoration(
-                    /*boxShadow: [
+              ),
+              Container(
+                padding: EdgeInsets.only(top: 8.0, bottom: 8.0),
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height * 0.08,
+                color: Colors.white,
+                child: Center(
+                  child: GestureDetector(
+                    onTap: () => _tappedWidget('submit'),
+                    child: Container(
+                      width: MediaQuery.of(context).size.width * 0.8,
+                      height: MediaQuery.of(context).size.height,
+                      decoration: BoxDecoration(
+                        /*boxShadow: [
                                 BoxShadow(
                                   color: Color(0xFF98AFC7),
                                   blurRadius: 15.0, // has the effect of softening the shadow
@@ -566,128 +554,157 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                                   ),
                                 )
                               ],*/
-                    borderRadius: BorderRadius.circular(40.0),
-                    gradient: LinearGradient(colors: <Color>[
-                      Color(0xff3C1FC7),
-                      Color(0xff241678),
-                    ]),
+                        borderRadius: BorderRadius.circular(40.0),
+                        gradient: LinearGradient(colors: <Color>[
+                          Color(0xff3C1FC7),
+                          Color(0xff241678),
+                        ]),
+                      ),
+                      child: Center(
+                          child: Text(
+                            'Submit',
+                            style: TextStyle(color: Colors.white),
+                          )),
+                    ),
                   ),
-                  child: Center(
-                      child: Text(
-                    'Submit',
-                    style: TextStyle(color: Colors.white),
-                  )),
                 ),
               ),
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.only(top: 8.0),
-            width: double.infinity,
-            color: Colors.white,
-            child: ListTile(
-              leading: CircleAvatar(
-                backgroundImage: ExactAssetImage('images/shoe1.jpeg'),
-              ),
-              title: Text(
-                'Hester Freeman',
-                style:
-                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-              ),
-              subtitle: Text(
-                  'would be nice to...\nSystem\nlike if someone isnt active for\na month\n@Mich he was here yesterday',
-                  style: TextStyle(
-                      height: 1.5, letterSpacing: 1.0, color: Colors.black)),
-//                          trailing: IconButton(icon: Icon(Icons.more_horiz),onPressed: (){print('clicked on trailing icon');},),
-              trailing: Text('12:01'),
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.only(top: 8.0),
-            width: double.infinity,
-            color: Colors.white,
-            child: ListTile(
-              leading: CircleAvatar(
-                backgroundImage: ExactAssetImage('images/shoe1.jpeg'),
-              ),
-              title: Text(
-                'Hester Freeman',
-                style:
-                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-              ),
-              subtitle: Text('would be nice to make some',
-                  style: TextStyle(
-                      height: 1.5, letterSpacing: 1.0, color: Colors.black)),
-//                          trailing: IconButton(icon: Icon(Icons.more_horiz),onPressed: (){print('clicked on trailing icon');},),
-              trailing: Text('12:01'),
-            ),
-          ),
-          Container(
-              color: Colors.white,
-              width: MediaQuery.of(context).size.width,
-              child: Padding(
-                padding: const EdgeInsets.only(left: 24.0, bottom: 8.0),
-                child: Text(
-                  'View more comments........',
-                  style: TextStyle(fontSize: 16.0, color: Colors.grey),
-                ),
-              )),
-          Container(
-              color:Colors.white,height: MediaQuery.of(context).size.height * 0.04),
-          Image.asset('images/shoe2.jpeg'),
-          Container(
-            padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.02,bottom: MediaQuery.of(context).size.height * 0.03),
-            width: MediaQuery.of(context).size.width,
-            color: Colors.white,
-            child: Padding(
-              padding: const EdgeInsets.only(left: 20.0),
-              child: Text('Nike Max Dia',
-                  style: TextStyle(
-                      color: Colors.grey,
-                      fontSize: 22.0,
-                      fontWeight: FontWeight.bold)),
-            ),
-          ),
-          _niceRow('10', Colors.grey),
-          Container(
-            padding: EdgeInsets.only(top: 8.0),
-            width: double.infinity,
-            color: Colors.white,
-            child: ListTile(
-              leading: CircleAvatar(
-                backgroundImage: ExactAssetImage('images/shoe1.jpeg'),
-              ),
-              title: Text(
-                'Hester Freeman',
-                style:
-                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
-              ),
-              subtitle: Text('would be nice to make some',
-                  style: TextStyle(
-                      height: 1.5, letterSpacing: 1.0, color: Colors.black)),
-//                          trailing: IconButton(icon: Icon(Icons.more_horiz),onPressed: (){print('clicked on trailing icon');},),
-              trailing: Text('12:01'),
-            ),
-          ),
-          Container(
-            padding: EdgeInsets.only(top: 12.0, bottom: 12.0),
-            height: MediaQuery.of(context).size.height * 0.09,
-            width: MediaQuery.of(context).size.width,
-            color: Colors.white,
-            child: Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: <Color>[Color(0xff3C1FC7), Color(0xff241678)]),
-                shape: BoxShape.circle,
-                color: Colors.deepPurple,
-              ),
-              child: Icon(
-                Icons.add,
-                size: 28.0,
+              Container(
+                padding: EdgeInsets.only(top: 8.0),
+                width: double.infinity,
                 color: Colors.white,
+                child: ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: ExactAssetImage('images/shoe1.jpeg'),
+                  ),
+                  title: Text(
+                    'Hester Freeman',
+                    style:
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                  ),
+                  subtitle: Text(
+                      'would be nice to...\nSystem\nlike if someone isnt active for\na month\n@Mich he was here yesterday',
+                      style: TextStyle(
+                          height: 1.5, letterSpacing: 1.0, color: Colors.black)),
+//                          trailing: IconButton(icon: Icon(Icons.more_horiz),onPressed: (){print('clicked on trailing icon');},),
+                  trailing: Text('12:01'),
+                ),
               ),
+              Container(
+                padding: EdgeInsets.only(top: 8.0),
+                width: double.infinity,
+                color: Colors.white,
+                child: ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: ExactAssetImage('images/shoe1.jpeg'),
+                  ),
+                  title: Text(
+                    'Hester Freeman',
+                    style:
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                  ),
+                  subtitle: Text('would be nice to make some',
+                      style: TextStyle(
+                          height: 1.5, letterSpacing: 1.0, color: Colors.black)),
+//                          trailing: IconButton(icon: Icon(Icons.more_horiz),onPressed: (){print('clicked on trailing icon');},),
+                  trailing: Text('12:01'),
+                ),
+              ),
+              Container(
+                  color: Colors.white,
+                  width: MediaQuery.of(context).size.width,
+                  child: Padding(
+                    padding: const EdgeInsets.only(left: 24.0, bottom: 8.0),
+                    child: Text(
+                      'View more comments........',
+                      style: TextStyle(fontSize: 16.0, color: Colors.grey),
+                    ),
+                  )),
+              Container(
+                  color:Colors.white,height: MediaQuery.of(context).size.height * 0.04),
+              Image.asset('images/shoe2.jpeg'),
+              Container(
+                padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.02,bottom: MediaQuery.of(context).size.height * 0.03),
+                width: MediaQuery.of(context).size.width,
+                color: Colors.white,
+                child: Padding(
+                  padding: const EdgeInsets.only(left: 20.0),
+                  child: Text('Nike Max Dia',
+                      style: TextStyle(
+                          color: Colors.grey,
+                          fontSize: 22.0,
+                          fontWeight: FontWeight.bold)),
+                ),
+              ),
+              _niceRow('10', Colors.grey),
+              Container(
+                padding: EdgeInsets.only(top: 8.0),
+                width: double.infinity,
+                color: Colors.white,
+                child: ListTile(
+                  leading: CircleAvatar(
+                    backgroundImage: ExactAssetImage('images/shoe1.jpeg'),
+                  ),
+                  title: Text(
+                    'Hester Freeman',
+                    style:
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                  ),
+                  subtitle: Text('would be nice to make some',
+                      style: TextStyle(
+                          height: 1.5, letterSpacing: 1.0, color: Colors.black)),
+//                          trailing: IconButton(icon: Icon(Icons.more_horiz),onPressed: (){print('clicked on trailing icon');},),
+                  trailing: Text('12:01'),
+                ),
+              ),
+              Container(
+                padding: EdgeInsets.only(top: 12.0, bottom: 12.0),
+                height: MediaQuery.of(context).size.height * 0.09,
+                width: MediaQuery.of(context).size.width,
+                color: Colors.white,
+                child: Container(
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: <Color>[Color(0xff3C1FC7), Color(0xff241678)]),
+                    shape: BoxShape.circle,
+                    color: Colors.deepPurple,
+                  ),
+                  child: Icon(
+                    Icons.add,
+                    size: 28.0,
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+
+            ],
+          ),
+          Positioned( //Place it at the top, and not use the entire screen
+            top: 0.0,
+            left: 0.0,
+            right: 0.0,
+            child: AppBar(
+              elevation: 1.0,
+              iconTheme: new IconThemeData(color: Colors.white),
+              backgroundColor: Colors.transparent,
+              actions: <Widget>[
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceAround,
+                  children: <Widget>[
+                    Icon(Icons.person_outline, color: Colors.white),
+                    SizedBox(width: 10.0),
+                    Padding(
+                      padding: const EdgeInsets.only(right: 8.0),
+                      child: Icon(
+                        Icons.shopping_cart,
+                        color: Colors.white,
+                      ),
+                    )
+                  ],
+                ),
+              ],
             ),
           ),
         ],
