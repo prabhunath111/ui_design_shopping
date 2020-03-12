@@ -5,6 +5,9 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:ui_design_shopping/styleClass.dart';
 
+import 'addEntryDialog.dart';
+import 'customShowDialog.dart';
+
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
@@ -18,6 +21,7 @@ class FirstPage extends StatefulWidget {
 }
 
 class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
+  final _formKey = GlobalKey<FormState>();
   static List<StyleClass> isColorChanged = [];
   Color containerColor1 = Colors.white;
   Color containerColor2 = Colors.white;
@@ -129,6 +133,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
       isColorFemale = false;
     });
   }
+
   changeColorFemale(bool isFemale) {
     setState(() {
       isColorMale = false;
@@ -144,8 +149,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
     ]);
 
     return Scaffold(
-        extendBodyBehindAppBar: true,
-
+      extendBodyBehindAppBar: true,
       drawer: Drawer(
           child: ListView(children: <Widget>[
         DrawerHeader(
@@ -164,11 +168,9 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
       ])),
       body: Stack(
         children: <Widget>[
-
           ListView(
             controller: ScrollController(),
             children: <Widget>[
-
               Stack(
                 children: <Widget>[
                   Image.asset(
@@ -177,7 +179,8 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                     fit: BoxFit.cover,
                   ),
                   Container(
-                    margin:EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.08),
+                    margin: EdgeInsets.only(
+                        top: MediaQuery.of(context).size.height * 0.08),
                     child: Column(
                       children: <Widget>[
                         ListTile(
@@ -189,7 +192,8 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                           subtitle: Text(
                             'Nike SB Zoom Stefan\nJanoski Canvas RM',
                             style: TextStyle(
-                                color: Colors.black, fontWeight: FontWeight.bold),
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold),
                           ),
                         ),
                         Container(
@@ -199,9 +203,11 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                             children: <Widget>[
                               Container(
                                 margin: EdgeInsets.only(
-                                    top: MediaQuery.of(context).size.height * 0.02),
+                                    top: MediaQuery.of(context).size.height *
+                                        0.02),
                                 width: MediaQuery.of(context).size.width * 0.4,
-                                height: MediaQuery.of(context).size.height * 0.06,
+                                height:
+                                    MediaQuery.of(context).size.height * 0.06,
                                 decoration: BoxDecoration(
                                     borderRadius: BorderRadius.only(
                                         topRight: Radius.circular(30.0),
@@ -221,23 +227,26 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                                       style: TextStyle(color: Colors.white),
                                     ),
                                     SizedBox(
-                                      width: MediaQuery.of(context).size.width * 0.03,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.03,
                                     ),
                                     Icon(
                                       Icons.favorite_border,
                                       color: Colors.white,
                                     ),
                                     SizedBox(
-                                      width: MediaQuery.of(context).size.width * 0.03,
+                                      width: MediaQuery.of(context).size.width *
+                                          0.03,
                                     ),
                                   ],
                                 ),
                               ),
                               Container(
                                 margin: EdgeInsets.only(
-                                    right: MediaQuery.of(context).size.width * 0.03,
-                                    bottom:
-                                    MediaQuery.of(context).size.height * 0.05),
+                                    right: MediaQuery.of(context).size.width *
+                                        0.03,
+                                    bottom: MediaQuery.of(context).size.height *
+                                        0.05),
 //                          width: MediaQuery.of(context).size.width * 0.5,
 //                          height: MediaQuery.of(context).size.height * 0.08,
                                 decoration: BoxDecoration(
@@ -274,19 +283,21 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                       ),
                     ),
                     new Tab(
-                      child: Text('Universities', style: TextStyle(fontSize: 12.0)),
+                      child: Text('Universities',
+                          style: TextStyle(fontSize: 12.0)),
                     ),
                     new Tab(
-                      child:
-                      Text('Organizations', style: TextStyle(fontSize: 12.0)),
+                      child: Text('Organizations',
+                          style: TextStyle(fontSize: 12.0)),
                     ),
                   ],
                 ),
               ),
               Container(
                 width: MediaQuery.of(context).size.width,
-                height: MediaQuery.of(context).size.height * 0.4,
-                child: TabBarView(controller: _tabController, children: <Widget>[
+                height: MediaQuery.of(context).size.height * 0.5,
+                child:
+                    TabBarView(controller: _tabController, children: <Widget>[
                   _customTabBar(),
                   _customTabBar(),
                   _customTabBar(),
@@ -307,7 +318,8 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                 ),
                 child: Text(
                   'Faded Sky Blue',
-                  style: TextStyle(fontWeight: FontWeight.bold, color: Colors.grey),
+                  style: TextStyle(
+                      fontWeight: FontWeight.bold, color: Colors.grey),
                 ),
               ),
               _niceRow('20', Colors.red),
@@ -538,7 +550,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                         },
                         child: _shoeSize('M', isColorMale)),
                     GestureDetector(
-                        onTap: (){
+                        onTap: () {
                           changeColorFemale(true);
                         },
                         child: _shoeSize('F', isColorFemale)),
@@ -552,7 +564,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                 color: Colors.white,
                 child: Center(
                   child: GestureDetector(
-                    onTap: () => _tappedWidget('submit'),
+                    onTap: () => _tappedWidget(),
                     child: Container(
                       width: MediaQuery.of(context).size.width * 0.8,
                       height: MediaQuery.of(context).size.height,
@@ -576,9 +588,9 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                       ),
                       child: Center(
                           child: Text(
-                            'Submit',
-                            style: TextStyle(color: Colors.white),
-                          )),
+                        'Submit',
+                        style: TextStyle(color: Colors.white),
+                      )),
                     ),
                   ),
                 ),
@@ -593,13 +605,15 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                   ),
                   title: Text(
                     'Hester Freeman',
-                    style:
-                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        color: Colors.black, fontWeight: FontWeight.bold),
                   ),
                   subtitle: Text(
                       'would be nice to...\nSystem\nlike if someone isnt active for\na month\n@Mich he was here yesterday',
                       style: TextStyle(
-                          height: 1.5, letterSpacing: 1.0, color: Colors.black)),
+                          height: 1.5,
+                          letterSpacing: 1.0,
+                          color: Colors.black)),
 //                          trailing: IconButton(icon: Icon(Icons.more_horiz),onPressed: (){print('clicked on trailing icon');},),
                   trailing: Text('12:01'),
                 ),
@@ -614,12 +628,14 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                   ),
                   title: Text(
                     'Hester Freeman',
-                    style:
-                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        color: Colors.black, fontWeight: FontWeight.bold),
                   ),
                   subtitle: Text('would be nice to make some',
                       style: TextStyle(
-                          height: 1.5, letterSpacing: 1.0, color: Colors.black)),
+                          height: 1.5,
+                          letterSpacing: 1.0,
+                          color: Colors.black)),
 //                          trailing: IconButton(icon: Icon(Icons.more_horiz),onPressed: (){print('clicked on trailing icon');},),
                   trailing: Text('12:01'),
                 ),
@@ -635,10 +651,13 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                     ),
                   )),
               Container(
-                  color:Colors.white,height: MediaQuery.of(context).size.height * 0.04),
+                  color: Colors.white,
+                  height: MediaQuery.of(context).size.height * 0.04),
               Image.asset('images/shoe2.jpeg'),
               Container(
-                padding: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.02,bottom: MediaQuery.of(context).size.height * 0.03),
+                padding: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.02,
+                    bottom: MediaQuery.of(context).size.height * 0.03),
                 width: MediaQuery.of(context).size.width,
                 color: Colors.white,
                 child: Padding(
@@ -661,12 +680,14 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                   ),
                   title: Text(
                     'Hester Freeman',
-                    style:
-                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        color: Colors.black, fontWeight: FontWeight.bold),
                   ),
                   subtitle: Text('would be nice to make some',
                       style: TextStyle(
-                          height: 1.5, letterSpacing: 1.0, color: Colors.black)),
+                          height: 1.5,
+                          letterSpacing: 1.0,
+                          color: Colors.black)),
 //                          trailing: IconButton(icon: Icon(Icons.more_horiz),onPressed: (){print('clicked on trailing icon');},),
                   trailing: Text('12:01'),
                 ),
@@ -692,10 +713,10 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                   ),
                 ),
               ),
-
             ],
           ),
-          Positioned( //Place it at the top, and not use the entire screen
+          Positioned(
+            //Place it at the top, and not use the entire screen
             top: 0.0,
             left: 0.0,
             right: 0.0,
@@ -740,12 +761,16 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
               borderRadius: BorderRadius.circular(5.0),
             ),
             child: Padding(
-              padding: const EdgeInsets.only(left:8.0,top:3.0,right:8.0,bottom: 3.0),
+              padding: const EdgeInsets.only(
+                  left: 8.0, top: 3.0, right: 8.0, bottom: 3.0),
               child: Row(
                 children: <Widget>[
                   Text(
                     '341 ',
-                    style: TextStyle(color: Colors.white, fontSize: 20.0, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 20.0,
+                        fontWeight: FontWeight.bold),
                   ),
                   Padding(
                     padding: const EdgeInsets.only(top: 8.0),
@@ -777,7 +802,8 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
   Widget _timeLeft(
       Color textColor1, Color textColor2, FontWeight customFontWeight) {
     return Padding(
-      padding: const EdgeInsets.only(left: 20.0, right: 20.0, top: 10.0, bottom: 10.0),
+      padding: const EdgeInsets.only(
+          left: 20.0, right: 20.0, top: 10.0, bottom: 10.0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -792,8 +818,10 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
               SizedBox(height: MediaQuery.of(context).size.height * 0.006),
               Text(
                 '14',
-                style:
-                    TextStyle(fontWeight: customFontWeight, color: textColor2, fontSize: 22.0),
+                style: TextStyle(
+                    fontWeight: customFontWeight,
+                    color: textColor2,
+                    fontSize: 22.0),
               ),
             ],
           ),
@@ -807,7 +835,9 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
               SizedBox(height: MediaQuery.of(context).size.height * 0.006),
               Text(':',
                   style: TextStyle(
-                      fontWeight: customFontWeight, color: textColor2, fontSize: 22.0)),
+                      fontWeight: customFontWeight,
+                      color: textColor2,
+                      fontSize: 22.0)),
             ],
           ),
           Column(
@@ -820,7 +850,9 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
               SizedBox(height: MediaQuery.of(context).size.height * 0.006),
               Text('22',
                   style: TextStyle(
-                      fontWeight: customFontWeight, color: textColor2, fontSize: 22.0)),
+                      fontWeight: customFontWeight,
+                      color: textColor2,
+                      fontSize: 22.0)),
             ],
           ),
           Column(
@@ -833,7 +865,9 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
               SizedBox(height: MediaQuery.of(context).size.height * 0.006),
               Text(':',
                   style: TextStyle(
-                      fontWeight: customFontWeight, color: textColor2, fontSize: 22.0)),
+                      fontWeight: customFontWeight,
+                      color: textColor2,
+                      fontSize: 22.0)),
             ],
           ),
           Column(
@@ -846,7 +880,9 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
               SizedBox(height: MediaQuery.of(context).size.height * 0.006),
               Text('20',
                   style: TextStyle(
-                      fontWeight: customFontWeight, color: textColor2, fontSize: 22.0)),
+                      fontWeight: customFontWeight,
+                      color: textColor2,
+                      fontSize: 22.0)),
             ],
           ),
           Column(
@@ -859,7 +895,9 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
               SizedBox(height: MediaQuery.of(context).size.height * 0.006),
               Text(':',
                   style: TextStyle(
-                      fontWeight: customFontWeight, color: textColor2, fontSize: 22.0)),
+                      fontWeight: customFontWeight,
+                      color: textColor2,
+                      fontSize: 22.0)),
             ],
           ),
           Column(
@@ -872,7 +910,9 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
               SizedBox(height: MediaQuery.of(context).size.height * 0.006),
               Text('51',
                   style: TextStyle(
-                      fontWeight: customFontWeight, color: textColor2, fontSize: 22.0)),
+                      fontWeight: customFontWeight,
+                      color: textColor2,
+                      fontSize: 22.0)),
             ],
           ),
         ],
@@ -902,8 +942,84 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
     );
   }
 
-  void _tappedWidget(String whereTapped) {
-    print('Clicked on $whereTapped');
+  void _tappedWidget() {
+    showDialog(
+        context: context,
+        builder: (BuildContext context) {
+          return Container(
+            color: Color(0xFF3E2ECA).withOpacity(0.8),
+            child: customAlertDialog(),
+//            AlertDialog(
+//              content: Form(
+//                key: _formKey,
+//                  child: Container(
+//                    decoration: BoxDecoration(
+//                      borderRadius: BorderRadius.all(Radius.circular(64.0)),
+//
+//                    ),
+//                    child: Column(
+//                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+//                      mainAxisSize: MainAxisSize.min,
+//                      children: <Widget>[
+//                        Container(
+//                            alignment: Alignment.topRight,
+//                            child: IconButton(icon: Icon(Icons.cancel),
+//                                color: Color(0xFF241678),
+//                                onPressed: (){},
+//                                iconSize: 26.0,),
+//                        ),
+//                        Text(
+//                          'GREAT!',
+//                          style: TextStyle(
+//                              color: Color(0xff3C1FC7),
+//                              fontWeight: FontWeight.bold),
+//                        ),
+//                        Container(
+//                          decoration: BoxDecoration(
+//                            gradient: LinearGradient(
+//                                begin: Alignment.topCenter,
+//                                end: Alignment.bottomCenter,
+//                                colors: <Color>[
+//                                  Color(0xff3C1FC7),
+//                                  Color(0xff241678)
+//                                ]),
+//                            shape: BoxShape.circle,
+//                          ),
+//                          child: IconButton(
+//                            icon: Icon(Icons.done),
+//                            iconSize: 28.0,
+//                            color: Colors.white,
+//                            onPressed: () {},
+//                          ),
+//                        ),
+//                        Text(
+//                          'This Shoe Has Been Added To',
+//                          style: TextStyle(
+//                              color: Color(0xff3C1FC7),
+//                              fontWeight: FontWeight.bold),
+//                        ),
+//                        Text(
+//                          'Your Nice List',
+//                          style: TextStyle(
+//                              color: Color(0xff3C1FC7),
+//                              fontWeight: FontWeight.bold),
+//                        ),
+//                      ],
+//                    ),
+//                ),
+//              ),
+//            ),
+          );
+        });
+  }
+
+  void _openAddEntryDialog() {
+    Navigator.of(context).push(new MaterialPageRoute<Null>(
+      builder: (BuildContext context) {
+        return new AddEntryDialog();
+      },
+      fullscreenDialog: true,
+    ));
   }
 
   Widget _customTabBar() {
@@ -935,9 +1051,14 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
           children: <Widget>[
             Container(
                 margin: EdgeInsets.only(top: 20.0),
-                child: Image.asset('images/shoe1.jpeg',fit: BoxFit.cover,)),
+                child: Image.asset(
+                  'images/shoe1.jpeg',
+                  fit: BoxFit.cover,
+                )),
             Container(
-              margin: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.03,right: MediaQuery.of(context).size.width * 0.45),
+              margin: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width * 0.03,
+                  right: MediaQuery.of(context).size.width * 0.45),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30.0),
                   gradient: LinearGradient(
@@ -952,6 +1073,64 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
           ],
         ),
       ],
+    );
+  }
+
+  customAlertDialog() {
+    return new CustomAlertDialog(
+      content: new Container(
+        decoration: new BoxDecoration(
+          shape: BoxShape.rectangle,
+          color: const Color(0xFFFFFF),
+          borderRadius: new BorderRadius.all(new Radius.circular(0.0)),
+        ),
+        child: new Column(
+          mainAxisSize: MainAxisSize.min,
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+
+            Container(
+              alignment: Alignment.topRight,
+              child: IconButton(
+                icon: Icon(Icons.cancel),
+                color: Color(0xFF241678),
+                onPressed: () {},
+                iconSize: 26.0,
+              ),
+            ),
+            Text(
+              'GREAT!',
+              style: TextStyle(
+                  color: Color(0xff3C1FC7), fontWeight: FontWeight.bold),
+            ),
+            Container(
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                    begin: Alignment.topCenter,
+                    end: Alignment.bottomCenter,
+                    colors: <Color>[Color(0xff3C1FC7), Color(0xff241678)]),
+                shape: BoxShape.circle,
+              ),
+              child: IconButton(
+                icon: Icon(Icons.done),
+                iconSize: 28.0,
+                color: Colors.white,
+                onPressed: () {},
+              ),
+            ),
+            Text(
+              'This Shoe Has Been Added To',
+              style: TextStyle(
+                  color: Color(0xff3C1FC7), fontWeight: FontWeight.bold),
+            ),
+            Text(
+              'Your Nice List',
+              style: TextStyle(
+                  color: Color(0xff3C1FC7), fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
+      ),
     );
   }
 }
