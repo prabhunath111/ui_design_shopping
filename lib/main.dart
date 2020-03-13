@@ -1025,24 +1025,29 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
   Widget _customTabBar() {
     return Column(
       children: <Widget>[
-        Container(
-          alignment: Alignment.centerRight,
-          color: Colors.white,
+        GestureDetector(
+          onTap: () {
+            _tappedWidget();
+          },
           child: Container(
-            padding: EdgeInsets.all(8.0),
-            margin: EdgeInsets.all(8.0),
-            decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(5.0),
-                gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: <Color>[Color(0xFF3C1FC7), Color(0xFF241678)])),
-            child: Text(
-              'High School List',
-              style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 12.0,
-                  fontWeight: FontWeight.bold),
+            alignment: Alignment.centerRight,
+            color: Colors.white,
+            child: Container(
+              padding: EdgeInsets.all(8.0),
+              margin: EdgeInsets.all(8.0),
+              decoration: BoxDecoration(
+                  borderRadius: BorderRadius.circular(5.0),
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: <Color>[Color(0xFF3C1FC7), Color(0xFF241678)])),
+              child: Text(
+                'High School List',
+                style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 12.0,
+                    fontWeight: FontWeight.bold),
+              ),
             ),
           ),
         ),
@@ -1088,22 +1093,29 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-
             Container(
               alignment: Alignment.topRight,
               child: IconButton(
                 icon: Icon(Icons.cancel),
                 color: Color(0xFF241678),
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.pop(context);
+                },
                 iconSize: 26.0,
               ),
             ),
-            Text(
-              'GREAT!',
-              style: TextStyle(
-                  color: Color(0xff3C1FC7), fontWeight: FontWeight.bold),
+            Container(
+              margin: EdgeInsets.only(bottom: 20.0),
+              child: Text(
+                'GREAT!',
+                style: TextStyle(
+                    color: Color(0XFF3E2ECA),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18.0),
+              ),
             ),
             Container(
+              margin: EdgeInsets.only(bottom: 20.0),
               decoration: BoxDecoration(
                 gradient: LinearGradient(
                     begin: Alignment.topCenter,
@@ -1115,18 +1127,28 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                 icon: Icon(Icons.done),
                 iconSize: 28.0,
                 color: Colors.white,
-                onPressed: () {},
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
               ),
             ),
             Text(
               'This Shoe Has Been Added To',
               style: TextStyle(
-                  color: Color(0xff3C1FC7), fontWeight: FontWeight.bold),
+                  color: Color(0xff3C1FC7),
+                  fontWeight: FontWeight.bold,
+                  fontSize: 18.0),
             ),
-            Text(
-              'Your Nice List',
-              style: TextStyle(
-                  color: Color(0xff3C1FC7), fontWeight: FontWeight.bold),
+            SizedBox(height: MediaQuery.of(context).size.height * 0.006),
+            Container(
+              margin: EdgeInsets.only(bottom: 20.0),
+              child: Text(
+                'Your Nice List',
+                style: TextStyle(
+                    color: Color(0xff3C1FC7),
+                    fontWeight: FontWeight.bold,
+                    fontSize: 18.0),
+              ),
             ),
           ],
         ),
