@@ -1071,15 +1071,22 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                                 color: Colors.white,
                                 fontSize: 10.0),
                           )),
-                      Card(
-                        margin: EdgeInsets.only(left: 20.0, right: MediaQuery.of(context).size.width * 0.25),
-                        child:TextField(
-                          controller: _textFieldController,
-                          decoration: InputDecoration(
-                            prefixIcon: Icon(Icons.search),
-                              hintText: 'Search!'
+                      Stack(
+                        children: <Widget>[
+                          Card(
+                            margin: EdgeInsets.only(left: 20.0, right: MediaQuery.of(context).size.width * 0.25),
+                            child:TextField(
+                              controller: _textFieldController,
+                              decoration: InputDecoration(
+                                  prefixIcon: Icon(Icons.search),
+                                  hintText: 'Search!'
+                              ),
+                            ),
                           ),
-                        ),
+                          Positioned(
+                              top:0.0,right:0.0,
+                              child: FlatButton(onPressed: null, child: Text('Cancel',style: TextStyle(color: Colors.white,fontSize: 20.0),)))
+                        ],
                       ),
                     ],
                   );
