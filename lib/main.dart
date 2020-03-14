@@ -1085,7 +1085,8 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                           ),
                           Positioned(
                               top:0.0,right:0.0,
-                              child: FlatButton(onPressed: null, child: Text('Cancel',style: TextStyle(color: Colors.white,fontSize: 20.0),)))
+                              child: FlatButton(onPressed: ()=> Navigator.pop(context),
+                                   child: Text('Cancel',style: TextStyle(color: Colors.white,fontSize: 20.0),)))
                         ],
                       ),
                     ],
