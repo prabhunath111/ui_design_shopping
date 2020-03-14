@@ -20,6 +20,7 @@ class FirstPage extends StatefulWidget {
 
 class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
   final _formKey = GlobalKey<FormState>();
+  TextEditingController _textFieldController;
   static List<StyleClass> isColorChanged = [];
   Color containerColor1 = Colors.white;
   Color containerColor2 = Colors.white;
@@ -946,7 +947,9 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
         builder: (BuildContext context) {
           return Container(
             color: Color(0xFF3E2ECA).withOpacity(0.8),
-            child: (tappedHere=='submit')?customAlertDialog():alertDialogSchoolList(),
+            child: (tappedHere == 'submit')
+                ? customAlertDialog()
+                : alertDialogSchoolList(),
 //            AlertDialog(
 //              content: Form(
 //                key: _formKey,
@@ -1019,37 +1022,65 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
             showGeneralDialog(
                 context: context,
                 barrierDismissible: true,
-                barrierLabel: MaterialLocalizations.of(context)
-                    .modalBarrierDismissLabel,
+                barrierLabel:
+                    MaterialLocalizations.of(context).modalBarrierDismissLabel,
                 barrierColor: Color(0XFF3E2ECA).withOpacity(0.95),
                 transitionDuration: const Duration(milliseconds: 200),
-                pageBuilder: (BuildContext buildContext,
-                    Animation animation,
+                pageBuilder: (BuildContext buildContext, Animation animation,
                     Animation secondaryAnimation) {
                   return Column(
                     children: <Widget>[
                       GestureDetector(
-                        onTap: (){
+                        onTap: () {
                           Navigator.pop(context);
                         },
                         child: Container(
                           alignment: Alignment.topRight,
-                          margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.05, right: MediaQuery.of(context).size.width * 0.05),
+                          margin: EdgeInsets.only(
+                              top: MediaQuery.of(context).size.height * 0.05,
+                              right: MediaQuery.of(context).size.width * 0.05),
                           child: Container(
-                              child: Icon(Icons.cancel,color: Colors.white,size: 28.0,)
-                          ),
+                              child: Icon(
+                            Icons.cancel,
+                            color: Colors.white,
+                            size: 28.0,
+                          )),
                         ),
                       ),
                       Container(
-                        alignment:Alignment.topLeft,
+                          alignment: Alignment.topLeft,
                           padding: EdgeInsets.only(left: 24.0),
-                          child: Text('School List',style: TextStyle(decoration: TextDecoration.none,fontWeight: FontWeight.bold,color: Colors.white,fontSize: 16.0),)),
-
-                      SizedBox(height: MediaQuery.of(context).size.height * 0.1),
+                          child: Text(
+                            'School List',
+                            style: TextStyle(
+                                decoration: TextDecoration.none,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                fontSize: 16.0),
+                          )),
+                      SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.1),
                       Container(
-                          alignment:Alignment.topCenter,
+                          alignment: Alignment.topCenter,
                           padding: EdgeInsets.only(left: 24.0),
-                          child: Text('Type To Find School',style: TextStyle(decoration: TextDecoration.none,fontWeight: FontWeight.normal,color: Colors.white,fontSize: 10.0),)),
+                          child: Text(
+                            'Type To Find School',
+                            style: TextStyle(
+                                decoration: TextDecoration.none,
+                                fontWeight: FontWeight.normal,
+                                color: Colors.white,
+                                fontSize: 10.0),
+                          )),
+                      Card(
+                        margin: EdgeInsets.only(left: 20.0, right: MediaQuery.of(context).size.width * 0.25),
+                        child:TextField(
+                          controller: _textFieldController,
+                          decoration: InputDecoration(
+                            prefixIcon: Icon(Icons.search),
+                              hintText: 'Search!'
+                          ),
+                        ),
+                      ),
                     ],
                   );
                 });
@@ -1192,13 +1223,9 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
         child: new Column(
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-
-          ],
+          children: <Widget>[],
         ),
       ),
     );
-
   }
-
 }
