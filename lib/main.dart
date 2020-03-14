@@ -1069,24 +1069,33 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                                 decoration: TextDecoration.none,
                                 fontWeight: FontWeight.normal,
                                 color: Colors.white,
-                                fontSize: 10.0),
+                                fontSize: 14.0),
                           )),
+                      SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                       Stack(
                         children: <Widget>[
                           Card(
-                            margin: EdgeInsets.only(left: 20.0, right: MediaQuery.of(context).size.width * 0.25),
-                            child:TextField(
-                              controller: _textFieldController,
-                              decoration: InputDecoration(
-                                  prefixIcon: Icon(Icons.search),
-                                  hintText: 'Search!'
+                            elevation: 0,
+                            color: Colors.transparent,
+                            margin: EdgeInsets.only(left: 20.0, right: MediaQuery.of(context).size.width * 0.23),
+                            child:Container(
+                              decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(12.0),
+                                color: Colors.white
+                              ),
+                              child: TextField(
+                                controller: _textFieldController,
+                                decoration: InputDecoration(
+                                    prefixIcon: Icon(Icons.search),
+                                    hintText: 'Search',
+                                ),
                               ),
                             ),
                           ),
                           Positioned(
                               top:0.0,right:0.0,
                               child: FlatButton(onPressed: ()=> Navigator.pop(context),
-                                   child: Text('Cancel',style: TextStyle(color: Colors.white,fontSize: 20.0),)))
+                                   child: Text('Cancel',style: TextStyle(color: Colors.white,fontSize: 16.0),)))
                         ],
                       ),
                     ],
