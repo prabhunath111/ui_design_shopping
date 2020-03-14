@@ -1062,14 +1062,13 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                           height: MediaQuery.of(context).size.height * 0.1),
                       Container(
                           alignment: Alignment.topCenter,
-                          padding: EdgeInsets.only(left: 24.0),
                           child: Text(
                             'Type To Find School',
                             style: TextStyle(
                                 decoration: TextDecoration.none,
                                 fontWeight: FontWeight.normal,
                                 color: Colors.white,
-                                fontSize: 14.0),
+                                fontSize: 11.0),
                           )),
                       SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                       Stack(
