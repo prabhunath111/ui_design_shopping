@@ -55,64 +55,70 @@ class _CartPageState extends State<CartPage> {
               SizedBox(height: MediaQuery.of(context).size.height * 0.05),
               Image.asset('images/shoe1.jpeg'),
               SizedBox(height: MediaQuery.of(context).size.height * 0.023),
-              Padding(
-                padding: const EdgeInsets.only(left:16.0, right:8.0),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
+             cartDetails('M 8.5'),
+              cartDetails('F 8'),
+            ],
+          ),
+        ],
+      ),
+    );
+  }
+  Widget cartDetails(String details){
+    return  Padding(
+      padding: const EdgeInsets.only(left:16.0, right:8.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+
+              Text('Nike Max Dia',style: TextStyle(color: Colors.black54,fontSize: 24.0,fontWeight: FontWeight.bold),),
+
+              Container(
+                margin: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.15),
+                child: Row(
                   children: <Widget>[
-                    Row(
-                      children: <Widget>[
-
-                        Text('Nike Max Dia',style: TextStyle(color: Colors.black54,fontSize: 24.0,fontWeight: FontWeight.bold),),
-
-                        Container(
-                          margin: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.15),
-                          child: Row(
-                            children: <Widget>[
-                              Container(
-                                margin: EdgeInsets.only(right: MediaQuery.of(context).size.width*0.01),
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Color(0xFF3E2ECA),
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Icon(Icons.remove,color: Colors.white,size: 10.0,),
-                                  )),
-                              Card(elevation:1.0,child: Padding(
-                                padding: const EdgeInsets.all(8.0),
-                                child: Text('Qty   1',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 22.0),),
-                              ),),
-                              Container(
-                                  margin: EdgeInsets.only(left: MediaQuery.of(context).size.width*0.01),
-                                  decoration: BoxDecoration(
-                                    shape: BoxShape.circle,
-                                    color: Color(0xFF3E2ECA),
-                                  ),
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Icon(Icons.add,color: Colors.white,size: 10.0),
-                                  )),
-                            ],
-                          ),
+                    Container(
+                        margin: EdgeInsets.only(right: MediaQuery.of(context).size.width*0.01),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Color(0xFF3E2ECA),
                         ),
-                      ],
-                    ),
-                    Row(
-                      children: <Widget>[
-                        Text('Size',style: TextStyle(color: Colors.grey,fontSize: 16.0),),
-                        SizedBox(width: MediaQuery.of(context).size.width * 0.03),
-//                        Icon(Icons.remove,color: Colors.grey,),
-//                        Text('M', style: TextStyle(color: Colors.grey),)
-
-                      ],
-                    )
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Icon(Icons.remove,color: Colors.white,size: 10.0,),
+                        )),
+                    Card(elevation:1.0,child: Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: Text('Qty   1',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 22.0),),
+                    ),),
+                    Container(
+                        margin: EdgeInsets.only(left: MediaQuery.of(context).size.width*0.01),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          color: Color(0xFF3E2ECA),
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Icon(Icons.add,color: Colors.white,size: 10.0),
+                        )),
                   ],
                 ),
               ),
-
             ],
+          ),
+          Row(
+            children: <Widget>[
+              Text('Size',style: TextStyle(color: Colors.grey,fontSize: 16.0),),
+              SizedBox(width: MediaQuery.of(context).size.width * 0.03),
+              Icon(Icons.remove,color: Colors.grey,),
+              Text("$details", style: TextStyle(color: Colors.grey, fontSize: 16.0),),
+            ],
+          ),
+          Padding(
+            padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.1, top: 5.0),
+            child: Text('Remove', style: TextStyle(decoration:TextDecoration.underline,fontWeight:FontWeight.bold,fontStyle:FontStyle.italic,color: Colors.grey, fontSize: 16.0),),
           ),
         ],
       ),
