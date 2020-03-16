@@ -1,4 +1,3 @@
-
 import 'package:flutter/material.dart';
 
 class CartPage extends StatefulWidget {
@@ -22,99 +21,234 @@ class _CartPageState extends State<CartPage> {
               leading: Padding(
                 padding: const EdgeInsets.all(8.0),
                 child: Container(
-                  decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: <Color>[
-                          Color(0xFF3C1FC7), Color(0xFF241678)
-                        ]
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: <Color>[
+                            Color(0xFF3C1FC7),
+                            Color(0xFF241678)
+                          ]),
+                      shape: BoxShape.circle,
                     ),
-                    shape: BoxShape.circle,
-                  ),
-                    child: IconButton(icon: Icon(Icons.arrow_back_ios,color: Colors.white,),
-                        onPressed: (){
-                      print('clicked');
-                    })),
+                    child: IconButton(
+                        icon: Icon(
+                          Icons.arrow_back_ios,
+                          color: Colors.white,
+                        ),
+                        onPressed: () {
+                          print('clicked');
+                        })),
               ),
               backgroundColor: Colors.transparent,
               iconTheme: new IconThemeData(color: Colors.red),
-              actions: <Widget>[
-
-              ],
+              actions: <Widget>[],
             ),
           ),
           ListView(
             children: <Widget>[
               SizedBox(height: MediaQuery.of(context).size.height * 0.04),
               Container(
-                padding: EdgeInsets.only(left: 8.0),
-                margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.05),
-                child:Text('Buy Now',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 20.0),)
-              ),
+                  padding: EdgeInsets.only(left: 8.0),
+                  margin: EdgeInsets.only(
+                      top: MediaQuery.of(context).size.height * 0.05),
+                  child: Text(
+                    'Buy Now',
+                    style:
+                        TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
+                  )),
               SizedBox(height: MediaQuery.of(context).size.height * 0.05),
               Image.asset('images/shoe1.jpeg'),
               SizedBox(height: MediaQuery.of(context).size.height * 0.023),
-             cartDetails('M 8.5'),
+              cartDetails('M 8.5'),
               cartDetails('F 8'),
-
               SizedBox(height: MediaQuery.of(context).size.height * 0.016),
-
               Container(
                 height: MediaQuery.of(context).size.height * 0.001,
-                width:  MediaQuery.of(context).size.width,
+                width: MediaQuery.of(context).size.width,
                 color: Colors.grey,
               ),
               Padding(
-                padding: const EdgeInsets.only(left:16,top: 16.0),
+                padding: const EdgeInsets.only(left: 16, top: 16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
                   children: <Widget>[
-                    Text('Shipping address',style: TextStyle(color: Colors.black87,fontWeight: FontWeight.bold),),
-                    SizedBox(height: 12.0,),
-                    Row(children: <Widget>[
-                      Padding(
-                        padding: const EdgeInsets.only(right:20.0),
-                        child: Icon(Icons.local_shipping,color: Colors.grey,),
-                      ),
-                      Text('6/41 Pandurangon vittal\nst-2, salem-6.',style: TextStyle(height: 1.5,color: Colors.grey),),
-                      Expanded(child: SizedBox()),
-                      Card(
-                        elevation: 0.0,
-                        child: Container(
-                            decoration: BoxDecoration(
-                              color: Colors.white,
-                              borderRadius: BorderRadius.circular(20.0),
-                              border: Border.all(color:Colors.grey,),
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.only(left:16.0, top: 6.0, right: 16.0, bottom: 6.0),
-                              child: Text('CHANGE',style: TextStyle(height: 1.5,color: Colors.black87,fontWeight: FontWeight.bold),),
-                            )),
-                      ),
-                    ],)
+                    Text(
+                      'Shipping address',
+                      style: TextStyle(
+                          color: Colors.black87, fontWeight: FontWeight.bold),
+                    ),
+                    SizedBox(
+                      height: 12.0,
+                    ),
+                    Row(
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.only(right: 20.0),
+                          child: Icon(
+                            Icons.local_shipping,
+                            color: Colors.grey,
+                          ),
+                        ),
+                        Text(
+                          '6/41 Pandurangon vittal\nst-2, salem-6.',
+                          style: TextStyle(height: 1.5, color: Colors.grey),
+                        ),
+                        Expanded(child: SizedBox()),
+                        Card(
+                          elevation: 0.0,
+                          child: Container(
+                              decoration: BoxDecoration(
+                                color: Colors.white,
+                                borderRadius: BorderRadius.circular(20.0),
+                                border: Border.all(
+                                  color: Colors.grey,
+                                ),
+                              ),
+                              child: Padding(
+                                padding: const EdgeInsets.only(
+                                    left: 16.0,
+                                    top: 6.0,
+                                    right: 16.0,
+                                    bottom: 6.0),
+                                child: Text(
+                                  'CHANGE',
+                                  style: TextStyle(
+                                      height: 1.5,
+                                      color: Colors.black87,
+                                      fontWeight: FontWeight.bold),
+                                ),
+                              )),
+                        ),
+                      ],
+                    )
                   ],
                 ),
               ),
               SizedBox(height: 12.0),
               Container(
                 height: MediaQuery.of(context).size.height * 0.001,
-                width:  MediaQuery.of(context).size.width,
+                width: MediaQuery.of(context).size.width,
                 color: Colors.grey,
               ),
               SizedBox(height: 8.0),
               Padding(
-                padding: const EdgeInsets.only(left:16.0,right: 8.0),
+                padding: const EdgeInsets.only(left: 16.0, right: 8.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text('Price details',style: TextStyle(height: 1.5,color: Colors.black87,fontWeight: FontWeight.bold),),
+                    Text(
+                      'Price details',
+                      style: TextStyle(
+                          height: 1.5,
+                          color: Colors.black87,
+                          fontWeight: FontWeight.bold),
+                    ),
                     SizedBox(height: 8.0),
+                    Card(
+                      elevation: 0.0,
+                      child: Container(
+                          decoration: BoxDecoration(
+                            color: Colors.white,
+                            borderRadius: BorderRadius.circular(10.0),
+                            border: Border.all(
+                              color: Colors.grey,
+                            ),
+                            boxShadow: [
+                              BoxShadow(
+                                color: Colors.grey,
+                                blurRadius: 15.0, // has the effect of softening the shadow
+                                spreadRadius: 0.0, // has the effect of extending the shadow
+                                offset: Offset(
+                                  5.0, // horizontal, move right 10
+                                  10.0, // vertical, move down 10
+                                ),
+                              )
+                            ],
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.only(
+                                left: 16.0,
+                                top: 10.0,
+                                right: 16.0,
+                                bottom: 10.0),
+                            child: Text(
+                              'Nike Air Max   - - - - - - - - - - - - - - - - - - - - -\$70x2',
+                              style: TextStyle(
+                                  height: 1.5,
+                                  color: Colors.grey,
+                                  fontWeight: FontWeight.bold),
+                            ),
+                          )),
+                    ),
+                    SizedBox(height: 8.0),
+                   Container(
+                     alignment: Alignment.topRight,
+                     child: Container(
+                       child: Column(
+                         crossAxisAlignment: CrossAxisAlignment.start,
+                         children: <Widget>[
+                           Text('Subtotal           \$140',style: TextStyle(color: Colors.grey)),
+                           Text('Shipping          \$9',style: TextStyle(color: Colors.grey)),
+                           Text('Taxes               \$10',style: TextStyle(color: Colors.grey)),
+                           Text('Total                \$149',style: TextStyle(color: Colors.grey)),
+                         ],
+                       ),
+                     ),
+                   ),
+                    SizedBox(height: 8.0),
+                    Container(
+                      height: MediaQuery.of(context).size.height * 0.001,
+                      width: MediaQuery.of(context).size.width,
+                      color: Colors.grey,
+                    ),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.04),
+                    Text('Referral Link',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold)),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+                    Container(
+                      margin: EdgeInsets.symmetric(horizontal: 10.0),
+                      height: MediaQuery.of(context).size.height * 0.06,
+                      decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20.0),
+                        boxShadow: [
+                          BoxShadow(
+                            color: Colors.grey,
+                            blurRadius: 15.0, // has the effect of softening the shadow
+                            spreadRadius: 0.0, // has the effect of extending the shadow
+                            offset: Offset(
+                              5.0, // horizontal, move right 10
+                              10.0, // vertical, move down 10
+                            ),
+                          )
+                        ],
+
+                      ),
+                    ),
+                    SizedBox(height: MediaQuery.of(context).size.height * 0.04),
 
                   ],
                 ),
+              ),
+              Container(
+                height: MediaQuery.of(context).size.height * 0.075,
+                width: MediaQuery.of(context).size.width,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+
+                      colors: <Color>[
+                        Color(0xFF3C1FC7),
+                        Color(0xFF241678)
+
+                      ]
+
+                  ),
+                ),
+                child: Center(child: Text('CONTINUE',style: TextStyle(color: Colors.white,fontSize: 16.0,fontWeight: FontWeight.bold),)),
               ),
             ],
           ),
@@ -122,45 +256,67 @@ class _CartPageState extends State<CartPage> {
       ),
     );
   }
-  Widget cartDetails(String details){
-    return  Padding(
-      padding: const EdgeInsets.only(left:16.0, right:8.0),
+
+  Widget cartDetails(String details) {
+    return Padding(
+      padding: const EdgeInsets.only(left: 16.0, right: 8.0),
       child: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Row(
             children: <Widget>[
-
-              Text('Nike Max Dia',style: TextStyle(color: Colors.black54,fontSize: 24.0,fontWeight: FontWeight.bold),),
-
+              Text(
+                'Nike Max Dia',
+                style: TextStyle(
+                    color: Colors.black54,
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.bold),
+              ),
               Container(
-                margin: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.15),
+                margin: EdgeInsets.only(
+                    left: MediaQuery.of(context).size.width * 0.15),
                 child: Row(
                   children: <Widget>[
                     Container(
-                        margin: EdgeInsets.only(right: MediaQuery.of(context).size.width*0.01),
+                        margin: EdgeInsets.only(
+                            right: MediaQuery.of(context).size.width * 0.01),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           color: Color(0xFF3E2ECA),
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Icon(Icons.remove,color: Colors.white,size: 10.0,),
+                          child: Icon(
+                            Icons.remove,
+                            color: Colors.white,
+                            size: 10.0,
+                          ),
                         )),
-                    Card(elevation:1.0,child: Padding(
-                      padding: const EdgeInsets.all(8.0),
-                      child: Text('Qty   1',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold,fontSize: 22.0),),
-                    ),),
+                    Card(
+                      elevation: 1.0,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'Qty   1',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 22.0),
+                        ),
+                      ),
+                    ),
                     Container(
-                        margin: EdgeInsets.only(left: MediaQuery.of(context).size.width*0.01),
+                        margin: EdgeInsets.only(
+                            left: MediaQuery.of(context).size.width * 0.01),
                         decoration: BoxDecoration(
                           shape: BoxShape.circle,
                           color: Color(0xFF3E2ECA),
                         ),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Icon(Icons.add,color: Colors.white,size: 10.0),
+                          child:
+                              Icon(Icons.add, color: Colors.white, size: 10.0),
                         )),
                   ],
                 ),
@@ -169,17 +325,34 @@ class _CartPageState extends State<CartPage> {
           ),
           Row(
             children: <Widget>[
-              Text('Size',style: TextStyle(color: Colors.grey,fontSize: 16.0),),
+              Text(
+                'Size',
+                style: TextStyle(color: Colors.grey, fontSize: 16.0),
+              ),
               SizedBox(width: MediaQuery.of(context).size.width * 0.09),
-              Icon(Icons.remove,color: Colors.grey,),
-              Text("$details", style: TextStyle(color: Colors.grey, fontSize: 16.0),),
+              Icon(
+                Icons.remove,
+                color: Colors.grey,
+              ),
+              Text(
+                "$details",
+                style: TextStyle(color: Colors.grey, fontSize: 16.0),
+              ),
             ],
           ),
           Padding(
-            padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.18, top: 5.0),
-            child: Text('Remove', style: TextStyle(decoration:TextDecoration.underline,fontWeight:FontWeight.bold,fontStyle:FontStyle.italic,color: Colors.grey, fontSize: 16.0),),
+            padding: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.18, top: 5.0),
+            child: Text(
+              'Remove',
+              style: TextStyle(
+                  decoration: TextDecoration.underline,
+                  fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.italic,
+                  color: Colors.grey,
+                  fontSize: 16.0),
+            ),
           ),
-
         ],
       ),
     );
