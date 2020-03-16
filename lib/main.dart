@@ -1,9 +1,9 @@
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
-import 'package:ui_design_shopping/styleClass.dart';
+import 'package:ui_design_shopping/cartPage.dart';
+import 'package:ui_design_shopping/mySlide.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -20,7 +20,6 @@ class FirstPage extends StatefulWidget {
 class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
   final _formKey = GlobalKey<FormState>();
   TextEditingController _textFieldController;
-  static List<StyleClass> isColorChanged = [];
   Color containerColor1 = Colors.white;
   Color containerColor2 = Colors.white;
   Color containerColor3 = Colors.white;
@@ -579,50 +578,66 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                                     height: MediaQuery.of(context).size.height *
                                         0.3),
                                 Container(
-                                  margin:EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.06),
+                                  margin: EdgeInsets.symmetric(
+                                      horizontal:
+                                          MediaQuery.of(context).size.width *
+                                              0.06),
                                   decoration: BoxDecoration(
                                     color: Colors.white,
                                     borderRadius: BorderRadius.circular(18.0),
                                   ),
                                   child: Padding(
-                                    padding: EdgeInsets.only(left:8.0,top:20.0,right:8.0,bottom: 20.0,),
+                                    padding: EdgeInsets.only(
+                                      left: 8.0,
+                                      top: 20.0,
+                                      right: 8.0,
+                                      bottom: 20.0,
+                                    ),
                                     child: Column(
-                                      mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.spaceBetween,
                                       children: <Widget>[
                                         GestureDetector(
-                                          onTap: ()=> Navigator.pop(context),
+                                          onTap: () => Navigator.pop(context),
                                           child: Container(
-                                            alignment:Alignment.topRight,
+                                            alignment: Alignment.topRight,
                                             child: Container(
-                                              margin:EdgeInsets.only(right:4.0),
+                                              margin:
+                                                  EdgeInsets.only(right: 4.0),
                                               decoration: BoxDecoration(
-                                                gradient: LinearGradient(
-                                                  begin: Alignment.topCenter,
-                                                  end:Alignment.bottomCenter,
-                                                  colors: <Color>[
-                                                    Color(0xff3C1FC7),
-                                                    Color(0xff241678),
-                                                  ]
-                                                ),
-                                                shape: BoxShape.circle,
-                                                color: Colors.purple
+                                                  gradient: LinearGradient(
+                                                      begin:
+                                                          Alignment.topCenter,
+                                                      end: Alignment
+                                                          .bottomCenter,
+                                                      colors: <Color>[
+                                                        Color(0xff3C1FC7),
+                                                        Color(0xff241678),
+                                                      ]),
+                                                  shape: BoxShape.circle,
+                                                  color: Colors.purple),
+                                              child: Icon(
+                                                Icons.close,
+                                                size: 22.0,
+                                                color: Colors.white,
                                               ),
-                                              child: Icon(Icons.close,size: 22.0,color: Colors.white,),
                                             ),
                                           ),
                                         ),
-
                                         Text('GREAT!',
                                             style: TextStyle(
                                                 decoration: TextDecoration.none,
                                                 color: Color(0xFF3E2ECA),
                                                 fontSize: 18.0,
                                                 fontWeight: FontWeight.bold,
-                                            height: 1.5
-                                            )),
-                                        SizedBox(height: MediaQuery.of(context).size.height * 0.033),
+                                                height: 1.5)),
+                                        SizedBox(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                0.033),
                                         GestureDetector(
-                                          onTap:()=> Navigator.pop(context),
+                                          onTap: () => Navigator.pop(context),
                                           child: Container(
                                               decoration: BoxDecoration(
                                                 gradient: LinearGradient(
@@ -635,16 +650,22 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                                                 shape: BoxShape.circle,
                                                 color: Colors.deepPurple,
                                               ),
-                                              child: Icon(Icons.done, size: 40.0, color: Colors.white)),
+                                              child: Icon(Icons.done,
+                                                  size: 40.0,
+                                                  color: Colors.white)),
                                         ),
-                                        SizedBox(height: MediaQuery.of(context).size.height * 0.033),
+                                        SizedBox(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                0.033),
                                         Text('This Shoe Has Been Added To',
                                             style: TextStyle(
-                                                decoration: TextDecoration.none,
-                                                color: Color(0xFF3E2ECA),
-                                                fontSize: 16.0,
+                                              decoration: TextDecoration.none,
+                                              color: Color(0xFF3E2ECA),
+                                              fontSize: 16.0,
                                               fontWeight: FontWeight.bold,
-                                            height: 2.0,
+                                              height: 2.0,
                                             )),
                                         Text(
                                           'Your Nice List',
@@ -652,10 +673,13 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                                               decoration: TextDecoration.none,
                                               color: Color(0xFF3E2ECA),
                                               fontSize: 16.0,
-                                            fontWeight: FontWeight.bold
-                                          ),
+                                              fontWeight: FontWeight.bold),
                                         ),
-                                        SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+                                        SizedBox(
+                                            height: MediaQuery.of(context)
+                                                    .size
+                                                    .height *
+                                                0.05),
                                       ],
                                     ),
                                   ),
@@ -830,12 +854,14 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                     Icon(Icons.person_outline, color: Colors.white),
                     SizedBox(width: 10.0),
                     Padding(
-                      padding: const EdgeInsets.only(right: 8.0),
-                      child: Icon(
-                        Icons.shopping_cart,
-                        color: Colors.white,
-                      ),
-                    )
+                        padding: const EdgeInsets.only(right: 8.0),
+                        child: IconButton(
+                            icon: Icon(Icons.shopping_cart),
+                            onPressed: () {
+                              Route route =
+                                  MySlide(builder: (context) => CartPage());
+                              Navigator.push(context, route);
+                            }))
                   ],
                 ),
               ],
