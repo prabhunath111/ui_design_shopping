@@ -57,6 +57,65 @@ class _CartPageState extends State<CartPage> {
               SizedBox(height: MediaQuery.of(context).size.height * 0.023),
              cartDetails('M 8.5'),
               cartDetails('F 8'),
+
+              SizedBox(height: MediaQuery.of(context).size.height * 0.016),
+
+              Container(
+                height: MediaQuery.of(context).size.height * 0.001,
+                width:  MediaQuery.of(context).size.width,
+                color: Colors.grey,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left:16,top: 16.0),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  children: <Widget>[
+                    Text('Shipping address',style: TextStyle(color: Colors.black87,fontWeight: FontWeight.bold),),
+                    SizedBox(height: 12.0,),
+                    Row(children: <Widget>[
+                      Padding(
+                        padding: const EdgeInsets.only(right:20.0),
+                        child: Icon(Icons.local_shipping,color: Colors.grey,),
+                      ),
+                      Text('6/41 Pandurangon vittal\nst-2, salem-6.',style: TextStyle(height: 1.5,color: Colors.grey),),
+                      Expanded(child: SizedBox()),
+                      Card(
+                        elevation: 0.0,
+                        child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.white,
+                              borderRadius: BorderRadius.circular(20.0),
+                              border: Border.all(color:Colors.grey,),
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.only(left:16.0, top: 6.0, right: 16.0, bottom: 6.0),
+                              child: Text('CHANGE',style: TextStyle(height: 1.5,color: Colors.black87,fontWeight: FontWeight.bold),),
+                            )),
+                      ),
+                    ],)
+                  ],
+                ),
+              ),
+              SizedBox(height: 12.0),
+              Container(
+                height: MediaQuery.of(context).size.height * 0.001,
+                width:  MediaQuery.of(context).size.width,
+                color: Colors.grey,
+              ),
+              SizedBox(height: 8.0),
+              Padding(
+                padding: const EdgeInsets.only(left:16.0,right: 8.0),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Text('Price details',style: TextStyle(height: 1.5,color: Colors.black87,fontWeight: FontWeight.bold),),
+                    SizedBox(height: 8.0),
+
+                  ],
+                ),
+              ),
             ],
           ),
         ],
@@ -111,15 +170,16 @@ class _CartPageState extends State<CartPage> {
           Row(
             children: <Widget>[
               Text('Size',style: TextStyle(color: Colors.grey,fontSize: 16.0),),
-              SizedBox(width: MediaQuery.of(context).size.width * 0.03),
+              SizedBox(width: MediaQuery.of(context).size.width * 0.09),
               Icon(Icons.remove,color: Colors.grey,),
               Text("$details", style: TextStyle(color: Colors.grey, fontSize: 16.0),),
             ],
           ),
           Padding(
-            padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.1, top: 5.0),
+            padding: EdgeInsets.only(left: MediaQuery.of(context).size.width * 0.18, top: 5.0),
             child: Text('Remove', style: TextStyle(decoration:TextDecoration.underline,fontWeight:FontWeight.bold,fontStyle:FontStyle.italic,color: Colors.grey, fontSize: 16.0),),
           ),
+
         ],
       ),
     );
