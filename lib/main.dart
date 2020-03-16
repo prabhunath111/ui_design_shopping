@@ -5,9 +5,6 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:ui_design_shopping/styleClass.dart';
 
-import 'addEntryDialog.dart';
-import 'customShowDialog.dart';
-
 void main() {
   runApp(MaterialApp(
     debugShowCheckedModeBanner: false,
@@ -22,6 +19,7 @@ class FirstPage extends StatefulWidget {
 
 class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
   final _formKey = GlobalKey<FormState>();
+  TextEditingController _textFieldController;
   static List<StyleClass> isColorChanged = [];
   Color containerColor1 = Colors.white;
   Color containerColor2 = Colors.white;
@@ -564,7 +562,108 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                 color: Colors.white,
                 child: Center(
                   child: GestureDetector(
-                    onTap: () => _tappedWidget(),
+                    onTap: () {
+                      showGeneralDialog(
+                          context: context,
+                          barrierDismissible: false,
+                          barrierLabel: MaterialLocalizations.of(context)
+                              .modalBarrierDismissLabel,
+                          barrierColor: Color(0XFF3E2ECA).withOpacity(0.95),
+                          transitionDuration: const Duration(milliseconds: 200),
+                          pageBuilder: (BuildContext buildContext,
+                              Animation animation,
+                              Animation secondaryAnimation) {
+                            return Column(
+                              children: <Widget>[
+                                SizedBox(
+                                    height: MediaQuery.of(context).size.height *
+                                        0.3),
+                                Container(
+                                  margin:EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width * 0.06),
+                                  decoration: BoxDecoration(
+                                    color: Colors.white,
+                                    borderRadius: BorderRadius.circular(18.0),
+                                  ),
+                                  child: Padding(
+                                    padding: EdgeInsets.only(left:8.0,top:20.0,right:8.0,bottom: 20.0,),
+                                    child: Column(
+                                      mainAxisAlignment:MainAxisAlignment.spaceBetween,
+                                      children: <Widget>[
+                                        GestureDetector(
+                                          onTap: ()=> Navigator.pop(context),
+                                          child: Container(
+                                            alignment:Alignment.topRight,
+                                            child: Container(
+                                              margin:EdgeInsets.only(right:4.0),
+                                              decoration: BoxDecoration(
+                                                gradient: LinearGradient(
+                                                  begin: Alignment.topCenter,
+                                                  end:Alignment.bottomCenter,
+                                                  colors: <Color>[
+                                                    Color(0xff3C1FC7),
+                                                    Color(0xff241678),
+                                                  ]
+                                                ),
+                                                shape: BoxShape.circle,
+                                                color: Colors.purple
+                                              ),
+                                              child: Icon(Icons.close,size: 22.0,color: Colors.white,),
+                                            ),
+                                          ),
+                                        ),
+
+                                        Text('GREAT!',
+                                            style: TextStyle(
+                                                decoration: TextDecoration.none,
+                                                color: Color(0xFF3E2ECA),
+                                                fontSize: 18.0,
+                                                fontWeight: FontWeight.bold,
+                                            height: 1.5
+                                            )),
+                                        SizedBox(height: MediaQuery.of(context).size.height * 0.033),
+                                        GestureDetector(
+                                          onTap:()=> Navigator.pop(context),
+                                          child: Container(
+                                              decoration: BoxDecoration(
+                                                gradient: LinearGradient(
+                                                    begin: Alignment.topCenter,
+                                                    end: Alignment.bottomCenter,
+                                                    colors: <Color>[
+                                                      Color(0xff3C1FC7),
+                                                      Color(0xff241678)
+                                                    ]),
+                                                shape: BoxShape.circle,
+                                                color: Colors.deepPurple,
+                                              ),
+                                              child: Icon(Icons.done, size: 40.0, color: Colors.white)),
+                                        ),
+                                        SizedBox(height: MediaQuery.of(context).size.height * 0.033),
+                                        Text('This Shoe Has Been Added To',
+                                            style: TextStyle(
+                                                decoration: TextDecoration.none,
+                                                color: Color(0xFF3E2ECA),
+                                                fontSize: 16.0,
+                                              fontWeight: FontWeight.bold,
+                                            height: 2.0,
+                                            )),
+                                        Text(
+                                          'Your Nice List',
+                                          style: TextStyle(
+                                              decoration: TextDecoration.none,
+                                              color: Color(0xFF3E2ECA),
+                                              fontSize: 16.0,
+                                            fontWeight: FontWeight.bold
+                                          ),
+                                        ),
+                                        SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+                                      ],
+                                    ),
+                                  ),
+                                )
+                              ],
+                            );
+                          });
+                    },
                     child: Container(
                       width: MediaQuery.of(context).size.width * 0.8,
                       height: MediaQuery.of(context).size.height,
@@ -942,92 +1041,101 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
     );
   }
 
-  void _tappedWidget() {
-    showDialog(
-        context: context,
-        builder: (BuildContext context) {
-          return Container(
-            color: Color(0xFF3E2ECA).withOpacity(0.8),
-            child: customAlertDialog(),
-//            AlertDialog(
-//              content: Form(
-//                key: _formKey,
-//                  child: Container(
-//                    decoration: BoxDecoration(
-//                      borderRadius: BorderRadius.all(Radius.circular(64.0)),
-//
-//                    ),
-//                    child: Column(
-//                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-//                      mainAxisSize: MainAxisSize.min,
-//                      children: <Widget>[
-//                        Container(
-//                            alignment: Alignment.topRight,
-//                            child: IconButton(icon: Icon(Icons.cancel),
-//                                color: Color(0xFF241678),
-//                                onPressed: (){},
-//                                iconSize: 26.0,),
-//                        ),
-//                        Text(
-//                          'GREAT!',
-//                          style: TextStyle(
-//                              color: Color(0xff3C1FC7),
-//                              fontWeight: FontWeight.bold),
-//                        ),
-//                        Container(
-//                          decoration: BoxDecoration(
-//                            gradient: LinearGradient(
-//                                begin: Alignment.topCenter,
-//                                end: Alignment.bottomCenter,
-//                                colors: <Color>[
-//                                  Color(0xff3C1FC7),
-//                                  Color(0xff241678)
-//                                ]),
-//                            shape: BoxShape.circle,
-//                          ),
-//                          child: IconButton(
-//                            icon: Icon(Icons.done),
-//                            iconSize: 28.0,
-//                            color: Colors.white,
-//                            onPressed: () {},
-//                          ),
-//                        ),
-//                        Text(
-//                          'This Shoe Has Been Added To',
-//                          style: TextStyle(
-//                              color: Color(0xff3C1FC7),
-//                              fontWeight: FontWeight.bold),
-//                        ),
-//                        Text(
-//                          'Your Nice List',
-//                          style: TextStyle(
-//                              color: Color(0xff3C1FC7),
-//                              fontWeight: FontWeight.bold),
-//                        ),
-//                      ],
-//                    ),
-//                ),
-//              ),
-//            ),
-          );
-        });
-  }
-
-  void _openAddEntryDialog() {
-    Navigator.of(context).push(new MaterialPageRoute<Null>(
-      builder: (BuildContext context) {
-        return new AddEntryDialog();
-      },
-      fullscreenDialog: true,
-    ));
-  }
-
   Widget _customTabBar() {
     return Column(
       children: <Widget>[
         GestureDetector(
           onTap: () {
-            _tappedWidget();
+            showGeneralDialog(
+                context: context,
+                barrierDismissible: true,
+                barrierLabel:
+                    MaterialLocalizations.of(context).modalBarrierDismissLabel,
+                barrierColor: Color(0XFF3E2ECA).withOpacity(0.95),
+                transitionDuration: const Duration(milliseconds: 200),
+                pageBuilder: (BuildContext buildContext, Animation animation,
+                    Animation secondaryAnimation) {
+                  return Column(
+                    children: <Widget>[
+                      GestureDetector(
+                        onTap: () {
+                          Navigator.pop(context);
+                        },
+                        child: Container(
+                          alignment: Alignment.topRight,
+                          margin: EdgeInsets.only(
+                              top: MediaQuery.of(context).size.height * 0.05,
+                              right: MediaQuery.of(context).size.width * 0.05),
+                          child: Container(
+                              child: Icon(
+                            Icons.cancel,
+                            color: Colors.white,
+                            size: 28.0,
+                          )),
+                        ),
+                      ),
+                      Container(
+                          alignment: Alignment.topLeft,
+                          padding: EdgeInsets.only(left: 24.0),
+                          child: Text(
+                            'School List',
+                            style: TextStyle(
+                                decoration: TextDecoration.none,
+                                fontWeight: FontWeight.bold,
+                                color: Colors.white,
+                                fontSize: 22.0),
+                          )),
+                      SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.1),
+                      Container(
+                          alignment: Alignment.topCenter,
+                          child: Text(
+                            'Type To Find School',
+                            style: TextStyle(
+                                decoration: TextDecoration.none,
+                                fontWeight: FontWeight.normal,
+                                color: Colors.white,
+                                fontSize: 11.0),
+                          )),
+                      SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.02),
+                      Stack(
+                        children: <Widget>[
+                          Card(
+                            elevation: 0,
+                            color: Colors.transparent,
+                            margin: EdgeInsets.only(
+                                left: 20.0,
+                                right:
+                                    MediaQuery.of(context).size.width * 0.23),
+                            child: Container(
+                              decoration: BoxDecoration(
+                                  borderRadius: BorderRadius.circular(12.0),
+                                  color: Colors.white),
+                              child: TextField(
+                                controller: _textFieldController,
+                                decoration: InputDecoration(
+                                  prefixIcon: Icon(Icons.search),
+                                  hintText: 'Search',
+                                ),
+                              ),
+                            ),
+                          ),
+                          Positioned(
+                              top: 0.0,
+                              right: 0.0,
+                              child: FlatButton(
+                                  onPressed: () => Navigator.pop(context),
+                                  child: Text(
+                                    'Cancel',
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 16.0),
+                                  )))
+                        ],
+                      ),
+                    ],
+                  );
+                });
           },
           child: Container(
             alignment: Alignment.centerRight,
@@ -1078,81 +1186,6 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
           ],
         ),
       ],
-    );
-  }
-
-  customAlertDialog() {
-    return new CustomAlertDialog(
-      content: new Container(
-        decoration: new BoxDecoration(
-          shape: BoxShape.rectangle,
-          color: const Color(0xFFFFFF),
-          borderRadius: new BorderRadius.all(new Radius.circular(0.0)),
-        ),
-        child: new Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-            Container(
-              alignment: Alignment.topRight,
-              child: IconButton(
-                icon: Icon(Icons.cancel),
-                color: Color(0xFF241678),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                iconSize: 26.0,
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(bottom: 20.0),
-              child: Text(
-                'GREAT!',
-                style: TextStyle(
-                    color: Color(0XFF3E2ECA),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18.0),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(bottom: 20.0),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: <Color>[Color(0xff3C1FC7), Color(0xff241678)]),
-                shape: BoxShape.circle,
-              ),
-              child: IconButton(
-                icon: Icon(Icons.done),
-                iconSize: 28.0,
-                color: Colors.white,
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-            ),
-            Text(
-              'This Shoe Has Been Added To',
-              style: TextStyle(
-                  color: Color(0xff3C1FC7),
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18.0),
-            ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.006),
-            Container(
-              margin: EdgeInsets.only(bottom: 20.0),
-              child: Text(
-                'Your Nice List',
-                style: TextStyle(
-                    color: Color(0xff3C1FC7),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18.0),
-              ),
-            ),
-          ],
-        ),
-      ),
     );
   }
 }
