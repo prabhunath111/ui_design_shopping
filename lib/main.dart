@@ -1091,7 +1091,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
         ),
         child: new Column(
           mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Container(
               alignment: Alignment.topRight,
