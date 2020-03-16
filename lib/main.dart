@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:ui_design_shopping/styleClass.dart';
-import 'customShowDialog.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -567,28 +566,44 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                       showGeneralDialog(
                           context: context,
                           barrierDismissible: false,
-                          barrierLabel:
-                          MaterialLocalizations.of(context).modalBarrierDismissLabel,
+                          barrierLabel: MaterialLocalizations.of(context)
+                              .modalBarrierDismissLabel,
                           barrierColor: Color(0XFF3E2ECA).withOpacity(0.95),
                           transitionDuration: const Duration(milliseconds: 200),
-                          pageBuilder: (BuildContext buildContext, Animation animation,
+                          pageBuilder: (BuildContext buildContext,
+                              Animation animation,
                               Animation secondaryAnimation) {
-                            return
-                              AlertDialog(
-                                backgroundColor: Colors.white,
-                                content: Column(
+                            return AlertDialog(
+                              elevation: 0.0,
+                              backgroundColor: Colors.white,
+                              content: Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.pink,
+                                ),
+                                child: Column(
                                   mainAxisSize: MainAxisSize.min,
                                   mainAxisAlignment: MainAxisAlignment.center,
                                   crossAxisAlignment: CrossAxisAlignment.center,
                                   children: <Widget>[
                                     Align(
-                                  alignment: Alignment.topRight,
-                                  child: IconButton(icon: Icon(Icons.cancel,color: Colors.deepPurple,), onPressed: ()=>Navigator.pop(context)),
-                                ),
-                                    Text('GREAT!',style: TextStyle(color: Colors.deepPurple),),
+                                      alignment: Alignment.topRight,
+                                      child: IconButton(
+                                          icon: Icon(
+                                            Icons.cancel,
+                                            color: Colors.deepPurple,
+                                          ),
+                                          onPressed: () =>
+                                              Navigator.pop(context)),
+                                    ),
+                                    Text('GREAT!',
+                                        style: TextStyle(
+                                            color: Color(0xff3E2ECA),
+                                            fontWeight: FontWeight.bold)),
                                     Container(
-                                      padding: EdgeInsets.only(top: 12.0, bottom: 12.0),
-                                      height: MediaQuery.of(context).size.height * 0.09,
+                                      padding: EdgeInsets.only(
+                                          top: 12.0, bottom: 12.0),
+                                      height: MediaQuery.of(context).size.height *
+                                          0.09,
                                       width: MediaQuery.of(context).size.width,
                                       color: Colors.white,
                                       child: Container(
@@ -596,18 +611,36 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                                           gradient: LinearGradient(
                                               begin: Alignment.topCenter,
                                               end: Alignment.bottomCenter,
-                                              colors: <Color>[Color(0xff3C1FC7), Color(0xff241678)]),
+                                              colors: <Color>[
+                                                Color(0xff3C1FC7),
+                                                Color(0xff241678)
+                                              ]),
                                           shape: BoxShape.circle,
                                           color: Colors.deepPurple,
                                         ),
-                                        child: IconButton(icon: Icon(Icons.done,color: Colors.white,), onPressed: ()=> Navigator.pop(context)),
+                                        child: IconButton(
+                                            icon: Icon(
+                                              Icons.done,
+                                              color: Colors.white,
+                                            ),
+                                            onPressed: () =>
+                                                Navigator.pop(context)),
                                       ),
                                     ),
-                                    Text('This Shoe Has Been Added To',style: TextStyle(color: Colors.deepPurple),),
-                                    Text('Your Nice List',style: TextStyle(color: Colors.deepPurple),),
+                                    Text(
+                                      'This Shoe Has Been Added To',
+                                      style: TextStyle(
+                                          color: Color(0xff3E2ECA),
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    Text('Your Nice List',
+                                        style: TextStyle(
+                                            color: Color(0xff3E2ECA),
+                                            fontWeight: FontWeight.bold)),
                                   ],
                                 ),
-                              );
+                              ),
+                            );
                           });
                     },
                     child: Container(
@@ -1029,7 +1062,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                                 decoration: TextDecoration.none,
                                 fontWeight: FontWeight.bold,
                                 color: Colors.white,
-                                fontSize: 16.0),
+                                fontSize: 22.0),
                           )),
                       SizedBox(
                           height: MediaQuery.of(context).size.height * 0.1),
@@ -1043,31 +1076,40 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                                 color: Colors.white,
                                 fontSize: 11.0),
                           )),
-                      SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+                      SizedBox(
+                          height: MediaQuery.of(context).size.height * 0.02),
                       Stack(
                         children: <Widget>[
                           Card(
                             elevation: 0,
                             color: Colors.transparent,
-                            margin: EdgeInsets.only(left: 20.0, right: MediaQuery.of(context).size.width * 0.23),
-                            child:Container(
+                            margin: EdgeInsets.only(
+                                left: 20.0,
+                                right:
+                                    MediaQuery.of(context).size.width * 0.23),
+                            child: Container(
                               decoration: BoxDecoration(
-                                borderRadius: BorderRadius.circular(12.0),
-                                color: Colors.white
-                              ),
+                                  borderRadius: BorderRadius.circular(12.0),
+                                  color: Colors.white),
                               child: TextField(
                                 controller: _textFieldController,
                                 decoration: InputDecoration(
-                                    prefixIcon: Icon(Icons.search),
-                                    hintText: 'Search',
+                                  prefixIcon: Icon(Icons.search),
+                                  hintText: 'Search',
                                 ),
                               ),
                             ),
                           ),
                           Positioned(
-                              top:0.0,right:0.0,
-                              child: FlatButton(onPressed: ()=> Navigator.pop(context),
-                                   child: Text('Cancel',style: TextStyle(color: Colors.white,fontSize: 16.0),)))
+                              top: 0.0,
+                              right: 0.0,
+                              child: FlatButton(
+                                  onPressed: () => Navigator.pop(context),
+                                  child: Text(
+                                    'Cancel',
+                                    style: TextStyle(
+                                        color: Colors.white, fontSize: 16.0),
+                                  )))
                         ],
                       ),
                     ],
@@ -1123,98 +1165,6 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
           ],
         ),
       ],
-    );
-  }
-
-  /*customAlertDialog() {
-    return new CustomAlertDialog(
-      content: new Container(
-        decoration: new BoxDecoration(
-          shape: BoxShape.rectangle,
-          color: const Color(0xFFFFFF),
-          borderRadius: new BorderRadius.all(new Radius.circular(0.0)),
-        ),
-        child: new Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            Container(
-              alignment: Alignment.topRight,
-              child: IconButton(
-                icon: Icon(Icons.cancel),
-                color: Color(0xFF241678),
-                onPressed: () {
-                  Navigator.pop(context);
-                },
-                iconSize: 26.0,
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(bottom: 20.0),
-              child: Text(
-                'GREAT!',
-                style: TextStyle(
-                    color: Color(0XFF3E2ECA),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18.0),
-              ),
-            ),
-            Container(
-              margin: EdgeInsets.only(bottom: 20.0),
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                    begin: Alignment.topCenter,
-                    end: Alignment.bottomCenter,
-                    colors: <Color>[Color(0xff3C1FC7), Color(0xff241678)]),
-                shape: BoxShape.circle,
-              ),
-              child: IconButton(
-                icon: Icon(Icons.done),
-                iconSize: 28.0,
-                color: Colors.white,
-                onPressed: () {
-                  Navigator.of(context).pop();
-                },
-              ),
-            ),
-            Text(
-              'This Shoe Has Been Added To',
-              style: TextStyle(
-                  color: Color(0xff3C1FC7),
-                  fontWeight: FontWeight.bold,
-                  fontSize: 18.0),
-            ),
-            SizedBox(height: MediaQuery.of(context).size.height * 0.006),
-            Container(
-              margin: EdgeInsets.only(bottom: 20.0),
-              child: Text(
-                'Your Nice List',
-                style: TextStyle(
-                    color: Color(0xff3C1FC7),
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18.0),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }*/
-
-  alertDialogSchoolList() {
-    return new CustomAlertDialog(
-      content: new Container(
-        decoration: new BoxDecoration(
-          shape: BoxShape.rectangle,
-          color: const Color(0xFFFFFF),
-          borderRadius: BorderRadius.all(new Radius.circular(0.0)),
-        ),
-        child: new Column(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[],
-        ),
-      ),
     );
   }
 }
