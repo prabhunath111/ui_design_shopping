@@ -5,7 +5,7 @@ class Profile extends StatefulWidget {
   _ProfileState createState() => _ProfileState();
 }
 
-class _ProfileState extends State<Profile> {
+class _ProfileState extends State<Profile> with TickerProviderStateMixin {
   List customColor = <Color>[
     Color(0xff3C1FC7),
     Color(0xff241678),
@@ -15,6 +15,8 @@ class _ProfileState extends State<Profile> {
 
   @override
   Widget build(BuildContext context) {
+    TabController _tabController = new TabController(length: 4, vsync: this);
+
     return Scaffold(
       body: Stack(
         children: <Widget>[
@@ -61,7 +63,8 @@ class _ProfileState extends State<Profile> {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: <Widget>[
                   Container(
-                    padding: EdgeInsets.only(left: 8.0, top:6.0, right: 8.0, bottom: 6.0),
+                    padding: EdgeInsets.only(
+                        left: 8.0, top: 6.0, right: 8.0, bottom: 6.0),
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         begin: Alignment.topCenter,
@@ -73,12 +76,15 @@ class _ProfileState extends State<Profile> {
                     child: Text(
                       'Followers  | 112',
                       style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold,fontSize: 16.0),
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16.0),
                     ),
                   ),
                   SizedBox(width: 5.0),
                   Container(
-                    padding: EdgeInsets.only(left: 8.0, top:6.0, right: 8.0, bottom: 6.0),
+                    padding: EdgeInsets.only(
+                        left: 8.0, top: 6.0, right: 8.0, bottom: 6.0),
                     decoration: BoxDecoration(
                       gradient: LinearGradient(
                         begin: Alignment.topCenter,
@@ -90,17 +96,61 @@ class _ProfileState extends State<Profile> {
                     child: Text(
                       'Following  | 112',
                       style: TextStyle(
-                          color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16.0),
+                          color: Colors.white,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16.0),
                     ),
                   ),
                 ],
               ),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.035,),
+              SizedBox(
+                height: MediaQuery.of(context).size.height * 0.035,
+              ),
               Container(
-                color: Colors.pink,
-                  height: 16.0,
-                width: 18.0,
-              )
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                ),
+                child: TabBar(
+                  unselectedLabelColor: Colors.grey,
+                  indicatorColor: Colors.blue,
+                  labelColor: Colors.blue,
+                  controller: _tabController,
+                  indicatorSize: TabBarIndicatorSize.label,
+                  indicatorPadding: EdgeInsets.only(right: 40.0),
+                  tabs: <Widget>[
+                    new Tab(
+                      child: Text(
+                        'ABOUT',
+                        style: TextStyle(fontSize: 12.0),
+                      ),
+                    ),
+                    new Tab(
+                      child:
+                          Text('NICE LIST', style: TextStyle(fontSize: 12.0)),
+                    ),
+                    new Tab(
+                      child: Text(
+                        'My Designs',
+                        style: TextStyle(fontSize: 12.0),
+                      ),
+                    ),
+                    new Tab(
+                      child: Text('SETTINGS', style: TextStyle(fontSize: 12.0)),
+                    ),
+                  ],
+                ),
+              ),
+              Container(
+                width: MediaQuery.of(context).size.width,
+                height: MediaQuery.of(context).size.height * 0.5,
+                child:
+                    TabBarView(controller: _tabController, children: <Widget>[
+                  _customTabBar(),
+                  _customTabBar(),
+                  _customTabBar(),
+                  _customTabBar(),
+                ]),
+              ),
             ],
           ),
           Positioned(
@@ -151,5 +201,18 @@ class _ProfileState extends State<Profile> {
         ],
       ),
     );
+  }
+
+  Widget _customTabBar() {
+    return Image.asset(
+      'images/sachin.jpg',
+      fit: BoxFit.fill,
+    );
+  }
+
+  void _setProfileAppBarTitle(String c) {
+    setState(() {
+      profileAppBarTitle = c;
+    });
   }
 }
