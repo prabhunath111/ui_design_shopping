@@ -133,13 +133,11 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
   changeColorMale(bool isMale) {
     setState(() {
       isColorMale = true;
-      isColorFemale = false;
     });
   }
 
   changeColorFemale(bool isFemale) {
     setState(() {
-      isColorMale = false;
       isColorFemale = true;
     });
   }
