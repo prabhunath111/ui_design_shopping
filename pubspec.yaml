@@ -48,6 +48,7 @@ flutter:
     - images/shoe1.jpeg
     - images/shoe2.jpeg
     - images/shoe.jpg
+    - images/user.jpg
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

@@ -848,9 +848,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
                   IconButton(icon: Icon(Icons.person_outline, color: Colors.white), onPressed: (){
-                    Route route =
-                    MySlide(builder: (context) => Profile());
-                    Navigator.push(context, route);
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>Profile()));
                   }),
                     SizedBox(width: 10.0),
                     Padding(
