@@ -118,23 +118,23 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                   indicatorSize: TabBarIndicatorSize.label,
                   indicatorPadding: EdgeInsets.only(right: 40.0),
                   tabs: <Widget>[
-                    new Tab(
+                     Tab(
                       child: Text(
                         'ABOUT',
                         style: TextStyle(fontSize: 12.0),
                       ),
                     ),
-                    new Tab(
+                     Tab(
                       child:
                           Text('NICE LIST', style: TextStyle(fontSize: 12.0)),
                     ),
-                    new Tab(
+                     Tab(
                       child: Text(
                         'My Designs',
                         style: TextStyle(fontSize: 12.0),
                       ),
                     ),
-                    new Tab(
+                    Tab(
                       child: Text('SETTINGS', style: TextStyle(fontSize: 12.0)),
                     ),
                   ],
