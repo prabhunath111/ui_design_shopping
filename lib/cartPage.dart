@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 
 
 class CartPage extends StatefulWidget {
@@ -44,7 +45,7 @@ class _CartPageState extends State<CartPage> {
                 color: Colors.grey,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 20, top: 16.0,right: 10.0),
+                padding: EdgeInsets.only(left: 20, top: 16.0,right: 10.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -110,7 +111,7 @@ class _CartPageState extends State<CartPage> {
               ),
               SizedBox(height: 8.0),
               Padding(
-                padding: const EdgeInsets.only(left: 16.0, right: 8.0),
+                padding: const EdgeInsets.only(left: 16.0, right: 12.0),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -123,15 +124,12 @@ class _CartPageState extends State<CartPage> {
                           fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 8.0),
-                    Card(
-                      elevation: 0.0,
-                      child: Container(
+                   Container(
+                        width: MediaQuery.of(context).size.width,
                           decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(10.0),
-                            border: Border.all(
-                              color: Colors.grey,
-                            ),
+
                             boxShadow: [
                               BoxShadow(
                                 color: Colors.grey,
@@ -145,69 +143,67 @@ class _CartPageState extends State<CartPage> {
                             ],
                           ),
                           child: Padding(
-                            padding: const EdgeInsets.only(
-                                left: 16.0,
-                                top: 10.0,
-                                right: 16.0,
-                                bottom: 10.0),
-                            child: Text(
-                              'Nike Air Max   - - - - - - - - - - - - - - - - - - - - -\$70x2',
-                              style: TextStyle(
-                                  height: 1.5,
-                                  color: Colors.grey,
-                                  fontWeight: FontWeight.bold),
+                            padding: const EdgeInsets.only(left:8.0,top: 16.0, right: 8.0, bottom: 16.0),
+                            child: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text('Nike Air Max ',style: TextStyle(color: Colors.grey),),
+                                Text('- - - - - - - - - - - - - - - - - - - - -\$70x2',style: TextStyle(color: Colors.grey),),
+                              ],
                             ),
-                          )),
+                          )
                     ),
-                    SizedBox(height: 8.0),
+                    SizedBox(height: 16.0),
                    Container(
                      alignment: Alignment.topRight,
                      child: Container(
                        child: Column(
                          crossAxisAlignment: CrossAxisAlignment.start,
                          children: <Widget>[
-                           Text('Subtotal           \$140',style: TextStyle(color: Colors.grey)),
-                           Text('Shipping          \$9',style: TextStyle(color: Colors.grey)),
-                           Text('Taxes               \$10',style: TextStyle(color: Colors.grey)),
-                           Text('Total                \$149',style: TextStyle(color: Colors.grey)),
+                           Text('Subtotal           \$140.00',style: TextStyle(color: Colors.grey)),
+                           Text('Shipping          \$9.00',style: TextStyle(color: Colors.grey)),
+                           Text('Taxes               \$10.00',style: TextStyle(color: Colors.grey)),
+                           Text('Total                 \$149.00',style: TextStyle(color: Colors.grey)),
                          ],
                        ),
                      ),
                    ),
-                    SizedBox(height: 8.0),
-                    Container(
-                      height: MediaQuery.of(context).size.height * 0.001,
-                      width: MediaQuery.of(context).size.width,
-                      color: Colors.grey,
-                    ),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.04),
-                    Text('Referral Link',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold)),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.02),
-                    Container(
-                      margin: EdgeInsets.symmetric(horizontal: 10.0),
-                      height: MediaQuery.of(context).size.height * 0.06,
-                      decoration: BoxDecoration(
-                        color: Colors.white,
-                        borderRadius: BorderRadius.circular(20.0),
-                        boxShadow: [
-                          BoxShadow(
-                            color: Colors.grey,
-                            blurRadius: 15.0, // has the effect of softening the shadow
-                            spreadRadius: 0.0, // has the effect of extending the shadow
-                            offset: Offset(
-                              5.0, // horizontal, move right 10
-                              10.0, // vertical, move down 10
-                            ),
-                          )
-                        ],
-
-                      ),
-                    ),
-                    SizedBox(height: MediaQuery.of(context).size.height * 0.04),
 
                   ],
                 ),
               ),
+
+              SizedBox(height: 8.0),
+              Container(
+                height: MediaQuery.of(context).size.height * 0.001,
+                width: MediaQuery.of(context).size.width,
+                color: Colors.grey,
+              ),
+
+              SizedBox(height: MediaQuery.of(context).size.height * 0.04),
+              Text('Referral Link',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold)),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 10.0),
+                height: MediaQuery.of(context).size.height * 0.06,
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  borderRadius: BorderRadius.circular(20.0),
+                  boxShadow: [
+                    BoxShadow(
+                      color: Colors.grey,
+                      blurRadius: 15.0, // has the effect of softening the shadow
+                      spreadRadius: 0.0, // has the effect of extending the shadow
+                      offset: Offset(
+                        5.0, // horizontal, move right 10
+                        10.0, // vertical, move down 10
+                      ),
+                    )
+                  ],
+
+                ),
+              ),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.04),
               Container(
                 height: MediaQuery.of(context).size.height * 0.075,
                 width: MediaQuery.of(context).size.width,
@@ -222,6 +218,7 @@ class _CartPageState extends State<CartPage> {
                 ),
                 child: Center(child: Text('CONTINUE',style: TextStyle(color: Colors.white,fontSize: 16.0,fontWeight: FontWeight.bold),)),
               ),
+
             ],
           ),
           Positioned(
