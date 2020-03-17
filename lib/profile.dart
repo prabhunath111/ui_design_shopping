@@ -10,6 +10,7 @@ class _ProfileState extends State<Profile> {
     Color(0xff3C1FC7),
     Color(0xff241678),
   ];
+  String profileAppBarTitle = 'ABOUT';
 
   @override
   Widget build(BuildContext context) {
@@ -26,6 +27,8 @@ class _ProfileState extends State<Profile> {
             right: 0.0,
             child: AppBar(
               elevation: 0.0,
+              title: Text('$profileAppBarTitle',style: TextStyle(color: Colors.black45,fontWeight: FontWeight.bold),),
+              centerTitle: true,
               leading: Container(
                 margin: EdgeInsets.only(left: 16.0),
                 decoration: BoxDecoration(
@@ -44,9 +47,12 @@ class _ProfileState extends State<Profile> {
                       print('clicked');
                     }),
               ),
+
               backgroundColor: Colors.transparent,
               iconTheme: new IconThemeData(color: Colors.red),
-              actions: <Widget>[],
+              actions: <Widget>[
+                IconButton(icon: Icon(Icons.close,color: Colors.grey,), onPressed: (){print('ok');})
+              ],
             ),
           ),
         ],
