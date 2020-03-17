@@ -116,12 +116,15 @@ class _CartPageState extends State<CartPage> {
                   mainAxisAlignment: MainAxisAlignment.start,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text(
-                      'Price details',
-                      style: TextStyle(
-                          height: 1.5,
-                          color: Colors.black87,
-                          fontWeight: FontWeight.bold),
+                    Padding(
+                      padding: const EdgeInsets.only(left:10.0),
+                      child: Text(
+                        'Price details',
+                        style: TextStyle(
+                            height: 1.5,
+                            color: Colors.black87,
+                            fontWeight: FontWeight.bold),
+                      ),
                     ),
                     SizedBox(height: 8.0),
                    Container(
@@ -173,7 +176,7 @@ class _CartPageState extends State<CartPage> {
                 ),
               ),
 
-              SizedBox(height: 8.0),
+              SizedBox(height: 16.0),
               Container(
                 height: MediaQuery.of(context).size.height * 0.001,
                 width: MediaQuery.of(context).size.width,
@@ -181,11 +184,14 @@ class _CartPageState extends State<CartPage> {
               ),
 
               SizedBox(height: MediaQuery.of(context).size.height * 0.04),
-              Text('Referral Link',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold)),
+              Padding(
+                padding: const EdgeInsets.only(left: 10.0),
+                child: Text('Referral Link',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold)),
+              ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.02),
               Container(
-                margin: EdgeInsets.symmetric(horizontal: 10.0),
-                height: MediaQuery.of(context).size.height * 0.06,
+                margin: EdgeInsets.only(left: 16, right: 12.0),
+                height: MediaQuery.of(context).size.height * 0.05,
                 decoration: BoxDecoration(
                   color: Colors.white,
                   borderRadius: BorderRadius.circular(20.0),
@@ -203,7 +209,7 @@ class _CartPageState extends State<CartPage> {
 
                 ),
               ),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.04),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.035),
               Container(
                 height: MediaQuery.of(context).size.height * 0.075,
                 width: MediaQuery.of(context).size.width,
