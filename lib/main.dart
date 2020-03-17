@@ -4,6 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:ui_design_shopping/cartPage.dart';
 import 'package:ui_design_shopping/mySlide.dart';
+import 'package:ui_design_shopping/profile.dart';
 
 void main() {
   runApp(MaterialApp(
@@ -846,7 +847,11 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   children: <Widget>[
-                    Icon(Icons.person_outline, color: Colors.white),
+                  IconButton(icon: Icon(Icons.person_outline, color: Colors.white), onPressed: (){
+                    Route route =
+                    MySlide(builder: (context) => Profile());
+                    Navigator.push(context, route);
+                  }),
                     SizedBox(width: 10.0),
                     Padding(
                         padding: const EdgeInsets.only(right: 8.0),
