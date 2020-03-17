@@ -1,55 +1,30 @@
 import 'package:flutter/material.dart';
 
+
 class CartPage extends StatefulWidget {
   @override
   _CartPageState createState() => _CartPageState();
 }
 
 class _CartPageState extends State<CartPage> {
+
+  List customColor = <Color>[
+    Color(0xff3C1FC7),
+    Color(0xff241678),
+  ];
+
   @override
   Widget build(BuildContext context) {
+
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          Positioned(
-            //Place it at the top, and not use the entire screen
-            top: 0.0,
-            left: 0.0,
-            right: 0.0,
-            child: AppBar(
-              elevation: 0.0,
-              leading: Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: Container(
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: <Color>[
-                            Color(0xFF3C1FC7),
-                            Color(0xFF241678)
-                          ]),
-                      shape: BoxShape.circle,
-                    ),
-                    child: IconButton(
-                        icon: Icon(
-                          Icons.arrow_back_ios,
-                          color: Colors.white,
-                        ),
-                        onPressed: () {
-                          print('clicked');
-                        })),
-              ),
-              backgroundColor: Colors.transparent,
-              iconTheme: new IconThemeData(color: Colors.red),
-              actions: <Widget>[],
-            ),
-          ),
+
           ListView(
             children: <Widget>[
               SizedBox(height: MediaQuery.of(context).size.height * 0.04),
               Container(
-                  padding: EdgeInsets.only(left: 8.0),
+                  padding: EdgeInsets.only(left: 16.0),
                   margin: EdgeInsets.only(
                       top: MediaQuery.of(context).size.height * 0.05),
                   child: Text(
@@ -57,7 +32,7 @@ class _CartPageState extends State<CartPage> {
                     style:
                         TextStyle(fontWeight: FontWeight.bold, fontSize: 20.0),
                   )),
-              SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.06),
               Image.asset('images/shoe1.jpeg'),
               SizedBox(height: MediaQuery.of(context).size.height * 0.023),
               cartDetails('M 8.5'),
@@ -69,7 +44,7 @@ class _CartPageState extends State<CartPage> {
                 color: Colors.grey,
               ),
               Padding(
-                padding: const EdgeInsets.only(left: 16, top: 16.0),
+                padding: const EdgeInsets.only(left: 20, top: 16.0,right: 10.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -82,46 +57,47 @@ class _CartPageState extends State<CartPage> {
                     SizedBox(
                       height: 12.0,
                     ),
-                    Row(
-                      children: <Widget>[
-                        Padding(
-                          padding: const EdgeInsets.only(right: 20.0),
-                          child: Icon(
-                            Icons.local_shipping,
-                            color: Colors.grey,
+                    Container(
+                      child: Row(
+                        children: <Widget>[
+                          Padding(
+                            padding: const EdgeInsets.only(right: 20.0),
+                            child: Icon(
+                              Icons.local_shipping,
+                              color: Colors.grey,
+                            ),
                           ),
-                        ),
-                        Text(
-                          '6/41 Pandurangon vittal\nst-2, salem-6.',
-                          style: TextStyle(height: 1.5, color: Colors.grey),
-                        ),
-                        Expanded(child: SizedBox()),
-                        Card(
-                          elevation: 0.0,
-                          child: Container(
-                              decoration: BoxDecoration(
-                                color: Colors.white,
-                                borderRadius: BorderRadius.circular(20.0),
-                                border: Border.all(
-                                  color: Colors.grey,
+                          Text(
+                            '6/41 Pandurangon vittal\nst-2, salem-6.',
+                            style: TextStyle(height: 1.5, color: Colors.grey),
+                          ),
+                          Expanded(child: SizedBox()),
+                          Card(
+                            elevation: 0.0,
+                            child: Container(
+                                decoration: BoxDecoration(
+                                  color: Colors.white,
+                                  borderRadius: BorderRadius.circular(20.0),
+                                  border: Border.all(
+                                    color: Colors.grey,
+                                  ),
                                 ),
-                              ),
-                              child: Padding(
-                                padding: const EdgeInsets.only(
-                                    left: 16.0,
-                                    top: 6.0,
-                                    right: 16.0,
-                                    bottom: 6.0),
-                                child: Text(
-                                  'CHANGE',
-                                  style: TextStyle(
-                                      height: 1.5,
-                                      color: Colors.black87,
-                                      fontWeight: FontWeight.bold),
-                                ),
-                              )),
-                        ),
-                      ],
+                                child: Padding(
+                                  padding: const EdgeInsets.only(
+                                      left: 16.0,
+                                      top: 6.0,
+                                      right: 16.0,
+                                      bottom: 6.0),
+                                  child: Text(
+                                    'CHANGE',
+                                    style: TextStyle(
+                                        color: Colors.black87,
+                                        fontWeight: FontWeight.bold),
+                                  ),
+                                )),
+                          ),
+                        ],
+                      ),
                     )
                   ],
                 ),
@@ -240,11 +216,7 @@ class _CartPageState extends State<CartPage> {
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
 
-                      colors: <Color>[
-                        Color(0xFF3C1FC7),
-                        Color(0xFF241678)
-
-                      ]
+                      colors: customColor
 
                   ),
                 ),
@@ -252,108 +224,138 @@ class _CartPageState extends State<CartPage> {
               ),
             ],
           ),
+          Positioned(
+            //Place it at the top, and not use the entire screen
+            top: 0.0,
+            left: 0.0,
+            right: 0.0,
+            child: AppBar(
+              elevation: 0.0,
+              leading: Container(
+                margin: EdgeInsets.only(left: 16.0),
+                    decoration: BoxDecoration(
+                      gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: customColor),
+                      shape: BoxShape.circle,
+                    ),
+                    child: IconButton(
+                        icon: Icon(
+                          Icons.arrow_back_ios,
+                          color: Colors.white,
+                        ),
+                        onPressed: () {
+                          print('clicked');
+                        }),
+              ),
+              backgroundColor: Colors.transparent,
+              iconTheme: new IconThemeData(color: Colors.red),
+              actions: <Widget>[],
+            ),
+          ),
         ],
       ),
     );
   }
 
   Widget cartDetails(String details) {
-    return Padding(
-      padding: const EdgeInsets.only(left: 16.0, right: 8.0),
+    return Container(
+      padding: EdgeInsets.only(left: 20.0,right: 12.0),
       child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Row(
-            children: <Widget>[
-              Text(
-                'Nike Max Dia',
-                style: TextStyle(
-                    color: Colors.black54,
-                    fontSize: 24.0,
-                    fontWeight: FontWeight.bold),
-              ),
-              Container(
-                margin: EdgeInsets.only(
-                    left: MediaQuery.of(context).size.width * 0.15),
-                child: Row(
-                  children: <Widget>[
-                    Container(
-                        margin: EdgeInsets.only(
-                            right: MediaQuery.of(context).size.width * 0.01),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Color(0xFF3E2ECA),
-                        ),
+          mainAxisAlignment: MainAxisAlignment.start,
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Row(
+              children: <Widget>[
+                Text(
+                  'Nike Max Dia',
+                  style: TextStyle(
+                      color: Colors.black54,
+                      fontSize: 24.0,
+                      fontWeight: FontWeight.bold),
+                ),
+                Expanded(child: SizedBox()),
+                Container(
+                  child: Row(
+                    children: <Widget>[
+                      Container(
+                          margin: EdgeInsets.only(
+                              right: MediaQuery.of(context).size.width * 0.01),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Color(0xFF3E2ECA),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Icon(
+                              Icons.remove,
+                              color: Colors.white,
+                              size: 10.0,
+                            ),
+                          )),
+                      Card(
+                        elevation: 1.0,
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Icon(
-                            Icons.remove,
-                            color: Colors.white,
-                            size: 10.0,
+                          child: Text(
+                            'Qty   1',
+                            style: TextStyle(
+                                color: Colors.black,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 22.0),
                           ),
-                        )),
-                    Card(
-                      elevation: 1.0,
-                      child: Padding(
-                        padding: const EdgeInsets.all(8.0),
-                        child: Text(
-                          'Qty   1',
-                          style: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.bold,
-                              fontSize: 22.0),
                         ),
                       ),
-                    ),
-                    Container(
-                        margin: EdgeInsets.only(
-                            left: MediaQuery.of(context).size.width * 0.01),
-                        decoration: BoxDecoration(
-                          shape: BoxShape.circle,
-                          color: Color(0xFF3E2ECA),
-                        ),
-                        child: Padding(
-                          padding: const EdgeInsets.all(8.0),
-                          child:
-                              Icon(Icons.add, color: Colors.white, size: 10.0),
-                        )),
-                  ],
+                      Container(
+                          margin: EdgeInsets.only(
+                              left: MediaQuery.of(context).size.width * 0.01),
+                          decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            color: Color(0xFF3E2ECA),
+                          ),
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child:
+                                Icon(Icons.add, color: Colors.white, size: 10.0),
+                          )),
+                    ],
+                  ),
                 ),
-              ),
-            ],
-          ),
-          Row(
-            children: <Widget>[
-              Text(
-                'Size',
-                style: TextStyle(color: Colors.grey, fontSize: 16.0),
-              ),
-              SizedBox(width: MediaQuery.of(context).size.width * 0.09),
-              Icon(
-                Icons.remove,
-                color: Colors.grey,
-              ),
-              Text(
-                "$details",
-                style: TextStyle(color: Colors.grey, fontSize: 16.0),
-              ),
-            ],
-          ),
-          Padding(
-            padding: EdgeInsets.only(
-                left: MediaQuery.of(context).size.width * 0.18, top: 5.0),
-            child: Text(
-              'Remove',
-              style: TextStyle(
-                  decoration: TextDecoration.underline,
-                  fontWeight: FontWeight.bold,
-                  fontStyle: FontStyle.italic,
-                  color: Colors.grey,
-                  fontSize: 16.0),
+              ],
             ),
-          ),
-        ],
+            Row(
+              children: <Widget>[
+                Text(
+                  'Size',
+                  style: TextStyle(color: Colors.grey, fontSize: 16.0),
+                ),
+                SizedBox(width: MediaQuery.of(context).size.width * 0.09),
+                Icon(
+                  Icons.remove,
+                  color: Colors.grey,
+                ),
+                Text(
+                  "$details",
+                  style: TextStyle(color: Colors.grey, fontSize: 16.0),
+                ),
+              ],
+            ),
+            Padding(
+              padding: EdgeInsets.only(
+                  left: MediaQuery.of(context).size.width * 0.18, top: 5.0),
+              child: Text(
+                'Remove',
+                style: TextStyle(
+                    decoration: TextDecoration.underline,
+                    fontWeight: FontWeight.bold,
+                    fontStyle: FontStyle.italic,
+                    color: Colors.grey,
+                    fontSize: 16.0),
+              ),
+            ),
+          ],
+
       ),
     );
   }

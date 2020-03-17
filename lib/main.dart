@@ -18,7 +18,12 @@ class FirstPage extends StatefulWidget {
 }
 
 class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
-  final _formKey = GlobalKey<FormState>();
+
+  List customColor = <Color>[
+    Color(0xff3C1FC7),
+    Color(0xff241678),
+  ];
+
   TextEditingController _textFieldController;
   Color containerColor1 = Colors.white;
   Color containerColor2 = Colors.white;
@@ -212,10 +217,8 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                                     gradient: LinearGradient(
                                         begin: Alignment.topCenter,
                                         end: Alignment.bottomCenter,
-                                        colors: <Color>[
-                                          Color(0xff3C1FC7),
-                                          Color(0xff241678),
-                                        ])),
+                                        colors: customColor,
+                                    )),
                                 child: Row(
                                   mainAxisAlignment: MainAxisAlignment.end,
                                   children: <Widget>[
@@ -610,10 +613,8 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                                                           Alignment.topCenter,
                                                       end: Alignment
                                                           .bottomCenter,
-                                                      colors: <Color>[
-                                                        Color(0xff3C1FC7),
-                                                        Color(0xff241678),
-                                                      ]),
+                                                      colors: customColor
+                                                  ),
                                                   shape: BoxShape.circle,
                                                   color: Colors.purple),
                                               child: Icon(
@@ -643,10 +644,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                                                 gradient: LinearGradient(
                                                     begin: Alignment.topCenter,
                                                     end: Alignment.bottomCenter,
-                                                    colors: <Color>[
-                                                      Color(0xff3C1FC7),
-                                                      Color(0xff241678)
-                                                    ]),
+                                                    colors: customColor),
                                                 shape: BoxShape.circle,
                                                 color: Colors.deepPurple,
                                               ),
@@ -704,10 +702,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                                 )
                               ],*/
                         borderRadius: BorderRadius.circular(40.0),
-                        gradient: LinearGradient(colors: <Color>[
-                          Color(0xff3C1FC7),
-                          Color(0xff241678),
-                        ]),
+                        gradient: LinearGradient(colors: customColor),
                       ),
                       child: Center(
                           child: Text(
@@ -825,7 +820,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                     gradient: LinearGradient(
                         begin: Alignment.topCenter,
                         end: Alignment.bottomCenter,
-                        colors: <Color>[Color(0xff3C1FC7), Color(0xff241678)]),
+                        colors: customColor),
                     shape: BoxShape.circle,
                     color: Colors.deepPurple,
                   ),
@@ -1174,7 +1169,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                   gradient: LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
-                      colors: <Color>[Color(0xFF3C1FC7), Color(0xFF241678)])),
+                      colors: customColor)),
               child: Text(
                 'High School List',
                 style: TextStyle(
@@ -1203,10 +1198,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                   gradient: LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
-                      colors: <Color>[
-                        Color(0xFF3C1FC7),
-                        Color(0xff241678),
-                      ])),
+                      colors: customColor)),
               child: _timeLeft(Colors.white, Colors.white, FontWeight.bold),
             ),
           ],
