@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
-
+import 'package:ui_design_shopping/colorStyle.dart';
 
 class CartPage extends StatefulWidget {
   @override
@@ -8,19 +8,14 @@ class CartPage extends StatefulWidget {
 }
 
 class _CartPageState extends State<CartPage> {
-
-  List customColor = <Color>[
-    Color(0xff3C1FC7),
-    Color(0xff241678),
-  ];
+  List customColor = ColorStyle.customColor;
+  Color customColorWithoutGradient = ColorStyle.customColorWithoutGradient;
 
   @override
   Widget build(BuildContext context) {
-
     return Scaffold(
       body: Stack(
         children: <Widget>[
-
           ListView(
             children: <Widget>[
               SizedBox(height: MediaQuery.of(context).size.height * 0.04),
@@ -45,7 +40,7 @@ class _CartPageState extends State<CartPage> {
                 color: Colors.grey,
               ),
               Padding(
-                padding: EdgeInsets.only(left: 20, top: 16.0,right: 10.0),
+                padding: EdgeInsets.only(left: 20, top: 16.0, right: 10.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   mainAxisAlignment: MainAxisAlignment.start,
@@ -117,7 +112,7 @@ class _CartPageState extends State<CartPage> {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     Padding(
-                      padding: const EdgeInsets.only(left:10.0),
+                      padding: const EdgeInsets.only(left: 10.0),
                       child: Text(
                         'Price details',
                         style: TextStyle(
@@ -127,66 +122,76 @@ class _CartPageState extends State<CartPage> {
                       ),
                     ),
                     SizedBox(height: 8.0),
-                   Container(
+                    Container(
                         width: MediaQuery.of(context).size.width,
-                          decoration: BoxDecoration(
-                            color: Colors.white,
-                            borderRadius: BorderRadius.circular(10.0),
-
-                            boxShadow: [
-                              BoxShadow(
-                                color: Colors.grey,
-                                blurRadius: 15.0, // has the effect of softening the shadow
-                                spreadRadius: 0.0, // has the effect of extending the shadow
-                                offset: Offset(
-                                  5.0, // horizontal, move right 10
-                                  10.0, // vertical, move down 10
-                                ),
-                              )
+                        decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(10.0),
+                          boxShadow: [
+                            BoxShadow(
+                              color: Colors.grey,
+                              blurRadius: 15.0,
+                              // has the effect of softening the shadow
+                              spreadRadius: 0.0,
+                              // has the effect of extending the shadow
+                              offset: Offset(
+                                5.0, // horizontal, move right 10
+                                10.0, // vertical, move down 10
+                              ),
+                            )
+                          ],
+                        ),
+                        child: Padding(
+                          padding: const EdgeInsets.only(
+                              left: 8.0, top: 16.0, right: 8.0, bottom: 16.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: <Widget>[
+                              Text(
+                                'Nike Air Max ',
+                                style: TextStyle(color: Colors.grey),
+                              ),
+                              Text(
+                                '- - - - - - - - - - - - - - - - - - - - -\$70x2',
+                                style: TextStyle(color: Colors.grey),
+                              ),
                             ],
                           ),
-                          child: Padding(
-                            padding: const EdgeInsets.only(left:8.0,top: 16.0, right: 8.0, bottom: 16.0),
-                            child: Row(
-                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: <Widget>[
-                                Text('Nike Air Max ',style: TextStyle(color: Colors.grey),),
-                                Text('- - - - - - - - - - - - - - - - - - - - -\$70x2',style: TextStyle(color: Colors.grey),),
-                              ],
-                            ),
-                          )
-                    ),
+                        )),
                     SizedBox(height: 16.0),
-                   Container(
-                     alignment: Alignment.topRight,
-                     child: Container(
-                       child: Column(
-                         crossAxisAlignment: CrossAxisAlignment.start,
-                         children: <Widget>[
-                           Text('Subtotal           \$140.00',style: TextStyle(color: Colors.grey)),
-                           Text('Shipping          \$9.00',style: TextStyle(color: Colors.grey)),
-                           Text('Taxes               \$10.00',style: TextStyle(color: Colors.grey)),
-                           Text('Total                 \$149.00',style: TextStyle(color: Colors.grey)),
-                         ],
-                       ),
-                     ),
-                   ),
-
+                    Container(
+                      alignment: Alignment.topRight,
+                      child: Container(
+                        child: Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: <Widget>[
+                            Text('Subtotal           \$140.00',
+                                style: TextStyle(color: Colors.grey)),
+                            Text('Shipping          \$9.00',
+                                style: TextStyle(color: Colors.grey)),
+                            Text('Taxes               \$10.00',
+                                style: TextStyle(color: Colors.grey)),
+                            Text('Total                 \$149.00',
+                                style: TextStyle(color: Colors.grey)),
+                          ],
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ),
-
               SizedBox(height: 16.0),
               Container(
                 height: MediaQuery.of(context).size.height * 0.001,
                 width: MediaQuery.of(context).size.width,
                 color: Colors.grey,
               ),
-
               SizedBox(height: MediaQuery.of(context).size.height * 0.04),
               Padding(
                 padding: const EdgeInsets.only(left: 10.0),
-                child: Text('Referral Link',style: TextStyle(color: Colors.black,fontWeight: FontWeight.bold)),
+                child: Text('Referral Link',
+                    style: TextStyle(
+                        color: Colors.black, fontWeight: FontWeight.bold)),
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.02),
               Container(
@@ -198,15 +203,16 @@ class _CartPageState extends State<CartPage> {
                   boxShadow: [
                     BoxShadow(
                       color: Colors.grey,
-                      blurRadius: 15.0, // has the effect of softening the shadow
-                      spreadRadius: 0.0, // has the effect of extending the shadow
+                      blurRadius: 15.0,
+                      // has the effect of softening the shadow
+                      spreadRadius: 0.0,
+                      // has the effect of extending the shadow
                       offset: Offset(
                         5.0, // horizontal, move right 10
                         10.0, // vertical, move down 10
                       ),
                     )
                   ],
-
                 ),
               ),
               SizedBox(height: MediaQuery.of(context).size.height * 0.035),
@@ -217,14 +223,17 @@ class _CartPageState extends State<CartPage> {
                   gradient: LinearGradient(
                       begin: Alignment.topCenter,
                       end: Alignment.bottomCenter,
-
-                      colors: customColor
-
-                  ),
+                      colors: customColor),
                 ),
-                child: Center(child: Text('CONTINUE',style: TextStyle(color: Colors.white,fontSize: 16.0,fontWeight: FontWeight.bold),)),
+                child: Center(
+                    child: Text(
+                  'CONTINUE',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 16.0,
+                      fontWeight: FontWeight.bold),
+                )),
               ),
-
             ],
           ),
           Positioned(
@@ -236,21 +245,21 @@ class _CartPageState extends State<CartPage> {
               elevation: 0.0,
               leading: Container(
                 margin: EdgeInsets.only(left: 16.0),
-                    decoration: BoxDecoration(
-                      gradient: LinearGradient(
-                          begin: Alignment.topCenter,
-                          end: Alignment.bottomCenter,
-                          colors: customColor),
-                      shape: BoxShape.circle,
+                decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: customColor),
+                  shape: BoxShape.circle,
+                ),
+                child: IconButton(
+                    icon: Icon(
+                      Icons.arrow_back_ios,
+                      color: Colors.white,
                     ),
-                    child: IconButton(
-                        icon: Icon(
-                          Icons.arrow_back_ios,
-                          color: Colors.white,
-                        ),
-                        onPressed: () {
-                          print('clicked');
-                        }),
+                    onPressed: () {
+                      print('clicked');
+                    }),
               ),
               backgroundColor: Colors.transparent,
               iconTheme: new IconThemeData(color: Colors.red),
@@ -264,101 +273,104 @@ class _CartPageState extends State<CartPage> {
 
   Widget cartDetails(String details) {
     return Container(
-      padding: EdgeInsets.only(left: 20.0,right: 12.0),
+      padding: EdgeInsets.only(left: 20.0, right: 12.0),
       child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: <Widget>[
-            Row(
-              children: <Widget>[
-                Text(
-                  'Nike Max Dia',
-                  style: TextStyle(
-                      color: Colors.black54,
-                      fontSize: 24.0,
-                      fontWeight: FontWeight.bold),
-                ),
-                Expanded(child: SizedBox()),
-                Container(
-                  child: Row(
-                    children: <Widget>[
-                      Container(
-                          margin: EdgeInsets.only(
-                              right: MediaQuery.of(context).size.width * 0.01),
-                          decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            color: Color(0xFF3E2ECA),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child: Icon(
-                              Icons.remove,
-                              color: Colors.white,
-                              size: 10.0,
-                            ),
-                          )),
-                      Card(
-                        elevation: 1.0,
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Row(
+            children: <Widget>[
+              Text(
+                'Nike Max Dia',
+                style: TextStyle(
+                    color: Colors.black54,
+                    fontSize: 24.0,
+                    fontWeight: FontWeight.bold),
+              ),
+              Expanded(child: SizedBox()),
+              Container(
+                child: Row(
+                  children: <Widget>[
+                    Container(
+                        margin: EdgeInsets.only(
+                            right: MediaQuery.of(context).size.width * 0.01),
+                        decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                            gradient: LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: customColor)                        ),
                         child: Padding(
                           padding: const EdgeInsets.all(8.0),
-                          child: Text(
-                            'Qty   1',
-                            style: TextStyle(
-                                color: Colors.black,
-                                fontWeight: FontWeight.bold,
-                                fontSize: 22.0),
+                          child: Icon(
+                            Icons.remove,
+                            color: Colors.white,
+                            size: 10.0,
                           ),
+                        )),
+                    Card(
+                      elevation: 1.0,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Text(
+                          'Qty   1',
+                          style: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.bold,
+                              fontSize: 22.0),
                         ),
                       ),
-                      Container(
-                          margin: EdgeInsets.only(
-                              left: MediaQuery.of(context).size.width * 0.01),
-                          decoration: BoxDecoration(
+                    ),
+                    Container(
+                        margin: EdgeInsets.only(
+                            left: MediaQuery.of(context).size.width * 0.01),
+                        decoration: BoxDecoration(
                             shape: BoxShape.circle,
-                            color: Color(0xFF3E2ECA),
-                          ),
-                          child: Padding(
-                            padding: const EdgeInsets.all(8.0),
-                            child:
-                                Icon(Icons.add, color: Colors.white, size: 10.0),
-                          )),
-                    ],
-                  ),
+                            gradient: LinearGradient(
+                                begin: Alignment.topCenter,
+                                end: Alignment.bottomCenter,
+                                colors: customColor)),
+                        child: Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child:
+                              Icon(Icons.add, color: Colors.white, size: 10.0),
+                        )),
+                  ],
                 ),
-              ],
-            ),
-            Row(
-              children: <Widget>[
-                Text(
-                  'Size',
-                  style: TextStyle(color: Colors.grey, fontSize: 16.0),
-                ),
-                SizedBox(width: MediaQuery.of(context).size.width * 0.09),
-                Icon(
-                  Icons.remove,
-                  color: Colors.grey,
-                ),
-                Text(
-                  "$details",
-                  style: TextStyle(color: Colors.grey, fontSize: 16.0),
-                ),
-              ],
-            ),
-            Padding(
-              padding: EdgeInsets.only(
-                  left: MediaQuery.of(context).size.width * 0.18, top: 5.0),
-              child: Text(
-                'Remove',
-                style: TextStyle(
-                    decoration: TextDecoration.underline,
-                    fontWeight: FontWeight.bold,
-                    fontStyle: FontStyle.italic,
-                    color: Colors.grey,
-                    fontSize: 16.0),
               ),
+            ],
+          ),
+          Row(
+            children: <Widget>[
+              Text(
+                'Size',
+                style: TextStyle(color: Colors.grey, fontSize: 16.0),
+              ),
+              SizedBox(width: MediaQuery.of(context).size.width * 0.09),
+              Icon(
+                Icons.remove,
+                color: Colors.grey,
+              ),
+              Text(
+                "$details",
+                style: TextStyle(color: Colors.grey, fontSize: 16.0),
+              ),
+            ],
+          ),
+          Padding(
+            padding: EdgeInsets.only(
+                left: MediaQuery.of(context).size.width * 0.18, top: 5.0),
+            child: Text(
+              'Remove',
+              style: TextStyle(
+                  decoration: TextDecoration.underline,
+                  fontWeight: FontWeight.bold,
+                  fontStyle: FontStyle.italic,
+                  color: Colors.grey,
+                  fontSize: 16.0),
             ),
-          ],
-
+          ),
+        ],
       ),
     );
   }

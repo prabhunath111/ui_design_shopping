@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:ui_design_shopping/cartPage.dart';
+import 'package:ui_design_shopping/colorStyle.dart';
 import 'package:ui_design_shopping/mySlide.dart';
 import 'package:ui_design_shopping/profile.dart';
 
@@ -20,10 +21,8 @@ class FirstPage extends StatefulWidget {
 
 class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
 
-  List customColor = <Color>[
-    Color(0xff3C1FC7),
-    Color(0xff241678),
-  ];
+  List customColor = ColorStyle.customColor;
+  Color customColorWithoutGradient = ColorStyle.customColorWithoutGradient;
 
   TextEditingController _textFieldController;
   Color containerColor1 = Colors.white;
@@ -333,7 +332,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                         Text(
                           (countItem1 == 0) ? '' : countItem1.toString(),
                           style: TextStyle(
-                              color: Color(0xFF3C1FC7),
+                              color: customColorWithoutGradient,
                               fontWeight: FontWeight.bold),
                         ),
                         GestureDetector(
@@ -366,7 +365,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                         Text(
                           (countItem2 == 0) ? '' : countItem2.toString(),
                           style: TextStyle(
-                              color: Color(0xFF3C1FC7),
+                              color: customColorWithoutGradient,
                               fontWeight: FontWeight.bold),
                         ),
                         GestureDetector(
@@ -399,7 +398,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                         Text(
                           (countItem3 == 0) ? '' : countItem3.toString(),
                           style: TextStyle(
-                              color: Color(0xFF3C1FC7),
+                              color: customColorWithoutGradient,
                               fontWeight: FontWeight.bold),
                         ),
                         GestureDetector(
@@ -432,7 +431,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                         Text(
                           (countItem4 == 0) ? '' : countItem4.toString(),
                           style: TextStyle(
-                              color: Color(0xFF3C1FC7),
+                              color: customColorWithoutGradient,
                               fontWeight: FontWeight.bold),
                         ),
                         GestureDetector(
@@ -465,7 +464,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                         Text(
                           (countItem5 == 0) ? '' : countItem5.toString(),
                           style: TextStyle(
-                              color: Color(0xFF3C1FC7),
+                              color: customColorWithoutGradient,
                               fontWeight: FontWeight.bold),
                         ),
                         GestureDetector(
@@ -498,7 +497,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                         Text(
                           (countItem6 == 0) ? '' : countItem6.toString(),
                           style: TextStyle(
-                              color: Color(0xFF3C1FC7),
+                              color: customColorWithoutGradient,
                               fontWeight: FontWeight.bold),
                         ),
                         GestureDetector(
@@ -537,7 +536,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                       child: Text(
                         'Gender',
                         style: TextStyle(
-                            color: Colors.deepPurple,
+                            color: customColorWithoutGradient,
                             fontWeight: FontWeight.bold,
                             fontSize: 20.0),
                       ),
@@ -569,7 +568,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                           barrierDismissible: false,
                           barrierLabel: MaterialLocalizations.of(context)
                               .modalBarrierDismissLabel,
-                          barrierColor: Color(0XFF3E2ECA).withOpacity(0.95),
+                          barrierColor: customColorWithoutGradient.withOpacity(0.95),
                           transitionDuration: const Duration(milliseconds: 200),
                           pageBuilder: (BuildContext buildContext,
                               Animation animation,
@@ -615,7 +614,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                                                       colors: customColor
                                                   ),
                                                   shape: BoxShape.circle,
-                                                  color: Colors.purple),
+                                                  color: customColorWithoutGradient),
                                               child: Icon(
                                                 Icons.close,
                                                 size: 22.0,
@@ -627,7 +626,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                                         Text('GREAT!',
                                             style: TextStyle(
                                                 decoration: TextDecoration.none,
-                                                color: Color(0xFF3E2ECA),
+                                                color: customColorWithoutGradient,
                                                 fontSize: 18.0,
                                                 fontWeight: FontWeight.bold,
                                                 height: 1.5)),
@@ -645,7 +644,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                                                     end: Alignment.bottomCenter,
                                                     colors: customColor),
                                                 shape: BoxShape.circle,
-                                                color: Colors.deepPurple,
+                                                color: customColorWithoutGradient,
                                               ),
                                               child: Icon(Icons.done,
                                                   size: 40.0,
@@ -659,7 +658,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                                         Text('This Shoe Has Been Added To',
                                             style: TextStyle(
                                               decoration: TextDecoration.none,
-                                              color: Color(0xFF3E2ECA),
+                                              color: customColorWithoutGradient,
                                               fontSize: 16.0,
                                               fontWeight: FontWeight.bold,
                                               height: 2.0,
@@ -668,7 +667,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                                           'Your Nice List',
                                           style: TextStyle(
                                               decoration: TextDecoration.none,
-                                              color: Color(0xFF3E2ECA),
+                                              color: customColorWithoutGradient,
                                               fontSize: 16.0,
                                               fontWeight: FontWeight.bold),
                                         ),
@@ -701,7 +700,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                                 )
                               ],*/
                         borderRadius: BorderRadius.circular(40.0),
-                        gradient: LinearGradient(colors: customColor),
+                        gradient: LinearGradient(begin:Alignment.topCenter,end:Alignment.bottomCenter,colors: customColor),
                       ),
                       child: Center(
                           child: Text(
@@ -821,7 +820,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                         end: Alignment.bottomCenter,
                         colors: customColor),
                     shape: BoxShape.circle,
-                    color: Colors.deepPurple,
+                    color: customColorWithoutGradient,
                   ),
                   child: Icon(
                     Icons.add,
@@ -878,7 +877,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
           Container(
             padding: EdgeInsets.only(left: 4.0, right: 4.0),
             decoration: BoxDecoration(
-              color: Color(0xFF3C1FC7),
+              color: customColorWithoutGradient,
               borderRadius: BorderRadius.circular(5.0),
             ),
             child: Padding(
@@ -908,7 +907,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
               style: TextStyle(color: Colors.grey)),
           Icon(
             Icons.share,
-            color: Color(0xFF3C1FC7),
+            color: customColorWithoutGradient,
           ),
           Icon(
             Icons.favorite_border,
@@ -1047,7 +1046,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
       width: MediaQuery.of(context).size.width * 0.1,
       height: MediaQuery.of(context).size.height * 0.05,
       decoration: BoxDecoration(
-        color: (isBlue) ? Color(0xff3C1FC7) : Colors.white,
+        color: (isBlue) ? customColorWithoutGradient : Colors.white,
         border: Border.all(color: Colors.grey),
         borderRadius: BorderRadius.circular(5.0),
       ),
@@ -1073,7 +1072,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                 barrierDismissible: true,
                 barrierLabel:
                     MaterialLocalizations.of(context).modalBarrierDismissLabel,
-                barrierColor: Color(0XFF3E2ECA).withOpacity(0.95),
+                barrierColor: customColorWithoutGradient.withOpacity(0.95),
                 transitionDuration: const Duration(milliseconds: 200),
                 pageBuilder: (BuildContext buildContext, Animation animation,
                     Animation secondaryAnimation) {

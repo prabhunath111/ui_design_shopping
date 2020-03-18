@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ui_design_shopping/colorStyle.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -6,10 +7,9 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> with TickerProviderStateMixin {
-  List customColor = <Color>[
-    Color(0xff3C1FC7),
-    Color(0xff241678),
-  ];
+
+  List customColor = ColorStyle.customColor;
+  Color customColorWithoutGradient = ColorStyle.customColorWithoutGradient;
 
   String profileAppBarTitle = 'ABOUT';
 
@@ -25,15 +25,23 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
               SizedBox(height: MediaQuery.of(context).size.height * 0.08),
               Container(
                 alignment: Alignment.center,
-                child: Container(
-                    width: 100.0,
-                    height: 100.0,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                          fit: BoxFit.fill,
-                          image: ExactAssetImage('images/user.jpg'),
-                        ))),
+                child: Stack(
+                  children: <Widget>[
+                    Container(
+                        width: 100.0,
+                        height: 100.0,
+                        decoration: BoxDecoration(
+                            shape: BoxShape.circle,
+                            image: DecorationImage(
+                              fit: BoxFit.fill,
+                              image: ExactAssetImage('images/user.jpg'),
+                            ))),
+                    Positioned(
+                        right: 0.0,
+                        top: 0.0,
+                        child: Icon(Icons.linked_camera,color: customColorWithoutGradient))
+                  ],
+                )
               ),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
