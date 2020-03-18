@@ -366,6 +366,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
                 Text('Nike Max Dia', style: TextStyle(color: Colors.grey, fontSize: 22.0, fontWeight: FontWeight.bold)),
+                SizedBox(height: 2.0,),
                 _niceRow('10',Colors.red)
               ],
             ),
@@ -406,117 +407,138 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
           mainAxisSize: MainAxisSize.min,
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: <Widget>[
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text(
-                  'days',
-                  style: TextStyle(color: Colors.white, fontSize: 8.0),
-                ),
-                Text(
-                  '14',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 22.0,
-                      fontWeight: FontWeight.bold),
-                )
-              ],
+            Padding(
+              padding: const EdgeInsets.all(2.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    'days',
+                    style: TextStyle(color: Colors.white, fontSize: 8.0),
+                  ),
+                  Text(
+                    '14',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 22.0,
+                        fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text(
-                  ' ',
-                  style: TextStyle(color: Colors.white, fontSize: 8.0),
-                ),
-                Text(
-                  ':',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 22.0,
-                      fontWeight: FontWeight.bold),
-                )
-              ],
+            Padding(
+              padding: const EdgeInsets.all(2.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    ' ',
+                    style: TextStyle(color: Colors.white, fontSize: 8.0),
+                  ),
+                  Text(
+                    ':',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 22.0,
+                        fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text(
-                  'hours',
-                  style: TextStyle(color: Colors.white, fontSize: 8.0),
-                ),
-                Text(
-                  '22',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 22.0,
-                      fontWeight: FontWeight.bold),
-                )
-              ],
+            Padding(
+              padding: const EdgeInsets.all(2.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    'hours',
+                    style: TextStyle(color: Colors.white, fontSize: 8.0),
+                  ),
+                  Text(
+                    '22',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 22.0,
+                        fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text(
-                  ' ',
-                  style: TextStyle(color: Colors.white, fontSize: 8.0),
-                ),
-                Text(
-                  ':',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 22.0,
-                      fontWeight: FontWeight.bold),
-                )
-              ],
+            Padding(
+              padding: const EdgeInsets.all(2.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    ' ',
+                    style: TextStyle(color: Colors.white, fontSize: 8.0),
+                  ),
+                  Text(
+                    ':',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 22.0,
+                        fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text(
-                  'minutes',
-                  style: TextStyle(color: Colors.white, fontSize: 8.0),
-                ),
-                Text(
-                  '20',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 22.0,
-                      fontWeight: FontWeight.bold),
-                )
-              ],
+            Padding(
+              padding: const EdgeInsets.all(2.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    'minutes',
+                    style: TextStyle(color: Colors.white, fontSize: 8.0),
+                  ),
+                  Text(
+                    '20',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 22.0,
+                        fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text(
-                  ' ',
-                  style: TextStyle(color: Colors.white, fontSize: 8.0),
-                ),
-                Text(
-                  ':',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 22.0,
-                      fontWeight: FontWeight.bold),
-                )
-              ],
+            Padding(
+              padding: const EdgeInsets.all(2.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    ' ',
+                    style: TextStyle(color: Colors.white, fontSize: 8.0),
+                  ),
+                  Text(
+                    ':',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 22.0,
+                        fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
             ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: <Widget>[
-                Text(
-                  'seconds',
-                  style: TextStyle(color: Colors.white, fontSize: 8.0),
-                ),
-                Text(
-                  '51',
-                  style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 22.0,
-                      fontWeight: FontWeight.bold),
-                )
-              ],
+            Padding(
+              padding: const EdgeInsets.all(2.0),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Text(
+                    'seconds',
+                    style: TextStyle(color: Colors.white, fontSize: 8.0),
+                  ),
+                  Text(
+                    '51',
+                    style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 22.0,
+                        fontWeight: FontWeight.bold),
+                  )
+                ],
+              ),
             ),
           ],
         ),
