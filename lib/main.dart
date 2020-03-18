@@ -989,6 +989,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
       padding: const EdgeInsets.only(
           left: 20.0, right: 20.0, top: 10.0, bottom: 10.0),
       child: Row(
+        mainAxisSize: MainAxisSize.min,
         crossAxisAlignment: CrossAxisAlignment.center,
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: <Widget>[
@@ -1254,9 +1255,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                   fit: BoxFit.cover,
                 )),
             Container(
-              margin: EdgeInsets.only(
-                  left: MediaQuery.of(context).size.width * 0.03,
-                  right: MediaQuery.of(context).size.width * 0.45),
+              margin: EdgeInsets.only(left: 16.0),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(30.0),
                   gradient: LinearGradient(
