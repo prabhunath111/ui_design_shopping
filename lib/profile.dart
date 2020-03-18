@@ -7,7 +7,6 @@ class Profile extends StatefulWidget {
 }
 
 class _ProfileState extends State<Profile> with TickerProviderStateMixin {
-
   List customColor = ColorStyle.customColor;
   Color customColorWithoutGradient = ColorStyle.customColorWithoutGradient;
 
@@ -24,33 +23,35 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
             children: <Widget>[
               SizedBox(height: MediaQuery.of(context).size.height * 0.08),
               Container(
-                alignment: Alignment.center,
-                child: Stack(
-                  children: <Widget>[
-                    Container(
-                        width: 100.0,
-                        height: 100.0,
-                        decoration: BoxDecoration(
-                            shape: BoxShape.circle,
-                            image: DecorationImage(
-                              fit: BoxFit.fill,
-                              image: ExactAssetImage('images/user.jpg'),
-                            ))),
-                    Positioned(
-                        right: 0.0,
-                        top: 0.0,
-                        child: Container(
-                            decoration: BoxDecoration(
+                  alignment: Alignment.center,
+                  child: Stack(
+                    children: <Widget>[
+                      Container(
+                          width: 100.0,
+                          height: 100.0,
+                          decoration: BoxDecoration(
                               shape: BoxShape.circle,
-                              color: customColorWithoutGradient
-                            ),
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Icon(Icons.photo_camera,color: Colors.white,size: 20.0,),
-                            )))
-                  ],
-                )
-              ),
+                              image: DecorationImage(
+                                fit: BoxFit.fill,
+                                image: ExactAssetImage('images/user.jpg'),
+                              ))),
+                      Positioned(
+                          right: 0.0,
+                          top: 0.0,
+                          child: Container(
+                              decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: customColorWithoutGradient),
+                              child: Padding(
+                                padding: const EdgeInsets.all(8.0),
+                                child: Icon(
+                                  Icons.photo_camera,
+                                  color: Colors.white,
+                                  size: 20.0,
+                                ),
+                              )))
+                    ],
+                  )),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
@@ -123,50 +124,140 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                 height: MediaQuery.of(context).size.height * 0.035,
               ),
               Container(
+                padding: EdgeInsets.only(left: 16.0, right: 6.0),
                 decoration: BoxDecoration(
                   color: Colors.white,
                 ),
                 child: TabBar(
                   unselectedLabelColor: Colors.grey,
-                  indicatorColor: Colors.blue,
-                  labelColor: Colors.blue,
+                  indicatorColor: customColorWithoutGradient,
+                  labelColor: Colors.black,
                   controller: _tabController,
-                  indicatorSize: TabBarIndicatorSize.label,
-                  indicatorPadding: EdgeInsets.only(right: 40.0),
+                  indicatorSize: TabBarIndicatorSize.tab,
                   tabs: <Widget>[
-                     Tab(
+                    Tab(
                       child: Text(
                         'ABOUT',
-                        style: TextStyle(fontSize: 12.0),
-                      ),
-                    ),
-                     Tab(
-                      child:
-                          Text('NICE LIST', style: TextStyle(fontSize: 12.0)),
-                    ),
-                     Tab(
-                      child: Text(
-                        'My Designs',
-                        style: TextStyle(fontSize: 12.0),
+                        style: TextStyle(
+                            fontSize: 12.0, fontWeight: FontWeight.bold),
                       ),
                     ),
                     Tab(
-                      child: Text('SETTINGS', style: TextStyle(fontSize: 12.0)),
+                      child: Text('NICE LIST',
+                          style: TextStyle(
+                              fontSize: 12.0, fontWeight: FontWeight.bold)),
+                    ),
+                    Tab(
+                      child: Text(
+                        'My Designs',
+                        style: TextStyle(
+                            fontSize: 12.0, fontWeight: FontWeight.bold),
+                      ),
+                    ),
+                    Tab(
+                      child: Text('SETTINGS',
+                          style: TextStyle(
+                              fontSize: 12.0, fontWeight: FontWeight.bold)),
                     ),
                   ],
                 ),
               ),
               Container(
+                  margin: EdgeInsets.only(left: 16.0, right: 6.0),
+                  height: MediaQuery.of(context).size.height * 0.001,
+                  width: double.infinity,
+                  color: Colors.grey),
+              Container(
                 width: MediaQuery.of(context).size.width,
                 height: MediaQuery.of(context).size.height * 0.5,
                 child:
                     TabBarView(controller: _tabController, children: <Widget>[
-                  _customTabBar(),
-                  _customTabBar(),
-                  _customTabBar(),
-                  _customTabBar(),
+                  _customTabBarForAbout(),
+                  _customTabBarForNiceList(),
+                  _customTabBarForMyDesigns(),
+                  _customTabBarForSettings(),
                 ]),
               ),
+              Container(
+                width: double.infinity,
+                decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: customColor)),
+                child: Padding(
+                  padding: EdgeInsets.only(
+                      left: 6.0, top: 0.0, right: 6.0, bottom: 4.0),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: <Widget>[
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: <Widget>[
+                          IconButton(
+                              icon: Icon(Icons.home, color: Colors.white),
+                              onPressed: () {}),
+                          Text(
+                            'Home',
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 12.0),
+                          )
+                        ],
+                      ),
+                      Column(
+                        children: <Widget>[
+                          IconButton(
+                              icon: Icon(Icons.search, color: Colors.white),
+                              onPressed: () {}),
+                          Text(
+                            'Home',
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 12.0),
+                          )
+                        ],
+                      ),
+                      Column(
+                        children: <Widget>[
+                          IconButton(
+                              icon: Icon(Icons.favorite_border,
+                                  color: Colors.white),
+                              onPressed: () {}),
+                          Text(
+                            'Nice',
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 12.0),
+                          )
+                        ],
+                      ),
+                      Column(
+                        children: <Widget>[
+                          IconButton(
+                              icon: Icon(Icons.person_outline,
+                                  color: Colors.white),
+                              onPressed: () {}),
+                          Text(
+                            'Profile',
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 12.0),
+                          )
+                        ],
+                      ),
+                      Column(
+                        children: <Widget>[
+                          IconButton(
+                              icon: Icon(Icons.dehaze, color: Colors.white),
+                              onPressed: () {}),
+                          Text(
+                            'More',
+                            style:
+                                TextStyle(color: Colors.white, fontSize: 12.0),
+                          )
+                        ],
+                      )
+                    ],
+                  ),
+                ),
+              )
             ],
           ),
           Positioned(
@@ -219,16 +310,57 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
     );
   }
 
-  Widget _customTabBar() {
+  Widget _customTabBarForAbout() {
+    return ListView(
+      children: <Widget>[
+        Container(
+          padding: EdgeInsets.only(left: 16.0, right: 6.0),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              SizedBox(height: MediaQuery.of(context).size.height * 0.06),
+              Text('Edit description', style: TextStyle(color: Colors.grey)),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.03),
+              Text(
+                  'Simplifying interfaces and experiences\nsince 2012.    Feel free to contact me for\nfull-time or feelance work opportunities.',
+                  style: TextStyle(
+                      color: Colors.black87, fontSize: 18.0, height: 1.4)),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+              Text('Gender', style: TextStyle(color: Colors.grey)),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.04),
+              Text('Male, 27', style: TextStyle(color: Colors.black87)),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+              Text('Country', style: TextStyle(color: Colors.grey)),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.04),
+              Text('California, united States',
+                  style: TextStyle(color: Colors.black87)),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.05),
+            ],
+          ),
+        )
+      ],
+    );
+  }
+
+  Widget _customTabBarForNiceList() {
     return Image.asset(
       'images/sachin.jpg',
       fit: BoxFit.fill,
     );
   }
 
-  void _setProfileAppBarTitle(String c) {
-    setState(() {
-      profileAppBarTitle = c;
-    });
+  Widget _customTabBarForMyDesigns() {
+    return Image.asset(
+      'images/sachin.jpg',
+      fit: BoxFit.fill,
+    );
+  }
+
+  Widget _customTabBarForSettings() {
+    return Image.asset(
+      'images/sachin.jpg',
+      fit: BoxFit.fill,
+    );
   }
 }
