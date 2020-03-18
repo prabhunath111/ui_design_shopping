@@ -45,6 +45,8 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
   int countItem4 = 0;
   int countItem5 = 0;
   int countItem6 = 0;
+  int maleItemCount = 0;
+  int femaleItemCount = 0;
 
   changeColor1() {
     setState(() {
@@ -120,12 +122,16 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
       countItem4 = 0;
       countItem5 = 0;
       countItem6 = 0;
+      femaleItemCount = 0;
+      maleItemCount = 0;
       isColor1 = false;
       isColor2 = false;
       isColor3 = false;
       isColor4 = false;
       isColor5 = false;
       isColor6 = false;
+      isColorFemale = false;
+      isColorMale = false;
     });
   }
 
@@ -140,6 +146,17 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
       isColorFemale = true;
     });
   }
+
+  /*maleCount(){
+    setState(() {
+
+    });
+  }
+  femaleCount(){
+    setState(() {
+
+    });
+  }*/
 
   @override
   Widget build(BuildContext context) {
@@ -542,16 +559,83 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                       ),
                     ),
                     SizedBox(width: 8.0),
-                    GestureDetector(
-                        onTap: () {
-                          changeColorMale(true);
-                        },
-                        child: _shoeSize('M', isColorMale)),
-                    GestureDetector(
-                        onTap: () {
-                          changeColorFemale(true);
-                        },
-                        child: _shoeSize('F', isColorFemale)),
+//                    GestureDetector(
+//                        onTap: () {
+//                          changeColorMale(true);
+//                        },
+//                        child: _shoeSize('M', isColorMale)
+//                    ),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          (maleItemCount == 0) ? '' : maleItemCount.toString(),
+                          style: TextStyle(
+                              color: customColorWithoutGradient,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        GestureDetector(
+                            onTap: () {
+                              countItem2 = 0;
+                              countItem3 = 0;
+                              countItem4 = 0;
+                              countItem5 = 0;
+                              countItem1 = 0;
+                              maleItemCount++;
+                              changeColorMale(true);
+                            },
+                            child: _shoeSize('M', isColorMale)),
+                        GestureDetector(
+                          onTap: () {
+                            closeCount();
+                          },
+                          child: Text(
+                            (maleItemCount == 0) ? '' : 'X',
+                            style: TextStyle(
+                                color: Color(0xFF3C1FC73C1FC7),
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
+//                    GestureDetector(
+//                        onTap: () {
+//                          changeColorFemale(true);
+//                        },
+//                        child: _shoeSize('F', isColorFemale)),
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: <Widget>[
+                        Text(
+                          (femaleItemCount == 0) ? '' : femaleItemCount.toString(),
+                          style: TextStyle(
+                              color: customColorWithoutGradient,
+                              fontWeight: FontWeight.bold),
+                        ),
+                        GestureDetector(
+                            onTap: () {
+                              countItem2 = 0;
+                              countItem3 = 0;
+                              countItem4 = 0;
+                              countItem5 = 0;
+                              countItem1 = 0;
+                              femaleItemCount++;
+                              changeColorFemale(true);
+                            },
+                            child: _shoeSize('F', isColorFemale)),
+                        GestureDetector(
+                          onTap: () {
+                            closeCount();
+                          },
+                          child: Text(
+                            (femaleItemCount == 0) ? '' : 'X',
+                            style: TextStyle(
+                                color: Color(0xFF3C1FC73C1FC7),
+                                fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                    ),
                   ],
                 ),
               ),
