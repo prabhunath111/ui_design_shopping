@@ -39,7 +39,15 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                     Positioned(
                         right: 0.0,
                         top: 0.0,
-                        child: Icon(Icons.linked_camera,color: customColorWithoutGradient))
+                        child: Container(
+                            decoration: BoxDecoration(
+                              shape: BoxShape.circle,
+                              color: customColorWithoutGradient
+                            ),
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Icon(Icons.photo_camera,color: Colors.white,size: 20.0,),
+                            )))
                   ],
                 )
               ),
