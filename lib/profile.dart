@@ -133,31 +133,24 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                   indicatorColor: customColorWithoutGradient,
                   labelColor: Colors.black,
                   controller: _tabController,
+                  isScrollable: true,
                   indicatorSize: TabBarIndicatorSize.tab,
                   tabs: <Widget>[
-                    Tab(
-                      child: Text(
-                        'ABOUT',
-                        style: TextStyle(
-                            fontSize: 12.0, fontWeight: FontWeight.bold),
-                      ),
+                    Tab(text: 'ABOUT',
+//                      child: Text(
+//                        'ABOUT',
+//                        style: TextStyle(
+//                            fontSize: 12.0, fontWeight: FontWeight.bold),
+//                      ),
                     ),
                     Tab(
-                      child: Text('NICE LIST',
-                          style: TextStyle(
-                              fontSize: 12.0, fontWeight: FontWeight.bold)),
+                      text: 'NICE LIST',
                     ),
                     Tab(
-                      child: Text(
-                        'My Designs',
-                        style: TextStyle(
-                            fontSize: 12.0, fontWeight: FontWeight.bold),
-                      ),
+                    text: 'My Designs',
                     ),
                     Tab(
-                      child: Text('SETTINGS',
-                          style: TextStyle(
-                              fontSize: 12.0, fontWeight: FontWeight.bold)),
+                      text: 'SETTINGS',
                     ),
                   ],
                 ),
@@ -355,23 +348,54 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                 margin: EdgeInsets.only(
                     top: MediaQuery.of(context).size.height * 0.025),
                 child: Image.asset('images/shoe2.jpeg')),
-            _timeLeft()
+            _timeLeft('14','22','20','51')
           ],
         ),
         SizedBox(height: MediaQuery.of(context).size.height * 0.015),
+        Container(
+          child: Padding(
+            padding: const EdgeInsets.only(left:8.0,top: 8.0,right: 8.0,bottom: 8.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text('Nike Max Dia', style: TextStyle(color: Colors.grey, fontSize: 22.0, fontWeight: FontWeight.bold)),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.015),
+                Padding(
+                  padding: const EdgeInsets.only(left:8.0),
+                  child: _niceRow('341','10',Colors.red),
+                )
+              ],
+            ),
+          ),
+        ),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.045,),
+        Stack(
+          children: <Widget>[
+            Container(
+                margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.04),
+                child: Image.asset('images/shoe.jpg')),
+            _timeLeft('08','30','40','51'),
+          ],
+        ),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.010),
         Container(
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text('Nike Max Dia', style: TextStyle(color: Colors.grey, fontSize: 22.0, fontWeight: FontWeight.bold)),
-                SizedBox(height: 2.0,),
-                _niceRow('10',Colors.red)
+                Text('Nike Airwave Blue', style: TextStyle(color: Colors.grey, fontSize: 22.0, fontWeight: FontWeight.bold)),
+                SizedBox(height: MediaQuery.of(context).size.height * 0.02),
+                Padding(
+                  padding: const EdgeInsets.only(left:8.0),
+                  child: _niceRow('291','10',Colors.red),
+                )
               ],
             ),
           ),
-        )
+        ),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.042)
+
       ],
     );
   }
@@ -390,7 +414,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
     );
   }
 
-  _timeLeft() {
+  _timeLeft(String days, String hours, String minutes, String seconds ) {
     return Container(
       margin: EdgeInsets.only(left: 16.0),
       decoration: BoxDecoration(
@@ -417,7 +441,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                     style: TextStyle(color: Colors.white, fontSize: 8.0),
                   ),
                   Text(
-                    '14',
+                    '$days',
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 22.0,
@@ -455,7 +479,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                     style: TextStyle(color: Colors.white, fontSize: 8.0),
                   ),
                   Text(
-                    '22',
+                    '$hours',
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 22.0,
@@ -493,7 +517,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                     style: TextStyle(color: Colors.white, fontSize: 8.0),
                   ),
                   Text(
-                    '20',
+                    '$minutes',
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 22.0,
@@ -531,7 +555,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                     style: TextStyle(color: Colors.white, fontSize: 8.0),
                   ),
                   Text(
-                    '51',
+                    '$seconds',
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 22.0,
@@ -546,12 +570,10 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
     );
   }
 
-  Widget _niceRow(String shoesLeft, Color colorFavorite) {
-    return Container(
-      padding: EdgeInsets.only(left: 15.0, right: 15.0, top: 8.0, bottom: 8.0),
-      color: Colors.white,
-      child: Row(
+  Widget _niceRow(String numberOfNices, String shoesLeft, Color colorFavorite) {
+    return Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisSize: MainAxisSize.min,
         children: <Widget>[
           Container(
             padding: EdgeInsets.only(left: 4.0, right: 4.0),
@@ -565,7 +587,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
               child: Row(
                 children: <Widget>[
                   Text(
-                    '341 ',
+                    '$numberOfNices  ',
                     style: TextStyle(
                         color: Colors.white,
                         fontSize: 20.0,
@@ -582,9 +604,9 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
               ),
             ),
           ),
-          Text('$shoesLeft Left for Pre-Order',
-              style: TextStyle(color: Colors.grey)),
-          SizedBox(width: MediaQuery.of(context).size.width * 0.01,),
+          Text('    $shoesLeft Left for Pre-Order  ',
+              style: TextStyle(color: Colors.grey, fontSize: 11.0)),
+          Expanded(child: SizedBox(),),
           Icon(
             Icons.share,
             color: customColorWithoutGradient,
@@ -595,7 +617,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
             size: 48.0,
           ),
         ],
-      ),
-    );
+      );
+
   }
 }

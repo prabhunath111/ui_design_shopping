@@ -932,53 +932,53 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
   }
 
   Widget _niceRow(String shoesLeft, Color colorFavorite) {
-    return Container(
-      padding: EdgeInsets.only(left: 15.0, right: 15.0, top: 8.0, bottom: 8.0),
-      color: Colors.white,
+    return Padding(
+      padding: const EdgeInsets.only(left:12.0,top:8.0,right: 12.0,bottom: 8.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          Container(
-            padding: EdgeInsets.only(left: 4.0, right: 4.0),
-            decoration: BoxDecoration(
-              color: customColorWithoutGradient,
-              borderRadius: BorderRadius.circular(5.0),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.only(
-                  left: 8.0, top: 3.0, right: 8.0, bottom: 3.0),
-              child: Row(
-                children: <Widget>[
-                  Text(
-                    '341 ',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 8.0),
-                    child: Text(
-                      'nices ',
-                      style: TextStyle(color: Colors.white, fontSize: 12.0),
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            Container(
+              padding: EdgeInsets.only(left: 4.0, right: 4.0),
+              decoration: BoxDecoration(
+                color: customColorWithoutGradient,
+                borderRadius: BorderRadius.circular(5.0),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(
+                    left: 8.0, top: 3.0, right: 8.0, bottom: 3.0),
+                child: Row(
+                  children: <Widget>[
+                    Text(
+                      '341 ',
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20.0,
+                          fontWeight: FontWeight.bold),
                     ),
-                  ),
-                ],
+                    Padding(
+                      padding: const EdgeInsets.only(top: 8.0),
+                      child: Text(
+                        'nices ',
+                        style: TextStyle(color: Colors.white, fontSize: 12.0),
+                      ),
+                    ),
+                  ],
+                ),
               ),
             ),
-          ),
-          Text('$shoesLeft Left for Pre-Order',
-              style: TextStyle(color: Colors.grey)),
-          Icon(
-            Icons.share,
-            color: customColorWithoutGradient,
-          ),
-          Icon(
-            Icons.favorite_border,
-            color: colorFavorite,
-            size: 48.0,
-          ),
-        ],
+            Text('$shoesLeft Left for Pre-Order',
+                style: TextStyle(color: Colors.grey)),
+            Icon(
+              Icons.share,
+              color: customColorWithoutGradient,
+            ),
+            Icon(
+              Icons.favorite_border,
+              color: colorFavorite,
+              size: 48.0,
+            ),
+          ],
+
       ),
     );
   }
