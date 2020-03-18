@@ -344,10 +344,89 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
   }
 
   Widget _customTabBarForNiceList() {
-    return Image.asset(
-      'images/sachin.jpg',
-      fit: BoxFit.fill,
+    return ListView(
+      children: <Widget>[
+        SizedBox(height: MediaQuery.of(context).size.height * 0.03,),
+        Stack(
+          children: <Widget>[
+            Container(margin:EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.025),child: Image.asset('images/shoe2.jpeg')),
+            Container(
+//              width: MediaQuery.of(context).size.width * 0.6,
+              margin: EdgeInsets.only(left: 16.0),
+              decoration: BoxDecoration(
+                gradient: LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: customColor,
+                ),
+                borderRadius: BorderRadius.circular(28.0)
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(left:16,top:8.0, right: 16.0, bottom: 8.0),
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text('days',style: TextStyle(color: Colors.white,fontSize: 8.0),),
+                        Text('14',style: TextStyle(color: Colors.white,fontSize:22.0,fontWeight: FontWeight.bold),)
+                      ],
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text('',style: TextStyle(color: Colors.white,fontSize: 8.0),),
+                        Text(':',style: TextStyle(color: Colors.white,fontSize:22.0,fontWeight: FontWeight.bold),)
+                      ],
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text('hours',style: TextStyle(color: Colors.white,fontSize: 8.0),),
+                        Text('22',style: TextStyle(color: Colors.white,fontSize:22.0,fontWeight: FontWeight.bold),)
+                      ],
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text('',style: TextStyle(color: Colors.white,fontSize: 8.0),),
+                        Text(':',style: TextStyle(color: Colors.white,fontSize:22.0,fontWeight: FontWeight.bold),)
+                      ],
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text('minutes',style: TextStyle(color: Colors.white,fontSize: 8.0),),
+                        Text('20',style: TextStyle(color: Colors.white,fontSize:22.0,fontWeight: FontWeight.bold),)
+                      ],
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text('',style: TextStyle(color: Colors.white,fontSize: 8.0),),
+                        Text(':',style: TextStyle(color: Colors.white,fontSize:22.0,fontWeight: FontWeight.bold),)
+                      ],
+                    ),
+                    Column(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: <Widget>[
+                        Text('seconds',style: TextStyle(color: Colors.white,fontSize: 8.0),),
+                        Text('51',style: TextStyle(color: Colors.white,fontSize:22.0,fontWeight: FontWeight.bold),)
+                      ],
+                    ),
+                  ],
+                ),
+              ),
+            ),
+
+          ],
+        ),
+        Image.asset('images/shoe1.jpeg')
+      ],
     );
+
   }
 
   Widget _customTabBarForMyDesigns() {
@@ -363,4 +442,5 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
       fit: BoxFit.fill,
     );
   }
+
 }

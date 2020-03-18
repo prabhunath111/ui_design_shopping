@@ -559,12 +559,6 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                       ),
                     ),
                     SizedBox(width: 8.0),
-//                    GestureDetector(
-//                        onTap: () {
-//                          changeColorMale(true);
-//                        },
-//                        child: _shoeSize('M', isColorMale)
-//                    ),
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
@@ -576,11 +570,6 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                         ),
                         GestureDetector(
                             onTap: () {
-                              countItem2 = 0;
-                              countItem3 = 0;
-                              countItem4 = 0;
-                              countItem5 = 0;
-                              countItem1 = 0;
                               maleItemCount++;
                               changeColorMale(true);
                             },
@@ -598,11 +587,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                         ),
                       ],
                     ),
-//                    GestureDetector(
-//                        onTap: () {
-//                          changeColorFemale(true);
-//                        },
-//                        child: _shoeSize('F', isColorFemale)),
+
                     Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: <Widget>[
@@ -614,11 +599,6 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
                         ),
                         GestureDetector(
                             onTap: () {
-                              countItem2 = 0;
-                              countItem3 = 0;
-                              countItem4 = 0;
-                              countItem5 = 0;
-                              countItem1 = 0;
                               femaleItemCount++;
                               changeColorFemale(true);
                             },
