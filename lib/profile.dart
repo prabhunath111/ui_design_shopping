@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_design_shopping/colorStyle.dart';
+import 'package:ui_design_shopping/searchPage.dart';
 
 class Profile extends StatefulWidget {
   @override
@@ -203,7 +204,10 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                         children: <Widget>[
                           IconButton(
                               icon: Icon(Icons.search, color: Colors.white),
-                              onPressed: () {}),
+                              onPressed: () {
+                                Navigator.push(context, MaterialPageRoute(builder: (context)=>Search()));
+
+                              }),
                           Text(
                             'Search',
                             style:
@@ -265,7 +269,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
               title: Text(
                 '$profileAppBarTitle',
                 style: TextStyle(
-                    color: Colors.black45, fontWeight: FontWeight.bold),
+                    color: Colors.black, fontWeight: FontWeight.bold),
               ),
               centerTitle: true,
               leading: Container(
