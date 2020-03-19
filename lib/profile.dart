@@ -362,7 +362,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                 SizedBox(height: MediaQuery.of(context).size.height * 0.015),
                 Padding(
                   padding: const EdgeInsets.only(left:8.0),
-                  child: _niceRow('341','10',Colors.red),
+                  child: _niceRow('341','    10 Left for Pre-Order  ',Colors.red),
                 )
               ],
             ),
@@ -388,7 +388,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                 SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                 Padding(
                   padding: const EdgeInsets.only(left:8.0),
-                  child: _niceRow('291','10',Colors.red),
+                  child: _niceRow('291','    10 Left for Pre-Order  ',Colors.red),
                 )
               ],
             ),
@@ -401,10 +401,53 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
   }
 
   Widget _customTabBarForMyDesigns() {
-    return Image.asset(
-      'images/sachin.jpg',
-      fit: BoxFit.fill,
+    return ListView(
+      children: <Widget>[
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.035,
+        ),
+        Image.asset('images/shoe1.jpeg'),
+        Padding(
+          padding: const EdgeInsets.only(left:10.0, top:12.0),
+          child: Text('Nike Max Dia', style: TextStyle(color: Colors.grey, fontSize: 22.0, fontWeight: FontWeight.bold)),
+        ),
+         Container(
+           margin: EdgeInsets.only(left:18.0,top: 18.0,right: 8.0),
+             child: _niceRow('341', '', Colors.red)),
+
+        SizedBox(height: MediaQuery.of(context).size.height*0.07),
+        Stack(
+          children: <Widget>[
+            Image.asset('images/shoe2.jpeg'),
+            Positioned(
+                right: 0.0,
+                top: 0.0,
+                child: Container(
+                  padding: EdgeInsets.only(left:10.0, top: 5.0, right: 10.0, bottom: 5.0),
+                  margin: EdgeInsets.only(top: 18.0,right: 8.0),
+                  decoration: BoxDecoration(
+                    gradient: LinearGradient(
+                        begin: Alignment.topCenter,
+                        end: Alignment.bottomCenter,
+                        colors: customColor),
+                    borderRadius: BorderRadius.circular(5.0)
+                  ),
+                  child: Text('Pre-Order', style: TextStyle(color: Colors.white,fontSize: 16.0),),
+                )
+            ),
+          ],
+        ),
+        Padding(
+          padding: const EdgeInsets.only(left:10.0, top:12.0),
+          child: Text('Nike Airwave Blue', style: TextStyle(color: Colors.grey, fontSize: 22.0, fontWeight: FontWeight.bold)),
+        ),
+        Container(
+            margin: EdgeInsets.only(left:18.0,top: 18.0,right: 8.0),
+            child: _niceRow('291', '', Colors.red)),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.045,)
+      ],
     );
+
   }
 
   Widget _customTabBarForSettings() {
@@ -604,7 +647,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
               ),
             ),
           ),
-          Text('    $shoesLeft Left for Pre-Order  ',
+          Text('$shoesLeft',
               style: TextStyle(color: Colors.grey, fontSize: 11.0)),
           Expanded(child: SizedBox(),),
           Icon(
