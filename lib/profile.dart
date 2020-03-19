@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_design_shopping/colorStyle.dart';
 
@@ -136,7 +137,8 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                   isScrollable: true,
                   indicatorSize: TabBarIndicatorSize.tab,
                   tabs: <Widget>[
-                    Tab(text: 'ABOUT',
+                    Tab(
+                      text: 'ABOUT',
 //                      child: Text(
 //                        'ABOUT',
 //                        style: TextStyle(
@@ -147,7 +149,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                       text: 'NICE LIST',
                     ),
                     Tab(
-                    text: 'My Designs',
+                      text: 'My Designs',
                     ),
                     Tab(
                       text: 'SETTINGS',
@@ -203,7 +205,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                               icon: Icon(Icons.search, color: Colors.white),
                               onPressed: () {}),
                           Text(
-                            'Home',
+                            'Search',
                             style:
                                 TextStyle(color: Colors.white, fontSize: 12.0),
                           ),
@@ -348,33 +350,42 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                 margin: EdgeInsets.only(
                     top: MediaQuery.of(context).size.height * 0.025),
                 child: Image.asset('images/shoe2.jpeg')),
-            _timeLeft('14','22','20','51')
+            _timeLeft('14', '22', '20', '51')
           ],
         ),
         SizedBox(height: MediaQuery.of(context).size.height * 0.015),
         Container(
           child: Padding(
-            padding: const EdgeInsets.only(left:8.0,top: 8.0,right: 8.0,bottom: 8.0),
+            padding: const EdgeInsets.only(
+                left: 8.0, top: 8.0, right: 8.0, bottom: 8.0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text('Nike Max Dia', style: TextStyle(color: Colors.grey, fontSize: 22.0, fontWeight: FontWeight.bold)),
+                Text('Nike Max Dia',
+                    style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 22.0,
+                        fontWeight: FontWeight.bold)),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.015),
                 Padding(
-                  padding: const EdgeInsets.only(left:8.0),
-                  child: _niceRow('341','    10 Left for Pre-Order  ',Colors.red),
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: _niceRow(
+                      '341', '    10 Left for Pre-Order  ', Colors.red),
                 )
               ],
             ),
           ),
         ),
-        SizedBox(height: MediaQuery.of(context).size.height * 0.045,),
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.045,
+        ),
         Stack(
           children: <Widget>[
             Container(
-                margin: EdgeInsets.only(top: MediaQuery.of(context).size.height * 0.04),
+                margin: EdgeInsets.only(
+                    top: MediaQuery.of(context).size.height * 0.04),
                 child: Image.asset('images/shoe.jpg')),
-            _timeLeft('08','30','40','51'),
+            _timeLeft('08', '30', '40', '51'),
           ],
         ),
         SizedBox(height: MediaQuery.of(context).size.height * 0.010),
@@ -384,18 +395,22 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-                Text('Nike Airwave Blue', style: TextStyle(color: Colors.grey, fontSize: 22.0, fontWeight: FontWeight.bold)),
+                Text('Nike Airwave Blue',
+                    style: TextStyle(
+                        color: Colors.grey,
+                        fontSize: 22.0,
+                        fontWeight: FontWeight.bold)),
                 SizedBox(height: MediaQuery.of(context).size.height * 0.02),
                 Padding(
-                  padding: const EdgeInsets.only(left:8.0),
-                  child: _niceRow('291','    10 Left for Pre-Order  ',Colors.red),
+                  padding: const EdgeInsets.only(left: 8.0),
+                  child: _niceRow(
+                      '291', '    10 Left for Pre-Order  ', Colors.red),
                 )
               ],
             ),
           ),
         ),
         SizedBox(height: MediaQuery.of(context).size.height * 0.042)
-
       ],
     );
   }
@@ -408,14 +423,17 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
         ),
         Image.asset('images/shoe1.jpeg'),
         Padding(
-          padding: const EdgeInsets.only(left:10.0, top:12.0),
-          child: Text('Nike Max Dia', style: TextStyle(color: Colors.grey, fontSize: 22.0, fontWeight: FontWeight.bold)),
+          padding: const EdgeInsets.only(left: 10.0, top: 12.0),
+          child: Text('Nike Max Dia',
+              style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 22.0,
+                  fontWeight: FontWeight.bold)),
         ),
-         Container(
-           margin: EdgeInsets.only(left:18.0,top: 18.0,right: 8.0),
-             child: _niceRow('341', '', Colors.red)),
-
-        SizedBox(height: MediaQuery.of(context).size.height*0.07),
+        Container(
+            margin: EdgeInsets.only(left: 18.0, top: 18.0, right: 8.0),
+            child: _niceRow('341', '', Colors.red)),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.07),
         Stack(
           children: <Widget>[
             Image.asset('images/shoe2.jpeg'),
@@ -423,41 +441,89 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                 right: 0.0,
                 top: 0.0,
                 child: Container(
-                  padding: EdgeInsets.only(left:10.0, top: 5.0, right: 10.0, bottom: 5.0),
-                  margin: EdgeInsets.only(top: 18.0,right: 8.0),
+                  padding: EdgeInsets.only(
+                      left: 10.0, top: 5.0, right: 10.0, bottom: 5.0),
+                  margin: EdgeInsets.only(top: 18.0, right: 8.0),
                   decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: customColor),
-                    borderRadius: BorderRadius.circular(5.0)
+                      gradient: LinearGradient(
+                          begin: Alignment.topCenter,
+                          end: Alignment.bottomCenter,
+                          colors: customColor),
+                      borderRadius: BorderRadius.circular(5.0)),
+                  child: Text(
+                    'Pre-Order',
+                    style: TextStyle(color: Colors.white, fontSize: 16.0),
                   ),
-                  child: Text('Pre-Order', style: TextStyle(color: Colors.white,fontSize: 16.0),),
-                )
-            ),
+                )),
           ],
         ),
         Padding(
-          padding: const EdgeInsets.only(left:10.0, top:12.0),
-          child: Text('Nike Airwave Blue', style: TextStyle(color: Colors.grey, fontSize: 22.0, fontWeight: FontWeight.bold)),
+          padding: const EdgeInsets.only(left: 10.0, top: 12.0),
+          child: Text('Nike Airwave Blue',
+              style: TextStyle(
+                  color: Colors.grey,
+                  fontSize: 22.0,
+                  fontWeight: FontWeight.bold)),
         ),
         Container(
-            margin: EdgeInsets.only(left:18.0,top: 18.0,right: 8.0),
+            margin: EdgeInsets.only(left: 18.0, top: 18.0, right: 8.0),
             child: _niceRow('291', '', Colors.red)),
-        SizedBox(height: MediaQuery.of(context).size.height * 0.045,)
+        SizedBox(
+          height: MediaQuery.of(context).size.height * 0.045,
+        )
       ],
     );
-
   }
 
   Widget _customTabBarForSettings() {
-    return Image.asset(
-      'images/sachin.jpg',
-      fit: BoxFit.fill,
+    return ListView(
+      children: <Widget>[
+        SizedBox(height: MediaQuery.of(context).size.height * 0.06),
+        Container(
+          margin: EdgeInsets.symmetric(horizontal: 16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: <Widget>[
+              _titleSubTitleForSettingsTab(
+                  'Username',
+                  'niculici.victor',
+                  Colors.grey,
+                  Colors.black,
+                  true,
+                  MediaQuery.of(context).size.height * 0.018),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.075),
+              _titleSubTitleForSettingsTab(
+                  'niculici.victor@gmail.com',
+                  'Email',
+                  Colors.black,
+                  Colors.grey,
+                  true,
+                  MediaQuery.of(context).size.height * 0.003),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.04),
+              _titleSubTitleForSettingsTab(
+                  'Location',
+                  'Bucharest, Romania',
+                  Colors.grey,
+                  Colors.black,
+                  true,
+                  MediaQuery.of(context).size.height * 0.014),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.04),
+              _titleSubTitleForSettingsTab(
+                  'Receive notifications',
+                  'Enabled',
+                  Colors.grey,
+                  Colors.black,
+                  false,
+                  MediaQuery.of(context).size.height * 0.014),
+              SizedBox(height: MediaQuery.of(context).size.height * 0.06),
+            ],
+          ),
+        )
+      ],
     );
   }
 
-  _timeLeft(String days, String hours, String minutes, String seconds ) {
+  _timeLeft(String days, String hours, String minutes, String seconds) {
     return Container(
       margin: EdgeInsets.only(left: 16.0),
       decoration: BoxDecoration(
@@ -615,52 +681,86 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
 
   Widget _niceRow(String numberOfNices, String shoesLeft, Color colorFavorite) {
     return Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        mainAxisSize: MainAxisSize.min,
-        children: <Widget>[
-          Container(
-            padding: EdgeInsets.only(left: 4.0, right: 4.0),
-            decoration: BoxDecoration(
-              color: customColorWithoutGradient,
-              borderRadius: BorderRadius.circular(5.0),
-            ),
-            child: Padding(
-              padding: const EdgeInsets.only(
-                  left: 8.0, top: 3.0, right: 8.0, bottom: 3.0),
-              child: Row(
-                children: <Widget>[
-                  Text(
-                    '$numberOfNices  ',
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 20.0,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 8.0),
-                    child: Text(
-                      'nices ',
-                      style: TextStyle(color: Colors.white, fontSize: 12.0),
-                    ),
-                  ),
-                ],
-              ),
-            ),
-          ),
-          Text('$shoesLeft',
-              style: TextStyle(color: Colors.grey, fontSize: 11.0)),
-          Expanded(child: SizedBox(),),
-          Icon(
-            Icons.share,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      mainAxisSize: MainAxisSize.min,
+      children: <Widget>[
+        Container(
+          padding: EdgeInsets.only(left: 4.0, right: 4.0),
+          decoration: BoxDecoration(
             color: customColorWithoutGradient,
+            borderRadius: BorderRadius.circular(5.0),
           ),
-          Icon(
-            Icons.favorite_border,
-            color: colorFavorite,
-            size: 48.0,
+          child: Padding(
+            padding: const EdgeInsets.only(
+                left: 8.0, top: 3.0, right: 8.0, bottom: 3.0),
+            child: Row(
+              children: <Widget>[
+                Text(
+                  '$numberOfNices  ',
+                  style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 20.0,
+                      fontWeight: FontWeight.bold),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(top: 8.0),
+                  child: Text(
+                    'nices ',
+                    style: TextStyle(color: Colors.white, fontSize: 12.0),
+                  ),
+                ),
+              ],
+            ),
           ),
-        ],
-      );
+        ),
+        Text('$shoesLeft',
+            style: TextStyle(color: Colors.grey, fontSize: 11.0)),
+        Expanded(
+          child: SizedBox(),
+        ),
+        Icon(
+          Icons.share,
+          color: customColorWithoutGradient,
+        ),
+        Icon(
+          Icons.favorite_border,
+          color: colorFavorite,
+          size: 48.0,
+        ),
+      ],
+    );
+  }
 
+  Widget _titleSubTitleForSettingsTab(
+      String title,
+      String subTitle,
+      Color titleColor,
+      Color subTitleColor,
+      bool isText,
+      double sizeForSpaceBetweenLine) {
+    return Row(
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      children: <Widget>[
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: <Widget>[
+            Text(
+              '$title',
+              style: TextStyle(color: titleColor, fontWeight: FontWeight.bold),
+            ),
+            SizedBox(height: sizeForSpaceBetweenLine),
+            Text('$subTitle',
+                style: TextStyle(
+                    color: subTitleColor, fontWeight: FontWeight.bold)),
+          ],
+        ),
+        (isText)
+            ? Text('Edit',
+                style: TextStyle(
+                    color: customColorWithoutGradient,
+                    fontWeight: FontWeight.bold))
+            : IconButton(icon: Icon(Icons.toll), onPressed: null),
+      ],
+    );
   }
 }
