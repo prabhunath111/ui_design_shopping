@@ -2,8 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class SideDrawer extends StatelessWidget {
-//  const SideDrawer({Key key, this.user}) : super(key: key);
-//  final FirebaseUser user;
 
   @override
   Widget build(BuildContext context) {
@@ -13,6 +11,7 @@ class SideDrawer extends StatelessWidget {
           child: new ListView(
             children: <Widget>[
               new DrawerHeader(
+
                 child: new Text("DRAWER HEADER.."),
                 decoration: new BoxDecoration(color: Colors.orange),
               ),
@@ -29,3 +28,4 @@ class SideDrawer extends StatelessWidget {
     );
   }
 }
+

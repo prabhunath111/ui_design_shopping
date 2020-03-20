@@ -13,7 +13,6 @@ class _SearchState extends State<Search> {
 
   @override
   Widget build(BuildContext context) {
-
     double hsfs = MediaQuery.of(context).size.height;
 
     double wsfs = MediaQuery.of(context).size.width;
@@ -23,13 +22,17 @@ class _SearchState extends State<Search> {
         children: <Widget>[
           ListView(
             children: <Widget>[
-              SizedBox(height: hsfs*0.1),
+              SizedBox(height: hsfs * 0.1),
               Padding(
-                padding: const EdgeInsets.symmetric(horizontal:16.0),
+                padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    Text('Search',style:TextStyle(color: Colors.black, fontWeight: FontWeight.bold,fontSize: 28.0)),
+                    Text('Search',
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 28.0)),
                     SizedBox(height: hsfs * 0.02),
                     Container(
                       decoration: BoxDecoration(
@@ -51,95 +54,152 @@ class _SearchState extends State<Search> {
                       ),
                       child: TextField(
                         textAlign: TextAlign.center,
-                        decoration: InputDecoration(border: InputBorder.none,prefixIcon: Icon(Icons.search,color: Colors.grey,),hintText: 'Search Something',),
+                        decoration: InputDecoration(
+                          border: InputBorder.none,
+                          prefixIcon: Icon(
+                            Icons.search,
+                            color: Colors.grey,
+                          ),
+                          hintText: 'Search Something',
+                        ),
                       ),
                     )
                   ],
                 ),
               ),
               SizedBox(),
-      Container(
-        margin: EdgeInsets.only(left: 16.0, top: 16.0),
-        height: MediaQuery.of(context).size.height*0.1,
-        child: ListView(
-          scrollDirection: Axis.horizontal,
-          children: <Widget>[
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 5.0),
-              width:MediaQuery.of(context).size.width * 0.6,
-              child:
-                Column(
-
+              Container(
+                margin: EdgeInsets.only(left: 16.0, top: 16.0),
+                height: MediaQuery.of(context).size.height * 0.1,
+                child: ListView(
+                  scrollDirection: Axis.horizontal,
                   children: <Widget>[
-                    Text('RECENTLY VIEWED',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold,fontSize: 14.0),),
-
-                    Card(
-                      elevation: 1.0,
-                      child: Wrap(
+                    Container(
+                      margin: EdgeInsets.symmetric(horizontal: 5.0),
+                      width: MediaQuery.of(context).size.width * 0.6,
+                      child: Column(
                         children: <Widget>[
-                          Column(
-                            children: <Widget>[
-                              Container(
-                              child: Row(
-                                children: <Widget>[
-//                            Image.asset('images/shoe2.jpeg',fit: BoxFit.cover),
-                                  Column(
-                                    children: <Widget>[
-                                      Text('Nike Air Max',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold,fontSize: 18.0),),
-                                      Text('14:13:22:50',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold)),
-                                    ],
-                                  )
-                                ],
-                              ),),
-                            ],
+                          Text(
+                            'RECENTLY VIEWED',
+                            style: TextStyle(
+                                color: Colors.grey,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14.0),
+                          ),
+                          Card(
+                            elevation: 1.0,
+                            child: Wrap(
+                              children: <Widget>[
+                                Column(
+                                  children: <Widget>[
+                                    Container(
+                                      child: Row(
+                                        children: <Widget>[
+                                          Container(
+                                            width: 30.0,
+                                            height: 30.0,
+                                            decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                fit: BoxFit.contain,
+                                                image: ExactAssetImage(
+                                                    'images/shoe.jpg'),
+                                              ),
+                                            ),
+                                          ),
+                                          Column(
+                                            children: <Widget>[
+                                              Text(
+                                                'Nike Air Max',
+                                                style: TextStyle(
+                                                    color: Colors.grey,
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 18.0),
+                                              ),
+                                              Text('14:13:22:50',
+                                                  style: TextStyle(
+                                                      color: Colors.grey,
+                                                      fontWeight:
+                                                          FontWeight.bold)),
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    Container(
+                      margin: EdgeInsets.symmetric(horizontal: 5.0),
+                      width: MediaQuery.of(context).size.width * 0.6,
+                      child: Column(
+                        children: <Widget>[
+                          Text(
+                            'CLEAR',
+                            style: TextStyle(
+                                color: customColorWithoutGradient,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 14.0),
+                          ),
+                          Card(
+                            elevation: 1.0,
+                            child: Wrap(
+                              children: <Widget>[
+                                Column(
+                                  children: <Widget>[
+                                    Container(
+                                      child: Row(
+                                        children: <Widget>[
+                                          Container(
+                                            width: 30.0,
+                                            height: 30.0,
+                                            decoration: BoxDecoration(
+                                              image: DecorationImage(
+                                                fit: BoxFit.contain,
+                                                image: ExactAssetImage(
+                                                    'images/shoe2.jpeg'),
+                                              ),
+                                            ),
+                                          ),
+                                          Column(
+                                            crossAxisAlignment:
+                                                CrossAxisAlignment.end,
+                                            children: <Widget>[
+                                              Text(
+                                                'Nike Air Max',
+                                                style: TextStyle(
+                                                    color: Colors.grey,
+                                                    fontWeight: FontWeight.bold,
+                                                    fontSize: 18.0),
+                                              ),
+                                              Text('14:13:22:50',
+                                                  style: TextStyle(
+                                                      color: Colors.grey,
+                                                      fontWeight:
+                                                          FontWeight.bold)),
+                                            ],
+                                          )
+                                        ],
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
                           ),
                         ],
                       ),
                     ),
                   ],
                 ),
-            ),Container(
-              margin: EdgeInsets.symmetric(horizontal: 5.0),
-              width:MediaQuery.of(context).size.width * 0.6,
-              child:
-
-              Column(
-
-                children: <Widget>[
-                  Text('CLEAR',style: TextStyle(color: customColorWithoutGradient,fontWeight: FontWeight.bold,fontSize: 14.0),
-                  ),
-                  Card(
-                    elevation: 1.0,
-                    child: Wrap(
-                      children: <Widget>[
-                        Column(
-                          children: <Widget>[
-
-                            Container(
-                              child: Row(
-                                children: <Widget>[
-//                            Image.asset('images/shoe2.jpeg',fit: BoxFit.cover),
-                                  Column(
-                                    crossAxisAlignment: CrossAxisAlignment.end,
-                                    children: <Widget>[
-                                      Text('Nike Air Max',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold,fontSize: 18.0),),
-                                      Text('14:13:22:50',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold)),
-                                    ],
-                                  )
-                                ],
-                              ),
-                            ),
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-                ],
               ),
-            ),
-          ],
-        ),
-      ),
+              SizedBox(
+                height: 40.0,
+              ),
             ],
           ),
           Positioned(
@@ -172,7 +232,6 @@ class _SearchState extends State<Search> {
               actions: <Widget>[
                 Row(
                   children: <Widget>[
-
                     IconButton(
                         icon: Icon(
                           Icons.chat_bubble_outline,
