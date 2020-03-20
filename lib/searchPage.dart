@@ -1,3 +1,4 @@
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_design_shopping/colorStyle.dart';
 
@@ -56,15 +57,80 @@ class _SearchState extends State<Search> {
                   ],
                 ),
               ),
-              Row(
+              SizedBox(),
+      Container(
+        margin: EdgeInsets.only(left: 16.0, top: 16.0),
+        height: MediaQuery.of(context).size.height*0.1,
+        child: ListView(
+          scrollDirection: Axis.horizontal,
+          children: <Widget>[
+            Container(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
+              width:MediaQuery.of(context).size.width * 0.6,
+              child:
+                Wrap(
+                  children: <Widget>[
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: <Widget>[
+                        Text('RECENTLY VIEWED',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold,fontSize: 14.0),),
+                        Container(
+                          color: Colors.pink,
+                        child: Row(
+                          children: <Widget>[
+//                            Image.asset('images/shoe2.jpeg',fit: BoxFit.cover),
+                            Column(
+                              children: <Widget>[
+//                                Text('RECENTLY VIEWED'),
+//                                Text('RECENTLY VIEWED'),
+                              Container(
+                                color: Colors.pink,
+                                height: 50.0,
+                                width: 50.0,
+                              ),
+                              ],
+                            )
+                          ],
+                        ),),
+                      ],
+                    ),
+                  ],
+                ),
+            ),Container(
+              margin: EdgeInsets.symmetric(horizontal: 5.0),
+              width:MediaQuery.of(context).size.width * 0.6,
+              child:
+
+              Wrap(
                 children: <Widget>[
                   Column(
                     children: <Widget>[
-                      Text('RECENTLY VIEWED',style: TextStyle(color: Colors.grey,fontSize: 16.0),)
+                      Text('RECENTLY VIEWED',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold,fontSize: 14.0),),                      Container(
+                        color: Colors.pink,
+                        child: Row(
+                          children: <Widget>[
+//                            Image.asset('images/shoe2.jpeg',fit: BoxFit.cover),
+                            Column(
+                              children: <Widget>[
+//                                Text('RECENTLY VIEWED'),
+//                                Text('RECENTLY VIEWED'),
+                                Container(
+                                  color: Colors.pink,
+                                  height: 50.0,
+                                  width: 50.0,
+                                ),
+                              ],
+                            )
+                          ],
+                        ),),
                     ],
-                  )
+                  ),
                 ],
-              )
+              ),
+            ),
+          ],
+        ),
+      ),
             ],
           ),
           Positioned(
