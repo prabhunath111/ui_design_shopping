@@ -68,31 +68,33 @@ class _SearchState extends State<Search> {
               margin: EdgeInsets.symmetric(horizontal: 5.0),
               width:MediaQuery.of(context).size.width * 0.6,
               child:
-                Wrap(
+                Column(
+
                   children: <Widget>[
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: <Widget>[
-                        Text('RECENTLY VIEWED',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold,fontSize: 14.0),),
-                        Container(
-                          color: Colors.pink,
-                        child: Row(
-                          children: <Widget>[
-//                            Image.asset('images/shoe2.jpeg',fit: BoxFit.cover),
-                            Column(
-                              children: <Widget>[
-//                                Text('RECENTLY VIEWED'),
-//                                Text('RECENTLY VIEWED'),
+                    Text('RECENTLY VIEWED',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold,fontSize: 14.0),),
+
+                    Card(
+                      elevation: 1.0,
+                      child: Wrap(
+                        children: <Widget>[
+                          Column(
+                            children: <Widget>[
                               Container(
-                                color: Colors.pink,
-                                height: 50.0,
-                                width: 50.0,
-                              ),
-                              ],
-                            )
-                          ],
-                        ),),
-                      ],
+                              child: Row(
+                                children: <Widget>[
+//                            Image.asset('images/shoe2.jpeg',fit: BoxFit.cover),
+                                  Column(
+                                    children: <Widget>[
+                                      Text('Nike Air Max',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold,fontSize: 18.0),),
+                                      Text('14:13:22:50',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold)),
+                                    ],
+                                  )
+                                ],
+                              ),),
+                            ],
+                          ),
+                        ],
+                      ),
                     ),
                   ],
                 ),
@@ -101,29 +103,36 @@ class _SearchState extends State<Search> {
               width:MediaQuery.of(context).size.width * 0.6,
               child:
 
-              Wrap(
+              Column(
+
                 children: <Widget>[
-                  Column(
-                    children: <Widget>[
-                      Text('RECENTLY VIEWED',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold,fontSize: 14.0),),                      Container(
-                        color: Colors.pink,
-                        child: Row(
+                  Text('CLEAR',style: TextStyle(color: customColorWithoutGradient,fontWeight: FontWeight.bold,fontSize: 14.0),
+                  ),
+                  Card(
+                    elevation: 1.0,
+                    child: Wrap(
+                      children: <Widget>[
+                        Column(
                           children: <Widget>[
+
+                            Container(
+                              child: Row(
+                                children: <Widget>[
 //                            Image.asset('images/shoe2.jpeg',fit: BoxFit.cover),
-                            Column(
-                              children: <Widget>[
-//                                Text('RECENTLY VIEWED'),
-//                                Text('RECENTLY VIEWED'),
-                                Container(
-                                  color: Colors.pink,
-                                  height: 50.0,
-                                  width: 50.0,
-                                ),
-                              ],
-                            )
+                                  Column(
+                                    crossAxisAlignment: CrossAxisAlignment.end,
+                                    children: <Widget>[
+                                      Text('Nike Air Max',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold,fontSize: 18.0),),
+                                      Text('14:13:22:50',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold)),
+                                    ],
+                                  )
+                                ],
+                              ),
+                            ),
                           ],
-                        ),),
-                    ],
+                        ),
+                      ],
+                    ),
                   ),
                 ],
               ),
