@@ -4,6 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:ui_design_shopping/cartPage.dart';
 import 'package:ui_design_shopping/colorStyle.dart';
+import 'package:ui_design_shopping/drawer.dart';
 import 'package:ui_design_shopping/mySlide.dart';
 import 'package:ui_design_shopping/profile.dart';
 
@@ -167,22 +168,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
 
     return Scaffold(
       extendBodyBehindAppBar: true,
-      drawer: Drawer(
-          child: ListView(children: <Widget>[
-        DrawerHeader(
-          child: Text('Drawer Header'),
-          decoration: BoxDecoration(
-            gradient: LinearGradient(colors: <Color>[
-              Colors.deepOrange,
-              Colors.orangeAccent,
-            ]),
-          ),
-        ),
-        ListTile(
-          title: Text('Item 1'),
-          onTap: () {},
-        ),
-      ])),
+
       body: Stack(
         children: <Widget>[
           ListView(
@@ -928,6 +914,7 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
           ),
         ],
       ),
+      drawer: SideDrawer(),
     );
   }
 
