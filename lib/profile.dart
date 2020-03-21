@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/rendering.dart';
 import 'package:ui_design_shopping/colorStyle.dart';
 import 'package:ui_design_shopping/main.dart';
 import 'package:ui_design_shopping/sideDrawer.dart';
@@ -178,29 +179,6 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                   _customTabBarForSettings(),
                 ]),
               ),
-              Container(
-                width: double.infinity,
-                decoration: BoxDecoration(
-                    gradient: LinearGradient(
-                        begin: Alignment.topCenter,
-                        end: Alignment.bottomCenter,
-                        colors: customColor)),
-                child: Padding(
-                  padding: EdgeInsets.only(
-                      left: 6.0, top: 0.0, right: 6.0, bottom: 4.0),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      _bottomTab(Icon(Icons.home, color: Colors.white), 'Home'),
-                      _bottomTab(Icon(Icons.search, color: Colors.white), 'Search'),
-                      _bottomTab(Icon(Icons.favorite_border, color: Colors.white), 'Nice'),
-                      _bottomTab(Icon(Icons.person_outline, color: Colors.white), 'Profile'),
-                      _bottomTab(Icon(Icons.dehaze, color: Colors.white), 'More'),
-
-                    ],
-                  ),
-                ),
-              )
             ],
           ),
           Positioned(
@@ -251,6 +229,33 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
               ],
             ),
           ),
+          Positioned(
+            left: 0.0,
+            bottom: 0.0,
+            right: 0.0,
+            child: Container(
+              width: double.infinity,
+              decoration: BoxDecoration(
+                  gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: customColor)),
+              child: Padding(
+                padding: EdgeInsets.only(
+                    left: 6.0, top: 0.0, right: 6.0, bottom: 4.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    _bottomTab(Icon(Icons.home, color: Colors.white), 'Home'),
+                    _bottomTab(Icon(Icons.search, color: Colors.white), 'Search'),
+                    _bottomTab(Icon(Icons.favorite_border, color: Colors.white), 'Nice'),
+                    _bottomTab(Icon(Icons.person_outline, color: Colors.white), 'Profile'),
+                    _bottomTab(Icon(Icons.dehaze, color: Colors.white), 'More'),
+                  ],
+                ),
+              ),
+            ),
+          )
         ],
       ),
     );
@@ -260,6 +265,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
     return ListView(
       children: <Widget>[
         Container(
+          margin: EdgeInsets.only(bottom: MediaQuery.of(context).size.height * 0.1),
           padding: EdgeInsets.only(left: 16.0, right: 6.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
@@ -361,7 +367,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
             ),
           ),
         ),
-        SizedBox(height: MediaQuery.of(context).size.height * 0.042)
+        SizedBox(height: MediaQuery.of(context).size.height * 0.12)
       ],
     );
   }
@@ -419,9 +425,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
         Container(
             margin: EdgeInsets.only(left: 18.0, top: 18.0, right: 8.0),
             child: _niceRow('291', '', Colors.red)),
-        SizedBox(
-          height: MediaQuery.of(context).size.height * 0.045,
-        )
+        SizedBox(height: MediaQuery.of(context).size.height * 0.12)
       ],
     );
   }
@@ -469,7 +473,8 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
               SizedBox(height: MediaQuery.of(context).size.height * 0.06),
             ],
           ),
-        )
+        ),
+        SizedBox(height: MediaQuery.of(context).size.height * 0.09)
       ],
     );
   }
