@@ -733,7 +733,9 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
             Navigator.push(context, MaterialPageRoute(builder: (context)=>Profile()));
           }else {
           }
-        }),
+        },
+        focusColor: Colors.blue,
+        ),
         Text(
           string,
           style: TextStyle(color: Colors.white, fontSize: 12.0),
