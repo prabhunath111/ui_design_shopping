@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_design_shopping/colorStyle.dart';
+import 'package:ui_design_shopping/drawer.dart';
 
 class Search extends StatefulWidget {
   @override
@@ -300,7 +301,7 @@ class _SearchState extends State<Search> {
                       color: Colors.white,
                     ),
                     onPressed: () {
-//                      Navigator.pop(context);
+                    Navigator.push(context, MaterialPageRoute(builder: (context) =>SideDrawer()));
                     }),
               ),
               backgroundColor: Colors.transparent,

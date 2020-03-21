@@ -258,7 +258,7 @@ class _CartPageState extends State<CartPage> {
                       color: Colors.white,
                     ),
                     onPressed: () {
-                      print('clicked');
+                      Navigator.pop(context);
                     }),
               ),
               backgroundColor: Colors.transparent,
