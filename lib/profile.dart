@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_design_shopping/colorStyle.dart';
-import 'package:ui_design_shopping/drawer.dart';
+import 'package:ui_design_shopping/sideDrawer.dart';
 import 'package:ui_design_shopping/searchPage.dart';
 
 class Profile extends StatefulWidget {
@@ -188,72 +188,12 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                   child: Row(
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: <Widget>[
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        children: <Widget>[
-                          IconButton(
-                              icon: Icon(Icons.home, color: Colors.white),
-                              onPressed: () {}),
-                          Text(
-                            'Home',
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 12.0),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        children: <Widget>[
-                          IconButton(
-                              icon: Icon(Icons.search, color: Colors.white),
-                              onPressed: () {
-                                Navigator.push(context, MaterialPageRoute(builder: (context)=>Search()));
+                      _bottomTab(Icon(Icons.home, color: Colors.white), 'Home'),
+                      _bottomTab(Icon(Icons.search, color: Colors.white), 'Search'),
+                      _bottomTab(Icon(Icons.favorite_border, color: Colors.white), 'Nice'),
+                      _bottomTab(Icon(Icons.person_outline, color: Colors.white), 'Profile'),
+                      _bottomTab(Icon(Icons.dehaze, color: Colors.white), 'More'),
 
-                              }),
-                          Text(
-                            'Search',
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 12.0),
-                          ),
-                        ],
-                      ),
-                      Column(
-                        children: <Widget>[
-                          IconButton(
-                              icon: Icon(Icons.favorite_border,
-                                  color: Colors.white),
-                              onPressed: () {}),
-                          Text(
-                            'Nice',
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 12.0),
-                          )
-                        ],
-                      ),
-                      Column(
-                        children: <Widget>[
-                          IconButton(
-                              icon: Icon(Icons.person_outline,
-                                  color: Colors.white),
-                              onPressed: () {}),
-                          Text(
-                            'Profile',
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 12.0),
-                          )
-                        ],
-                      ),
-                      Column(
-                        children: <Widget>[
-                          IconButton(
-                              icon: Icon(Icons.dehaze, color: Colors.white),
-                              onPressed: () {}),
-                          Text(
-                            'More',
-                            style:
-                                TextStyle(color: Colors.white, fontSize: 12.0),
-                          )
-                        ],
-                      )
                     ],
                   ),
                 ),
@@ -269,8 +209,8 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
               elevation: 0.0,
               title: Text(
                 '$profileAppBarTitle',
-                style: TextStyle(
-                    color: Colors.black, fontWeight: FontWeight.bold),
+                style:
+                    TextStyle(color: Colors.black, fontWeight: FontWeight.bold),
               ),
               centerTitle: true,
               leading: Container(
@@ -288,7 +228,10 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                       color: Colors.white,
                     ),
                     onPressed: () {
-                      Navigator.push(context, MaterialPageRoute(builder:(context) =>SideDrawer()));
+                      Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => SideDrawer()));
                     }),
               ),
               backgroundColor: Colors.transparent,
@@ -765,6 +708,21 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                     color: customColorWithoutGradient,
                     fontWeight: FontWeight.bold))
             : IconButton(icon: Icon(Icons.toll), onPressed: null),
+      ],
+    );
+  }
+
+// stringIcon is Icon name and string means 2nd argument is bottom string of icon
+
+  Widget _bottomTab(Icon stringIcon, String string) {
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        IconButton(icon: stringIcon, onPressed: () {}),
+        Text(
+          string,
+          style: TextStyle(color: Colors.white, fontSize: 12.0),
+        ),
       ],
     );
   }

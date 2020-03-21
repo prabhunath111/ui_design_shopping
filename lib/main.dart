@@ -4,7 +4,7 @@ import 'package:flutter/rendering.dart';
 import 'package:flutter/services.dart';
 import 'package:ui_design_shopping/cartPage.dart';
 import 'package:ui_design_shopping/colorStyle.dart';
-import 'package:ui_design_shopping/drawer.dart';
+import 'package:ui_design_shopping/sideDrawer.dart';
 import 'package:ui_design_shopping/mySlide.dart';
 import 'package:ui_design_shopping/profile.dart';
 
@@ -22,6 +22,7 @@ class FirstPage extends StatefulWidget {
 
 class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
 
+  final GlobalKey<ScaffoldState> _scaffoldKey = new GlobalKey<ScaffoldState>();
   List customColor = ColorStyle.customColor;
   Color customColorWithoutGradient = ColorStyle.customColorWithoutGradient;
 
@@ -167,8 +168,8 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
     ]);
 
     return Scaffold(
+      key: _scaffoldKey,
       extendBodyBehindAppBar: true,
-
       body: Stack(
         children: <Widget>[
           ListView(
@@ -890,6 +891,11 @@ class _FirstPageState extends State<FirstPage> with TickerProviderStateMixin {
               elevation: 1.0,
               iconTheme: new IconThemeData(color: Colors.white),
               backgroundColor: Colors.transparent,
+              leading: IconButton(
+                  padding: EdgeInsets.all(15.0),
+                  icon: Icon(Icons.sort),
+                  onPressed: () =>
+                      _scaffoldKey.currentState.openDrawer()),
               actions: <Widget>[
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
