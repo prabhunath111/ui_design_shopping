@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:ui_design_shopping/colorStyle.dart';
+import 'package:ui_design_shopping/main.dart';
 import 'package:ui_design_shopping/sideDrawer.dart';
 import 'package:ui_design_shopping/searchPage.dart';
 
@@ -12,8 +13,10 @@ class Profile extends StatefulWidget {
 class _ProfileState extends State<Profile> with TickerProviderStateMixin {
   List customColor = ColorStyle.customColor;
   Color customColorWithoutGradient = ColorStyle.customColorWithoutGradient;
-
   String profileAppBarTitle = 'ABOUT';
+//  bool isWhereClicked = false;
+
+
 
   @override
   Widget build(BuildContext context) {
@@ -718,7 +721,19 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
     return Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: <Widget>[
-        IconButton(icon: stringIcon, onPressed: () {}),
+        IconButton(icon: stringIcon, onPressed: () {
+          if(string=='Home')
+            {
+              Navigator.push(context, MaterialPageRoute(builder: (context)=>FirstPage()));
+            } else if(string=='Search'){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>SideDrawer()));
+          } else if(string=='Nice'){
+//            Navigator.push(context, MaterialPageRoute(builder: (context)=>FirstPage()));
+          }else if(string=="Profile"){
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>Profile()));
+          }else {
+          }
+        }),
         Text(
           string,
           style: TextStyle(color: Colors.white, fontSize: 12.0),
