@@ -70,7 +70,7 @@ class _SearchState extends State<Search> {
                           hintText: 'Search Something',
                         ),
                       ),
-                    )
+                    ),
                   ],
                 ),
               ),
@@ -97,7 +97,7 @@ class _SearchState extends State<Search> {
                             style: TextStyle(
                                 color: Colors.grey,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 14.0),
+                                fontSize: 12.0),
                           ),
                           Padding(
                             padding: const EdgeInsets.all(2.0),
@@ -137,7 +137,7 @@ class _SearchState extends State<Search> {
                                                         color: Colors.grey,
                                                         fontWeight: FontWeight
                                                             .bold,
-                                                        fontSize: 18.0),
+                                                        fontSize: 16.0),
                                                   ),
                                                   Text('14:13:22:50',
                                                       style: TextStyle(
@@ -172,7 +172,7 @@ class _SearchState extends State<Search> {
                             style: TextStyle(
                                 color: customColorWithoutGradient,
                                 fontWeight: FontWeight.bold,
-                                fontSize: 14.0),
+                                fontSize: 12.0),
                           ),
                           Padding(
                             padding: const EdgeInsets.all(2.0),
@@ -215,7 +215,7 @@ class _SearchState extends State<Search> {
                                                           color: Colors.grey,
                                                           fontWeight: FontWeight
                                                               .bold,
-                                                          fontSize: 18.0),
+                                                          fontSize: 16.0),
                                                     ),
                                                     Text('14:13:22:50',
                                                         style: TextStyle(

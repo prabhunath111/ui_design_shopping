@@ -56,7 +56,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
                                   color: Colors.white,
                                   size: 20.0,
                                 ),
-                              )))
+                              ))),
                     ],
                   )),
               Column(
@@ -731,7 +731,7 @@ class _ProfileState extends State<Profile> with TickerProviderStateMixin {
             {
               Navigator.push(context, MaterialPageRoute(builder: (context)=>FirstPage()));
             } else if(string=='Search'){
-            Navigator.push(context, MaterialPageRoute(builder: (context)=>SideDrawer()));
+            Navigator.push(context, MaterialPageRoute(builder: (context)=>Search()));
           } else if(string=='Nice'){
 //            Navigator.push(context, MaterialPageRoute(builder: (context)=>FirstPage()));
           }else if(string=="Profile"){
